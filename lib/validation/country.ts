@@ -7,6 +7,22 @@ export const DataSourceSchema = z.object({
   retrievedAt: z.string().optional()
 });
 
+const GeoCoordinatesSchema = z.object({
+  lat: z.number(),
+  lng: z.number()
+});
+
+export const CountryLeaderEntrySchema = z.object({
+  role: z.enum(["headOfState", "headOfGovernment", "other"]),
+  title: z.string().min(1),
+  titleEn: z.string().optional(),
+  name: z.string().min(1),
+  imageUrl: z.string().url().optional(),
+  sourceUrl: z.string().url().optional(),
+  since: z.string().optional(),
+  order: z.number().int().positive().optional()
+});
+
 export const CountrySymbolSectionSchema = z.object({
   title: z.string().min(1),
   officialName: z.string().optional(),
@@ -17,6 +33,7 @@ export const CountrySymbolSectionSchema = z.object({
   role: z.string().optional(),
   city: z.string().optional(),
   address: z.string().optional(),
+  coordinates: GeoCoordinatesSchema.optional(),
   ancientDepth: z.string().optional(),
   modernFoundingYear: z.number().int().optional(),
   keyMilestone: z.string().optional(),
@@ -46,6 +63,7 @@ export const CountrySymbolProfileSchema = z.object({
     cultureIdentity: CountrySymbolSectionSchema,
     historyDepth: CountrySymbolSectionSchema
   }),
+  leaders: z.array(CountryLeaderEntrySchema).optional(),
   notes: z.string().optional()
 });
 
@@ -54,6 +72,14 @@ export const CountrySymbolProfilesSchema = z.array(CountrySymbolProfileSchema);
 function normalizeSymbolVerificationLevel(value: unknown) {
   if (value === "Cao" || value === "Trung bình" || value === "Cần kiểm chứng thêm") {
     return value;
+  }
+
+  if (value === "Dữ liệu Wikipedia") {
+    return "Trung bình";
+  }
+
+  if (value === "Sinh tự động") {
+    return "Cần kiểm chứng thêm";
   }
 
   return "Cần kiểm chứng thêm";

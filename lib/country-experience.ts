@@ -1,6 +1,20 @@
 import { getCountrySymbolProfile } from "@/lib/country-symbols";
 import { displayCountryName, displayRegion, displayValue } from "@/lib/i18n";
-import type { CountryPoliticalProfile, CountrySymbolSection, SymbolVerificationLevel } from "@/lib/types";
+import {
+  SYMBOL_SECTION_META,
+  SYMBOL_SECTION_ORDER,
+  UNVERIFIED_SOURCE,
+  buildFallbackSymbolSectionDetails,
+  buildSymbolSectionDetails,
+  type SymbolSectionKind
+} from "@/lib/symbol-section-config";
+import type {
+  CountryLeaderEntry,
+  CountryPoliticalProfile,
+  CountrySymbolSection,
+  GeoCoordinates,
+  SymbolVerificationLevel
+} from "@/lib/types";
 
 export type CountryExperience = {
   slug: string;
@@ -24,12 +38,24 @@ export type CountryExperience = {
     summary: string;
     facts: string[];
   };
+  meta: {
+    countryNameEn: string;
+    iso2: string;
+    iso3: string;
+    regionVi: string;
+    verificationLevel: SymbolVerificationLevel;
+    notes?: string;
+  };
   sections: {
+    sectionNumber: number;
     title: string;
+    officialName?: string;
     kicker: string;
-    kind: "emblem" | "anthem" | "seal" | "headResidence" | "cultureIdentity" | "historyDepth";
+    kind: SymbolSectionKind;
     image?: string;
     imageAlt: string;
+    coordinates?: GeoCoordinates;
+    mapUrl?: string;
     audioUrl?: string;
     sourceLabel?: string;
     sourceUrl?: string;
@@ -39,12 +65,14 @@ export type CountryExperience = {
     details: {
       label: string;
       value: string;
+      muted?: boolean;
     }[];
   }[];
   insights: {
     label: string;
     value: string;
   }[];
+  leaders: CountryLeaderEntry[];
 };
 
 const THEME_PALETTES = [
@@ -78,9 +106,9 @@ const PREDEFINED_COPY: Record<
       image: HERO_IMAGES.VNM
     },
     insights: [
-      { label: "Bản sắc", value: "Độc lập, cộng hòa, xã hội chủ nghĩa" },
+      { label: "Nguyên thủ", value: "Tô Lâm — Tổng Bí thư & Chủ tịch nước" },
+      { label: "Thủ tướng", value: "Lê Minh Hưng (từ 4/2026)" },
       { label: "Quốc ca", value: "Tiến quân ca" },
-      { label: "Nguyên thủ", value: "Chủ tịch nước" },
       { label: "Mốc hiện đại", value: "1945" }
     ]
   },
@@ -148,6 +176,8 @@ export function generateCountryExperiences(profiles: CountryPoliticalProfile[]):
     const region = displayRegion(country.region);
     const symbolProfile = getCountrySymbolProfile(country.iso3);
 
+    const verificationLevel = symbolProfile?.verificationLevel ?? "Cần kiểm chứng thêm";
+
     return {
       slug: country.iso3.toLowerCase(),
       iso3: country.iso3,
@@ -156,8 +186,16 @@ export function generateCountryExperiences(profiles: CountryPoliticalProfile[]):
       theme,
       hero: predefined?.hero ?? {
         subtitle: `Quốc gia ${region} với mô hình ${govSys}`,
-        description: `Khám phá ${localName} qua các biểu tượng nhà nước, quốc ca, tòa nhà nguyên thủ, văn hóa và bề dày lịch sử.`,
+        description: `Khám phá ${localName} qua 6 ô thông tin chuẩn: quốc huy, quốc ca, quốc ấn, tòa nhà nguyên thủ, bản sắc văn hóa và bề dày lịch sử.`,
         image: country.flagSvgUrl ?? `https://picsum.photos/seed/${country.iso3}-hero/1800/1000`
+      },
+      meta: {
+        countryNameEn: symbolProfile?.countryNameEn ?? country.englishName,
+        iso2: symbolProfile?.iso2 ?? country.iso2,
+        iso3: country.iso3,
+        regionVi: symbolProfile?.regionVi ?? region,
+        verificationLevel,
+        notes: symbolProfile?.notes
       },
       politics: {
         title: "Hệ thống chính trị",
@@ -167,11 +205,12 @@ export function generateCountryExperiences(profiles: CountryPoliticalProfile[]):
         facts: [govSys, stateForm, legSys, `Khu vực: ${region}`]
       },
       sections: buildCountrySections(country, symbolProfile),
+      leaders: buildLeaders(country, symbolProfile),
       insights: predefined?.insights ?? [
-        { label: "Bộ dữ liệu", value: symbolProfile ? "Đã có 6 ô kiểm chứng mẫu" : "Đang chờ xử lý theo batch" },
-        { label: "Mức xác minh", value: symbolProfile?.verificationLevel ?? "Cần kiểm chứng thêm" },
-        { label: "Mô hình", value: govSys },
-        { label: "Hình thức", value: stateForm }
+        { label: "Tên tiếng Anh", value: symbolProfile?.countryNameEn ?? country.englishName },
+        { label: "Mã ISO", value: `${symbolProfile?.iso2 ?? country.iso2} · ${country.iso3}` },
+        { label: "Khu vực", value: symbolProfile?.regionVi ?? region },
+        { label: "Mức xác minh", value: verificationLevel }
       ]
     };
   });
@@ -185,90 +224,113 @@ function buildCountrySections(
   country: CountryPoliticalProfile,
   symbolProfile?: ReturnType<typeof getCountrySymbolProfile>
 ): CountryExperience["sections"] {
-  if (symbolProfile) {
-    return [
-      makeSection("emblem", "Biểu tượng nhà nước", symbolProfile.sections.emblem, symbolProfile.verificationLevel, country),
-      makeSection("anthem", "Âm thanh quốc gia", symbolProfile.sections.anthem, symbolProfile.verificationLevel, country),
-      makeSection("seal", "Văn bản nhà nước", symbolProfile.sections.seal, symbolProfile.verificationLevel, country),
-      makeSection("headResidence", "Nơi nguyên thủ làm việc", symbolProfile.sections.headResidence, symbolProfile.verificationLevel, country),
-      makeSection("cultureIdentity", "Bản sắc văn hóa", symbolProfile.sections.cultureIdentity, symbolProfile.verificationLevel, country),
-      makeSection("historyDepth", "Lớp thời gian", symbolProfile.sections.historyDepth, symbolProfile.verificationLevel, country)
-    ];
-  }
+  const verificationLevel = symbolProfile?.verificationLevel ?? "Cần kiểm chứng thêm";
 
-  const localName = displayCountryName(country);
-  const fallbackSource = "Chưa xác minh được nguồn chính thức";
-  const fallbackDescription = `Mục này của ${localName} chưa nằm trong batch dữ liệu đã kiểm chứng. Cần tra cứu nguồn chính thức trước khi gắn hình ảnh hoặc âm thanh.`;
+  return SYMBOL_SECTION_ORDER.map((kind) => {
+    const meta = SYMBOL_SECTION_META[kind];
+    const source = symbolProfile?.sections[kind];
 
-  return [
-    makeFallbackSection("emblem", "Quốc huy", "Biểu tượng nhà nước", fallbackDescription, fallbackSource, country),
-    makeFallbackSection("anthem", "Quốc ca", "Âm thanh quốc gia", fallbackDescription, fallbackSource, country),
-    makeFallbackSection("seal", "Quốc ấn / Con dấu quốc gia", "Văn bản nhà nước", fallbackDescription, fallbackSource, country),
-    makeFallbackSection("headResidence", "Tòa nhà nguyên thủ", "Nơi nguyên thủ làm việc", fallbackDescription, fallbackSource, country),
-    makeFallbackSection("cultureIdentity", "Bản sắc văn hóa", "Bản sắc văn hóa", fallbackDescription, fallbackSource, country),
-    makeFallbackSection("historyDepth", "Bề dày lịch sử", "Lớp thời gian", fallbackDescription, fallbackSource, country)
-  ];
+    if (source) {
+      return makeSection(kind, source, verificationLevel, country);
+    }
+
+    return makeFallbackSection(kind, verificationLevel, country);
+  });
 }
 
 function makeSection(
-  kind: CountryExperience["sections"][number]["kind"],
-  kicker: string,
+  kind: SymbolSectionKind,
   source: CountrySymbolSection,
   verificationLevel: SymbolVerificationLevel,
   country: CountryPoliticalProfile
 ): CountryExperience["sections"][number] {
+  const meta = SYMBOL_SECTION_META[kind];
+
+  const coordinates = kind === "headResidence" ? source.coordinates : undefined;
+
   return {
-    title: source.title,
-    kicker,
+    sectionNumber: meta.number,
+    title: meta.title,
+    officialName: source.officialName,
+    kicker: meta.kicker,
     kind,
     image: source.imageUrl,
-    imageAlt: `${source.title} ${displayCountryName(country)}`,
+    imageAlt: `${meta.title} ${displayCountryName(country)}`,
+    coordinates,
+    mapUrl: coordinates ? buildMapUrl(coordinates) : undefined,
     audioUrl: source.audioUrl,
-    sourceLabel: source.sourceUrl ? "Nguồn kiểm chứng" : undefined,
+    sourceLabel: source.sourceUrl ? "Nguồn kiểm chứng" : UNVERIFIED_SOURCE,
     sourceUrl: source.sourceUrl,
     verificationLevel,
     licenseNote: source.licenseNote,
     description: source.description,
-    details: compactDetails([
-      ["Tên gọi", source.officialName],
-      ["Tên gốc", source.nativeName],
-      ["Tác giả lời", source.lyricist],
-      ["Tác giả nhạc", source.composer],
-      ["Công nhận", source.adopted],
-      ["Vai trò", source.role],
-      ["Thành phố", source.city],
-      ["Địa chỉ", source.address],
-      ["Mốc chính", source.keyMilestone],
-      ["Số năm", source.yearsCount ? `${source.yearsCount}` : undefined],
-      ["Cách tính", source.calculation],
-      ["Lịch sử cổ", source.ancientDepth],
-      ["Bản quyền", source.licenseNote]
-    ])
+    details: buildSymbolSectionDetails(kind, source)
   };
 }
 
 function makeFallbackSection(
-  kind: CountryExperience["sections"][number]["kind"],
-  title: string,
-  kicker: string,
-  description: string,
-  sourceLabel: string,
+  kind: SymbolSectionKind,
+  verificationLevel: SymbolVerificationLevel,
   country: CountryPoliticalProfile
 ): CountryExperience["sections"][number] {
+  const meta = SYMBOL_SECTION_META[kind];
+  const localName = displayCountryName(country);
+
   return {
-    title,
-    kicker,
+    sectionNumber: meta.number,
+    title: meta.title,
+    kicker: meta.kicker,
     kind,
-    imageAlt: `${title} ${displayCountryName(country)}`,
-    sourceLabel,
-    verificationLevel: "Cần kiểm chứng thêm",
-    description,
-    details: [["ISO", country.iso3]].map(([label, value]) => ({ label, value }))
+    imageAlt: `${meta.title} ${localName}`,
+    sourceLabel: UNVERIFIED_SOURCE,
+    verificationLevel,
+    description: `Mục ${meta.title} của ${localName} chưa nằm trong batch dữ liệu đã kiểm chứng. Cần tra cứu nguồn chính thức trước khi gắn hình ảnh hoặc âm thanh.`,
+    details: buildFallbackSymbolSectionDetails(kind, country.iso3)
   };
 }
 
-function compactDetails(rows: [string, string | undefined][]) {
-  return rows
-    .filter((row): row is [string, string] => Boolean(row[1]))
-    .map(([label, value]) => ({ label, value }));
+function buildMapUrl(coordinates: GeoCoordinates) {
+  const { lat, lng } = coordinates;
+  return `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=16/${lat}/${lng}`;
+}
+
+function buildLeaders(
+  country: CountryPoliticalProfile,
+  symbolProfile?: ReturnType<typeof getCountrySymbolProfile>
+): CountryLeaderEntry[] {
+  if (symbolProfile?.leaders?.length) {
+    return [...symbolProfile.leaders].sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+  }
+
+  const leaders: CountryLeaderEntry[] = [];
+  const headName = country.headOfState?.trim();
+  const govName = country.headOfGovernment?.trim();
+
+  if (headName && headName !== "N/A" && headName !== "Unknown" && headName !== "Needs verification") {
+    leaders.push({
+      role: "headOfState",
+      title: country.headOfStateTitle ?? "Nguyên thủ quốc gia",
+      name: headName,
+      since: country.headOfStateSince,
+      order: 1
+    });
+  }
+
+  if (
+    govName &&
+    govName !== "N/A" &&
+    govName !== "Unknown" &&
+    govName !== "Needs verification" &&
+    govName !== headName
+  ) {
+    leaders.push({
+      role: "headOfGovernment",
+      title: country.headOfGovernmentTitle ?? "Người đứng đầu chính phủ",
+      name: govName,
+      since: country.headOfGovernmentSince,
+      order: 2
+    });
+  }
+
+  return leaders;
 }

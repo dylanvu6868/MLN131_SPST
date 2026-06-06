@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import { DatabaseSync } from "node:sqlite";
 
+import { SYMBOL_SECTION_META } from "../lib/symbol-section-config";
+
 const dbPath = process.env.ATLAS_DB_PATH || "./data/world-ideology-atlas.db";
 const profilesPath = "./data/country-symbol-profiles.json";
 
@@ -27,7 +29,7 @@ function generateProceduralProfile(country: any) {
     countryNameVi: nameVi,
     countryNameEn: nameEn,
     regionVi: country.region,
-    verificationLevel: "Sinh tự động",
+    verificationLevel: "Cần kiểm chứng thêm",
     updatedAt: new Date().toISOString().split("T")[0],
     mainSources: [
       {
@@ -37,7 +39,7 @@ function generateProceduralProfile(country: any) {
     ],
     sections: {
       emblem: {
-        title: "Quốc huy",
+        title: SYMBOL_SECTION_META.emblem.title,
         officialName: `Quốc huy ${nameVi}`,
         description: `Quốc huy của ${nameVi} là biểu tượng thiêng liêng đại diện cho chủ quyền, lịch sử và giá trị cốt lõi của quốc gia này. Thiết kế thường phản ánh chế độ ${govSys.toLowerCase()} và đặc trưng văn hóa khu vực ${country.region}.`,
         imageUrl: getPlausibleImageUrl(nameEn, 'Emblem'),
@@ -45,7 +47,7 @@ function generateProceduralProfile(country: any) {
         licenseNote: "Hình ảnh phỏng đoán theo chuẩn Wikimedia Commons"
       },
       anthem: {
-        title: "Quốc ca",
+        title: SYMBOL_SECTION_META.anthem.title,
         officialName: `Quốc ca ${nameVi}`,
         nativeName: "Bài ca quốc gia",
         description: `Quốc ca của ${nameVi} mang âm hưởng hào hùng, phản ánh chặng đường lịch sử và tinh thần đoàn kết của nhân dân. Tác phẩm này được cử hành trong các nghi lễ cấp nhà nước và quốc tế.`,
@@ -54,14 +56,14 @@ function generateProceduralProfile(country: any) {
         licenseNote: "Thông tin cơ bản"
       },
       seal: {
-        title: "Quốc ấn",
+        title: SYMBOL_SECTION_META.seal.title,
         officialName: `Đại ấn ${nameVi}`,
         description: `Quốc ấn được sử dụng để đóng dấu các văn kiện pháp lý và hiến định quan trọng của nhà nước ${nameVi}, bảo chứng cho quyền lực của hệ thống chính trị.`,
         imageUrl: getPlausibleImageUrl(nameEn, 'Emblem'),
         licenseNote: "Sử dụng quốc huy thay thế"
       },
       headResidence: {
-        title: "Tòa nhà nguyên thủ",
+        title: SYMBOL_SECTION_META.headResidence.title,
         officialName: `Dinh thự Nguyên thủ ${nameVi}`,
         role: "Nơi làm việc và tiếp khách quốc tế",
         city: capital,
@@ -69,13 +71,13 @@ function generateProceduralProfile(country: any) {
         imageUrl: getPlausibleImageUrl(nameEn, 'Palace')
       },
       cultureIdentity: {
-        title: "Bản sắc văn hóa",
+        title: SYMBOL_SECTION_META.cultureIdentity.title,
         description: `${nameVi} sở hữu một nền văn hóa đa dạng, được định hình bởi vị trí địa lý tại ${country.region}. Đặc trưng văn hóa thể hiện qua kiến trúc, ngôn ngữ, ẩm thực truyền thống và các lễ hội dân gian mang đậm dấu ấn bản địa.`,
         imageUrl: `https://picsum.photos/seed/${country.iso3}-culture/800/600`,
         licenseNote: "Ảnh minh họa ngẫu nhiên (chờ cập nhật thực tế)"
       },
       historyDepth: {
-        title: "Bề dày lịch sử",
+        title: SYMBOL_SECTION_META.historyDepth.title,
         ancientDepth: "Có nguồn gốc từ các nền văn minh và vương quốc bản địa cổ đại.",
         keyMilestone: `Quá trình hình thành nhà nước hiện đại gắn liền với cấu trúc ${govSys.toLowerCase()}.`,
         description: `Lịch sử của ${nameVi} là một chuỗi các sự kiện giao thoa văn hóa, đấu tranh giành độc lập và xây dựng quốc gia hiện đại. Quá trình này đã tạo nên một cấu trúc xã hội độc đáo như ngày nay.`,

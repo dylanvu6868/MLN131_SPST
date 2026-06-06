@@ -9,7 +9,11 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "sync:countries": "tsx scripts/sync-restcountries.ts",
-    "init:db": "tsx scripts/init-db.ts"
+    "init:db": "tsx scripts/init-db.ts",
+    "normalize:symbols": "tsx scripts/normalize-symbol-profiles.ts",
+    "enrich:symbols": "tsx scripts/enrich-symbol-media.ts",
+    "enrich:leaders": "tsx scripts/enrich-residences-leaders.ts",
+    "enrich:leaders:wikipedia": "tsx scripts/enrich-leaders-wikipedia.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.80",

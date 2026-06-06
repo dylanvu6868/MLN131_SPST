@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bot, GitCompare, Globe2, Map, Menu, Newspaper, Scale, Trophy, X } from "lucide-react";
+import { Bot, GitCompare, Globe2, Map, Menu, Newspaper, Scale, Shield, Trophy, X } from "lucide-react";
 
 const links = [
   { href: "/", label: "Bản đồ", icon: Map },
+  { href: "/country-symbols", label: "Biểu tượng", icon: Shield },
   { href: "/countries", label: "Quốc gia", icon: Globe2 },
   { href: "/compare", label: "So sánh", icon: GitCompare },
   { href: "/socialism", label: "Xã hội chủ nghĩa", icon: Scale },

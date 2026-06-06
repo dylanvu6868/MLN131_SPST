@@ -17,13 +17,13 @@ const DB_PATH = path.resolve(process.cwd(), "./data/world-ideology-atlas.db");
 // Mỗi entry key là iso3. Chỉ các field cần cập nhật được liệt kê.
 // Các field không có trong patch sẽ giữ nguyên giá trị từ DB.
 
-const PATCHES: Record<string, Record<string, unknown>> = {
+export const PATCHES: Record<string, Record<string, unknown>> = {
   // ── VIỆT NAM ──────────────────────────────────────────────
   VNM: {
     headOfStateTitle: "Tổng Bí thư kiêm Chủ tịch nước",
     headOfState: "Tô Lâm",
-    headOfGovernmentTitle: "Thủ tướng",
-    headOfGovernment: "Phạm Minh Chính",
+    headOfGovernmentTitle: "Thủ tướng Chính phủ",
+    headOfGovernment: "Lê Minh Hưng",
     rulingParty: "Đảng Cộng sản Việt Nam",
     judiciary: "Tòa án nhân dân tối cao",
     constitution: "Hiến pháp Việt Nam 2013",
@@ -2040,4 +2040,8 @@ function main() {
   console.log(`📝 Countries without patches will be updated in future runs.`);
 }
 
-main();
+import { fileURLToPath } from "node:url";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  main();
+}

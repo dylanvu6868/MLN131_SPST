@@ -25,6 +25,24 @@ export type DataSource = {
 
 export type SymbolVerificationLevel = "Cao" | "Trung bình" | "Cần kiểm chứng thêm";
 
+export type GeoCoordinates = {
+  lat: number;
+  lng: number;
+};
+
+export type CountryLeaderRole = "headOfState" | "headOfGovernment" | "other";
+
+export type CountryLeaderEntry = {
+  role: CountryLeaderRole;
+  title: string;
+  titleEn?: string;
+  name: string;
+  imageUrl?: string;
+  sourceUrl?: string;
+  since?: string;
+  order?: number;
+};
+
 export type CountrySymbolSection = {
   title: string;
   officialName?: string;
@@ -35,6 +53,7 @@ export type CountrySymbolSection = {
   role?: string;
   city?: string;
   address?: string;
+  coordinates?: GeoCoordinates;
   ancientDepth?: string;
   modernFoundingYear?: number;
   keyMilestone?: string;
@@ -64,6 +83,7 @@ export type CountrySymbolProfile = {
     cultureIdentity: CountrySymbolSection;
     historyDepth: CountrySymbolSection;
   };
+  leaders?: CountryLeaderEntry[];
   notes?: string;
 };
 

@@ -2,7 +2,6 @@ import { Bot, Map } from "lucide-react";
 
 import { AtlasChatbot } from "@/components/chatbot/atlas-chatbot";
 import { WorldMapPanel } from "@/components/dashboard/world-map-panel";
-import { CountryLandingExperience } from "@/components/landing/country-landing";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getAllCountries } from "@/lib/countries";
 
@@ -11,8 +10,6 @@ export default function HomePage() {
 
   return (
     <main>
-      <CountryLandingExperience countries={countries} />
-
       <section id="map" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading

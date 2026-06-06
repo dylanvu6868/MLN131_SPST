@@ -9,6 +9,14 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "flagsapi.com"
+      },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org"
+      },
+      {
+        protocol: "https",
+        hostname: "commons.wikimedia.org"
       }
     ]
   }

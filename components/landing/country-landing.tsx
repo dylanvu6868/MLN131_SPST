@@ -18,7 +18,8 @@ import {
   Palette,
   Stamp,
   Shield,
-  ScrollText
+  ScrollText,
+  UserRound
 } from "lucide-react";
 
 import { generateCountryExperiences, type CountryExperience } from "@/lib/country-experience";
@@ -64,13 +65,13 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
 
             <div className="relative z-10 flex min-h-[620px] flex-col justify-between p-5 sm:p-8 lg:p-10">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                <Link href="/" className="focus-ring inline-flex items-center gap-3 rounded-md">
+                <Link href="/country-symbols" className="focus-ring inline-flex items-center gap-3 rounded-md">
                   <span className="grid h-12 w-12 place-items-center rounded-full border border-[var(--country-secondary)]/70 bg-black/35 text-[var(--country-secondary)] shadow-[0_0_30px_rgba(218,165,32,0.18)]">
                     <Crown className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span>
-                    <span className="block font-serif text-lg font-semibold tracking-wide text-white">Bản đồ Di sản Thế giới</span>
-                    <span className="text-xs uppercase tracking-[0.22em] text-[var(--country-secondary)]">Văn hóa · Chính trị · Bản sắc</span>
+                    <span className="block font-serif text-lg font-semibold tracking-wide text-white">Biểu tượng quốc gia</span>
+                    <span className="text-xs uppercase tracking-[0.22em] text-[var(--country-secondary)]">Di sản · Văn hóa · Bản sắc</span>
                   </span>
                 </Link>
 
@@ -78,6 +79,7 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                   <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-2 text-sm text-stone-200 backdrop-blur md:flex">
                     <a href="#politics" className="rounded-full px-3 py-1.5 hover:bg-white/10">Chính trị</a>
                     <a href="#heritage" className="rounded-full px-3 py-1.5 hover:bg-white/10">Di sản</a>
+                    <a href="#leaders" className="rounded-full px-3 py-1.5 hover:bg-white/10">Lãnh đạo</a>
                     <a href="#culture" className="rounded-full px-3 py-1.5 hover:bg-white/10">Văn hóa</a>
                     <Link href="/news" className="rounded-full px-3 py-1.5 hover:bg-white/10">Tin tức</Link>
                   </nav>
@@ -150,81 +152,174 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
           </div>
 
           <div id="heritage" className="country-content px-5 py-8 sm:px-8 lg:px-10">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {selected.sections.map((section, index) => {
-                // Bento Span Mapping: 
-                // 0: Emblem (large, 2 cols, 2 rows)
-                // 1: Anthem (wide, 2 cols)
-                // 2: Seal (small, 1 col)
-                // 3: Residence (small, 1 col)
-                // 4: Culture (wide, 2 cols)
-                // 5: History (wide, 2 cols)
-                const getBentoSpan = (idx: number) => {
-                  switch (idx) {
-                    case 0: return "lg:col-span-2 lg:row-span-2 sm:col-span-2";
-                    case 1: return "lg:col-span-2";
-                    case 2: return "lg:col-span-1";
-                    case 3: return "lg:col-span-1";
-                    case 4: return "lg:col-span-2";
-                    case 5: return "lg:col-span-2 sm:col-span-2";
-                    default: return "lg:col-span-2";
-                  }
-                };
+            <div className="mb-6 grid gap-3 rounded-lg border border-white/10 bg-black/30 p-4 sm:grid-cols-2 lg:grid-cols-4">
+              <MetaChip label="Tên tiếng Anh" value={selected.meta.countryNameEn} />
+              <MetaChip label="Mã ISO" value={`${selected.meta.iso2} · ${selected.meta.iso3}`} />
+              <MetaChip label="Khu vực" value={selected.meta.regionVi} />
+              <MetaChip label="Mức xác minh" value={selected.meta.verificationLevel} />
+            </div>
 
-                return (
-                  <article
-                    key={section.title}
-                    id={section.kind === "cultureIdentity" ? "culture" : undefined}
-                    className={`heritage-card animate-country-rise group flex flex-col overflow-hidden rounded-lg bg-black/40 ${getBentoSpan(index)}`}
-                    style={{ animationDelay: `${index * 80}ms` }}
-                  >
-                    <HeritageCardVisual section={section} profile={profile} countryName={selected.localName} />
-                    <div className="flex flex-1 flex-col p-5">
-                      <h2 className="font-serif text-xl font-semibold text-white group-hover:text-[var(--country-secondary)] transition-colors duration-300">{section.title}</h2>
-                      <p className="mt-3 text-sm leading-6 text-stone-300">{section.description}</p>
-                      
-                      <div className="mt-auto pt-5">
-                        {section.audioUrl ? (
-                          <audio className="mb-4 h-10 w-full rounded-md opacity-80 mix-blend-screen" controls preload="none" src={section.audioUrl}>
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {selected.sections.map((section, index) => (
+                <article
+                  key={section.kind}
+                  id={section.kind === "cultureIdentity" ? "culture" : undefined}
+                  className="heritage-card animate-country-rise group flex min-h-[560px] flex-col overflow-hidden rounded-lg bg-black/40"
+                  style={{ animationDelay: `${index * 80}ms` }}
+                >
+                  <HeritageCardVisual section={section} profile={profile} countryName={selected.localName} />
+                  <div className="flex flex-1 flex-col p-5">
+                    <h2 className="font-serif text-xl font-semibold text-white transition-colors duration-300 group-hover:text-[var(--country-secondary)]">
+                      {section.title}
+                    </h2>
+                    {section.officialName ? (
+                      <p className="mt-1 text-sm font-medium text-stone-200">{section.officialName}</p>
+                    ) : null}
+                    <p className="mt-3 text-sm leading-6 text-stone-300">{section.description}</p>
+
+                    <div className="mt-auto pt-5">
+                      {section.kind === "headResidence" && section.mapUrl ? (
+                        <a
+                          href={section.mapUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="focus-ring mb-4 inline-flex items-center gap-1 rounded-full border border-[var(--country-secondary)]/25 px-3 py-1.5 text-xs text-[var(--country-secondary)] transition-colors hover:bg-[var(--country-secondary)]/10"
+                        >
+                          Xem vị trí trên bản đồ
+                          <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                        </a>
+                      ) : null}
+                      {section.kind === "anthem" ? (
+                        section.audioUrl ? (
+                          <audio
+                            className="mb-4 h-10 w-full rounded-md opacity-80 mix-blend-screen"
+                            controls
+                            preload="none"
+                            src={section.audioUrl}
+                          >
                             Trình duyệt của bạn không hỗ trợ phát âm thanh.
                           </audio>
-                        ) : null}
-                        
-                        {section.details.length ? (
-                          <div className="mb-4 grid gap-2">
-                            {section.details.slice(0, 4).map((detail) => (
-                              <div key={`${section.title}-${detail.label}`} className="flex flex-col rounded-md border border-white/5 bg-white/[0.02] px-3 py-2">
-                                <span className="text-[10px] uppercase tracking-widest text-[var(--country-secondary)] opacity-80">{detail.label}</span>
-                                <span className="mt-1 text-sm font-medium text-stone-200">{detail.value}</span>
-                              </div>
-                            ))}
-                          </div>
-                        ) : null}
-                        
-                        <div className="flex flex-wrap items-center gap-2 text-xs text-stone-400">
-                          <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-stone-200 shadow-sm">
-                            {section.verificationLevel}
-                          </span>
-                          {section.sourceUrl ? (
-                            <a
-                              href={section.sourceUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="focus-ring inline-flex items-center gap-1 rounded-full border border-[var(--country-secondary)]/25 px-3 py-1 text-[var(--country-secondary)] transition-colors hover:bg-[var(--country-secondary)]/10"
+                        ) : (
+                          <p className="mb-4 rounded-md border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-stone-400">
+                            Chưa có file âm thanh quốc ca đã xác minh.
+                          </p>
+                        )
+                      ) : null}
+
+                      <div className="mb-4 grid gap-2">
+                        {section.details.map((detail) => (
+                          <div
+                            key={`${section.kind}-${detail.label}`}
+                            className="flex flex-col rounded-md border border-white/5 bg-white/[0.02] px-3 py-2"
+                          >
+                            <span className="text-[10px] uppercase tracking-widest text-[var(--country-secondary)] opacity-80">
+                              {detail.label}
+                            </span>
+                            <span
+                              className={`mt-1 text-sm font-medium ${detail.muted ? "text-stone-400 italic" : "text-stone-200"}`}
                             >
-                              {section.sourceLabel ?? "Nguồn kiểm chứng"}
-                              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                            </a>
-                          ) : (
-                            <span className="px-1 opacity-60">{section.sourceLabel}</span>
-                          )}
-                        </div>
+                              {detail.value}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-2 text-xs text-stone-400">
+                        <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-stone-200 shadow-sm">
+                          {section.verificationLevel}
+                        </span>
+                        {section.sourceUrl ? (
+                          <a
+                            href={section.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="focus-ring inline-flex items-center gap-1 rounded-full border border-[var(--country-secondary)]/25 px-3 py-1 text-[var(--country-secondary)] transition-colors hover:bg-[var(--country-secondary)]/10"
+                          >
+                            {section.sourceLabel ?? "Nguồn kiểm chứng"}
+                            <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                          </a>
+                        ) : (
+                          <span className="px-1 italic opacity-70">{section.sourceLabel}</span>
+                        )}
                       </div>
                     </div>
-                  </article>
-                );
-              })}
+                  </div>
+                </article>
+              ))}
             </div>
+
+            {selected.meta.notes ? (
+              <p className="mt-4 rounded-lg border border-amber-300/20 bg-amber-400/5 px-4 py-3 text-sm text-amber-100/90">
+                {selected.meta.notes}
+              </p>
+            ) : null}
+
+            {selected.leaders.length ? (
+              <div id="leaders" className="mt-12">
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="grid h-11 w-11 place-items-center rounded-full border border-[var(--country-secondary)]/35 bg-black/35 text-[var(--country-secondary)]">
+                    <UserRound className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h2 className="font-serif text-2xl font-semibold text-white">Lãnh đạo quốc gia hiện nay</h2>
+                    <p className="text-sm text-stone-400">Cập nhật từ Wikipedia — nguyên thủ, thủ tướng, quân chủ, lãnh tụ và các chức vụ lãnh đạo cao nhất</p>
+                  </div>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {selected.leaders.map((leader) => (
+                    <article
+                      key={`${leader.role}-${leader.name}`}
+                      className="heritage-card animate-country-rise overflow-hidden rounded-lg border border-white/10 bg-black/35"
+                    >
+                      <div className="grid sm:grid-cols-[140px_1fr]">
+                        <div className="relative h-44 bg-[linear-gradient(135deg,rgba(15,10,9,0.96),rgba(47,20,17,0.92))] sm:h-full sm:min-h-[180px]">
+                          {leader.imageUrl ? (
+                            <img
+                              src={leader.imageUrl}
+                              alt={`${leader.name} - ${leader.title}`}
+                              className="h-full w-full object-cover object-top"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <div className="grid h-full place-items-center text-[var(--country-secondary)]">
+                              <UserRound className="h-12 w-12 opacity-70" aria-hidden="true" />
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex flex-col p-5">
+                          <p className="text-[10px] uppercase tracking-[0.18em] text-[var(--country-secondary)]">
+                            {leader.role === "headOfState"
+                              ? "Nguyên thủ / Lãnh tụ"
+                              : leader.role === "headOfGovernment"
+                                ? "Đứng đầu chính phủ"
+                                : "Lãnh đạo nhà nước"}
+                          </p>
+                          <h3 className="mt-2 font-serif text-xl font-semibold leading-snug text-white">{leader.title}</h3>
+                          <p className="mt-2 text-lg font-medium text-stone-100">{leader.name}</p>
+                          {leader.titleEn && leader.titleEn !== leader.title ? (
+                            <p className="mt-1 text-xs text-stone-400">{leader.titleEn}</p>
+                          ) : null}
+                          {leader.since ? (
+                            <p className="mt-2 text-sm text-stone-400">Nhậm chức từ năm {leader.since}</p>
+                          ) : null}
+                          {leader.sourceUrl ? (
+                            <a
+                              href={leader.sourceUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="focus-ring mt-auto inline-flex items-center gap-1 pt-4 text-xs text-[var(--country-secondary)] hover:underline"
+                            >
+                              Wikipedia
+                              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                            </a>
+                          ) : null}
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            ) : null}
 
             <div id="politics" className="mt-12 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
               <article
@@ -283,9 +378,9 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                     <Newspaper className="h-4 w-4" aria-hidden="true" />
                     Tin nóng
                   </Link>
-                  <a href="#map" className="heritage-button heritage-button--ghost focus-ring px-5 py-2.5 transition-transform hover:scale-105 active:scale-95">
+                  <Link href="/#map" className="heritage-button heritage-button--ghost focus-ring px-5 py-2.5 transition-transform hover:scale-105 active:scale-95">
                     Bản đồ thế giới
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -308,17 +403,25 @@ function HeritageCardVisual({
   const [imageFailed, setImageFailed] = useState(false);
   const Icon = getSectionIcon(section.kind);
   const containImage = section.kind === "emblem" || section.kind === "anthem" || section.kind === "seal";
+  const coverImage = section.kind === "headResidence";
+  const fallbackImage =
+    section.kind === "emblem" || section.kind === "seal" || section.kind === "anthem"
+      ? profile?.flagSvgUrl
+      : undefined;
+  const imageSrc = !imageFailed ? section.image ?? fallbackImage : fallbackImage;
 
   return (
     <div className="relative h-56 overflow-hidden bg-[radial-gradient(circle_at_34%_18%,rgba(218,165,32,0.20),transparent_35%),linear-gradient(135deg,rgba(15,10,9,0.96),rgba(47,20,17,0.92))]">
-      {!imageFailed && section.image ? (
+      {imageSrc ? (
         <img
-          src={section.image}
+          src={imageSrc}
           alt={section.imageAlt}
           className={
             containImage
               ? "h-full w-full object-contain p-8 opacity-95 transition duration-500 group-hover:scale-105"
-              : "h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105"
+              : coverImage
+                ? "h-full w-full object-cover opacity-95 transition duration-500 group-hover:scale-105"
+                : "h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105"
           }
           loading="lazy"
           onError={() => setImageFailed(true)}
@@ -389,6 +492,15 @@ function getSectionIcon(kind: CountrySection["kind"]) {
     default:
       return ScrollText;
   }
+}
+
+function MetaChip({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-md border border-white/10 bg-white/[0.03] px-3 py-2">
+      <p className="text-[10px] uppercase tracking-[0.18em] text-[var(--country-secondary)]">{label}</p>
+      <p className="mt-1 text-sm font-medium text-stone-100">{value}</p>
+    </div>
+  );
 }
 
 function MiniFact({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {

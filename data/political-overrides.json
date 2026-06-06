@@ -12,8 +12,10 @@
     "powerStructure": "The Communist Party leads the state and society under the constitutional framework.",
     "rulingParty": "Communist Party of Vietnam",
     "partySystem": "One-party-led system",
-    "headOfStateTitle": "President",
+    "headOfStateTitle": "Party General Secretary and President",
+    "headOfState": "Tô Lâm",
     "headOfGovernmentTitle": "Prime Minister",
+    "headOfGovernment": "Lê Minh Hưng",
     "legislature": "National Assembly",
     "legislatureStructure": "Unicameral",
     "economicModel": "Socialist-oriented market economy",
@@ -25,7 +27,7 @@
     "isUnitary": true,
     "summary": "Vietnam is represented as a multi-layered profile: socialist constitutional identity, unitary state form, one-party-led power structure, and a market economy with socialist orientation.",
     "notes": [
-      "Current leaders should be verified through Wikidata or another current source during sync.",
+      "Leaders verified from Wikipedia as of June 2026 (Tô Lâm, Lê Minh Hưng).",
       "Regime categories should be tied to a specific V-Dem or OWID dataset version before production use."
     ],
     "sources": [
