@@ -1,0 +1,3119 @@
+{
+  "generatedAt": "2026-06-05T18:07:29.452Z",
+  "missingFields": [
+    {
+      "country": "Afghanistan",
+      "iso3": "AFG",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Åland Islands",
+      "iso3": "ALA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Albania",
+      "iso3": "ALB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Algeria",
+      "iso3": "DZA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "American Samoa",
+      "iso3": "ASM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Andorra",
+      "iso3": "AND",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Angola",
+      "iso3": "AGO",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Anguilla",
+      "iso3": "AIA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Antarctica",
+      "iso3": "ATA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "iso3": "ATG",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Argentina",
+      "iso3": "ARG",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Armenia",
+      "iso3": "ARM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Aruba",
+      "iso3": "ABW",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Australia",
+      "iso3": "AUS",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Austria",
+      "iso3": "AUT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Azerbaijan",
+      "iso3": "AZE",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Bahamas",
+      "iso3": "BHS",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Bahrain",
+      "iso3": "BHR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Bangladesh",
+      "iso3": "BGD",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Barbados",
+      "iso3": "BRB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Belarus",
+      "iso3": "BLR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Belgium",
+      "iso3": "BEL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Belize",
+      "iso3": "BLZ",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Benin",
+      "iso3": "BEN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Bermuda",
+      "iso3": "BMU",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Bhutan",
+      "iso3": "BTN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Bolivia",
+      "iso3": "BOL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "iso3": "BIH",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Botswana",
+      "iso3": "BWA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfGovernment",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Bouvet Island",
+      "iso3": "BVT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Brazil",
+      "iso3": "BRA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "British Indian Ocean Territory",
+      "iso3": "IOT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "British Virgin Islands",
+      "iso3": "VGB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Brunei",
+      "iso3": "BRN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Bulgaria",
+      "iso3": "BGR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Burkina Faso",
+      "iso3": "BFA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Burundi",
+      "iso3": "BDI",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Cambodia",
+      "iso3": "KHM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Cameroon",
+      "iso3": "CMR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Canada",
+      "iso3": "CAN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Cape Verde",
+      "iso3": "CPV",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Caribbean Netherlands",
+      "iso3": "BES",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Cayman Islands",
+      "iso3": "CYM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Central African Republic",
+      "iso3": "CAF",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Chad",
+      "iso3": "TCD",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Chile",
+      "iso3": "CHL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Christmas Island",
+      "iso3": "CXR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Cocos (Keeling) Islands",
+      "iso3": "CCK",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Colombia",
+      "iso3": "COL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Comoros",
+      "iso3": "COM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Cook Islands",
+      "iso3": "COK",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Costa Rica",
+      "iso3": "CRI",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Croatia",
+      "iso3": "HRV",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Curaçao",
+      "iso3": "CUW",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Cyprus",
+      "iso3": "CYP",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Czechia",
+      "iso3": "CZE",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Denmark",
+      "iso3": "DNK",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Djibouti",
+      "iso3": "DJI",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Dominica",
+      "iso3": "DMA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Dominican Republic",
+      "iso3": "DOM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "DR Congo",
+      "iso3": "COD",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Ecuador",
+      "iso3": "ECU",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Egypt",
+      "iso3": "EGY",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "El Salvador",
+      "iso3": "SLV",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Equatorial Guinea",
+      "iso3": "GNQ",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Eritrea",
+      "iso3": "ERI",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Estonia",
+      "iso3": "EST",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Eswatini",
+      "iso3": "SWZ",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Ethiopia",
+      "iso3": "ETH",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Falkland Islands",
+      "iso3": "FLK",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Faroe Islands",
+      "iso3": "FRO",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Fiji",
+      "iso3": "FJI",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Finland",
+      "iso3": "FIN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "France",
+      "iso3": "FRA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "French Guiana",
+      "iso3": "GUF",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "French Polynesia",
+      "iso3": "PYF",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "French Southern and Antarctic Lands",
+      "iso3": "ATF",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Gabon",
+      "iso3": "GAB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Gambia",
+      "iso3": "GMB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Georgia",
+      "iso3": "GEO",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Germany",
+      "iso3": "DEU",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Ghana",
+      "iso3": "GHA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Gibraltar",
+      "iso3": "GIB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Greece",
+      "iso3": "GRC",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Greenland",
+      "iso3": "GRL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Grenada",
+      "iso3": "GRD",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Guadeloupe",
+      "iso3": "GLP",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Guam",
+      "iso3": "GUM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Guatemala",
+      "iso3": "GTM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Guernsey",
+      "iso3": "GGY",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Guinea",
+      "iso3": "GIN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Guinea-Bissau",
+      "iso3": "GNB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Guyana",
+      "iso3": "GUY",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Haiti",
+      "iso3": "HTI",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Heard Island and McDonald Islands",
+      "iso3": "HMD",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Honduras",
+      "iso3": "HND",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Hong Kong",
+      "iso3": "HKG",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Hungary",
+      "iso3": "HUN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Iceland",
+      "iso3": "ISL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "India",
+      "iso3": "IND",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Indonesia",
+      "iso3": "IDN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Iran",
+      "iso3": "IRN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Iraq",
+      "iso3": "IRQ",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Ireland",
+      "iso3": "IRL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Isle of Man",
+      "iso3": "IMN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Israel",
+      "iso3": "ISR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Italy",
+      "iso3": "ITA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Ivory Coast",
+      "iso3": "CIV",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Jamaica",
+      "iso3": "JAM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Japan",
+      "iso3": "JPN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Jersey",
+      "iso3": "JEY",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Jordan",
+      "iso3": "JOR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Kazakhstan",
+      "iso3": "KAZ",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Kenya",
+      "iso3": "KEN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Kiribati",
+      "iso3": "KIR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Kosovo",
+      "iso3": "UNK",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Kuwait",
+      "iso3": "KWT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Kyrgyzstan",
+      "iso3": "KGZ",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Laos",
+      "iso3": "LAO",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Latvia",
+      "iso3": "LVA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Lebanon",
+      "iso3": "LBN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Lesotho",
+      "iso3": "LSO",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Liberia",
+      "iso3": "LBR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Libya",
+      "iso3": "LBY",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Liechtenstein",
+      "iso3": "LIE",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Lithuania",
+      "iso3": "LTU",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Luxembourg",
+      "iso3": "LUX",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Macau",
+      "iso3": "MAC",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Madagascar",
+      "iso3": "MDG",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Malawi",
+      "iso3": "MWI",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Malaysia",
+      "iso3": "MYS",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Maldives",
+      "iso3": "MDV",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Mali",
+      "iso3": "MLI",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Malta",
+      "iso3": "MLT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Marshall Islands",
+      "iso3": "MHL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Martinique",
+      "iso3": "MTQ",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Mauritania",
+      "iso3": "MRT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Mauritius",
+      "iso3": "MUS",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Mayotte",
+      "iso3": "MYT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Mexico",
+      "iso3": "MEX",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Micronesia",
+      "iso3": "FSM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Moldova",
+      "iso3": "MDA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Monaco",
+      "iso3": "MCO",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Mongolia",
+      "iso3": "MNG",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Montenegro",
+      "iso3": "MNE",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Montserrat",
+      "iso3": "MSR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Morocco",
+      "iso3": "MAR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Mozambique",
+      "iso3": "MOZ",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Myanmar",
+      "iso3": "MMR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Namibia",
+      "iso3": "NAM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Nauru",
+      "iso3": "NRU",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Nepal",
+      "iso3": "NPL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Netherlands",
+      "iso3": "NLD",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "New Caledonia",
+      "iso3": "NCL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "New Zealand",
+      "iso3": "NZL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Nicaragua",
+      "iso3": "NIC",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Niger",
+      "iso3": "NER",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Nigeria",
+      "iso3": "NGA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Niue",
+      "iso3": "NIU",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Norfolk Island",
+      "iso3": "NFK",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "North Korea",
+      "iso3": "PRK",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "North Macedonia",
+      "iso3": "MKD",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Northern Mariana Islands",
+      "iso3": "MNP",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Norway",
+      "iso3": "NOR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Oman",
+      "iso3": "OMN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Pakistan",
+      "iso3": "PAK",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Palau",
+      "iso3": "PLW",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Palestine",
+      "iso3": "PSE",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Panama",
+      "iso3": "PAN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Papua New Guinea",
+      "iso3": "PNG",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Paraguay",
+      "iso3": "PRY",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Peru",
+      "iso3": "PER",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Philippines",
+      "iso3": "PHL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Pitcairn Islands",
+      "iso3": "PCN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Poland",
+      "iso3": "POL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Portugal",
+      "iso3": "PRT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Puerto Rico",
+      "iso3": "PRI",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Qatar",
+      "iso3": "QAT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Republic of the Congo",
+      "iso3": "COG",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Réunion",
+      "iso3": "REU",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Romania",
+      "iso3": "ROU",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Russia",
+      "iso3": "RUS",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Rwanda",
+      "iso3": "RWA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Saint Barthélemy",
+      "iso3": "BLM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Saint Helena, Ascension and Tristan da Cunha",
+      "iso3": "SHN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Saint Kitts and Nevis",
+      "iso3": "KNA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Saint Lucia",
+      "iso3": "LCA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Saint Martin",
+      "iso3": "MAF",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Saint Pierre and Miquelon",
+      "iso3": "SPM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "iso3": "VCT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Samoa",
+      "iso3": "WSM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "San Marino",
+      "iso3": "SMR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfGovernment",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "iso3": "STP",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Saudi Arabia",
+      "iso3": "SAU",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Senegal",
+      "iso3": "SEN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Serbia",
+      "iso3": "SRB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Seychelles",
+      "iso3": "SYC",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Sierra Leone",
+      "iso3": "SLE",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Singapore",
+      "iso3": "SGP",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Sint Maarten",
+      "iso3": "SXM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Slovakia",
+      "iso3": "SVK",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Slovenia",
+      "iso3": "SVN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Solomon Islands",
+      "iso3": "SLB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Somalia",
+      "iso3": "SOM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "South Africa",
+      "iso3": "ZAF",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "South Georgia",
+      "iso3": "SGS",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "South Korea",
+      "iso3": "KOR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "South Sudan",
+      "iso3": "SSD",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Spain",
+      "iso3": "ESP",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Sri Lanka",
+      "iso3": "LKA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Sudan",
+      "iso3": "SDN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Suriname",
+      "iso3": "SUR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Svalbard and Jan Mayen",
+      "iso3": "SJM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Sweden",
+      "iso3": "SWE",
+      "fields": [
+        "rulingParty"
+      ]
+    },
+    {
+      "country": "Switzerland",
+      "iso3": "CHE",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Syria",
+      "iso3": "SYR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfGovernment",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Taiwan",
+      "iso3": "TWN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Tajikistan",
+      "iso3": "TJK",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Tanzania",
+      "iso3": "TZA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Thailand",
+      "iso3": "THA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Timor-Leste",
+      "iso3": "TLS",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Togo",
+      "iso3": "TGO",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Tokelau",
+      "iso3": "TKL",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Tonga",
+      "iso3": "TON",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "iso3": "TTO",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Tunisia",
+      "iso3": "TUN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Turkey",
+      "iso3": "TUR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Turkmenistan",
+      "iso3": "TKM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Turks and Caicos Islands",
+      "iso3": "TCA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Tuvalu",
+      "iso3": "TUV",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Uganda",
+      "iso3": "UGA",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Ukraine",
+      "iso3": "UKR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "United Arab Emirates",
+      "iso3": "ARE",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "United Kingdom",
+      "iso3": "GBR",
+      "fields": [
+        "rulingParty"
+      ]
+    },
+    {
+      "country": "United States",
+      "iso3": "USA",
+      "fields": [
+        "rulingParty"
+      ]
+    },
+    {
+      "country": "United States Minor Outlying Islands",
+      "iso3": "UMI",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "United States Virgin Islands",
+      "iso3": "VIR",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Uruguay",
+      "iso3": "URY",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Uzbekistan",
+      "iso3": "UZB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Vanuatu",
+      "iso3": "VUT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Vatican City",
+      "iso3": "VAT",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Venezuela",
+      "iso3": "VEN",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfGovernment",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Wallis and Futuna",
+      "iso3": "WLF",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Western Sahara",
+      "iso3": "ESH",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "headOfState",
+        "headOfGovernment",
+        "legislature",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Yemen",
+      "iso3": "YEM",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Zambia",
+      "iso3": "ZMB",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    },
+    {
+      "country": "Zimbabwe",
+      "iso3": "ZWE",
+      "fields": [
+        "officialIdeology",
+        "governmentSystem",
+        "stateForm",
+        "politicalRegime",
+        "rulingParty",
+        "economicModel"
+      ]
+    }
+  ]
+}

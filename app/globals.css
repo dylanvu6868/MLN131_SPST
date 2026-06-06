@@ -1,0 +1,367 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #081017;
+  --heritage-gold: #daa520;
+  --heritage-red: #9a4f3b;
+  --heritage-charcoal: #151b22;
+  --navbar-height: 60px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(11, 24, 31, 0.98), rgba(7, 13, 22, 1) 42%, rgba(22, 18, 15, 0.98)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.024) 0 1px, transparent 1px 96px),
+    #081017;
+  color: #e5eefb;
+  font-family: var(--font-inter, "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Serif font for headings */
+.font-serif {
+  font-family: var(--font-crimson, "Crimson Text", Georgia, "Times New Roman", serif) !important;
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+  letter-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  font-family: var(--font-inter, "Inter", ui-sans-serif, system-ui, sans-serif);
+}
+
+::selection {
+  background: rgba(45, 212, 191, 0.35);
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 60;
+  transform: translateY(-150%);
+  border-radius: 6px;
+  border: 1px solid rgba(218, 165, 32, 0.5);
+  background: #081017;
+  color: #fff7ed;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: transform 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ─── Surfaces ─────────────────────────────────────────────── */
+
+.atlas-surface {
+  border: 1px solid rgba(125, 211, 196, 0.16);
+  background:
+    linear-gradient(180deg, rgba(13, 24, 32, 0.88), rgba(10, 15, 23, 0.78)),
+    rgba(9, 14, 22, 0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 24px 80px rgba(3, 10, 18, 0.42);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ─── Form elements ─────────────────────────────────────────── */
+
+.atlas-input {
+  min-height: 42px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(5, 11, 18, 0.78);
+  color: #e5eefb;
+  outline: none;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 6px;
+  padding-inline: 0.75rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  transition: border-color 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98), box-shadow 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98), background 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+
+.atlas-input:focus {
+  border-color: rgba(218, 165, 32, 0.72);
+  background: rgba(5, 11, 18, 0.94);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 0 3px rgba(218, 165, 32, 0.14);
+}
+
+.atlas-input option {
+  background: #0f172a;
+  color: #e5eefb;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+
+.atlas-button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(218, 165, 32, 0.42);
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.22), rgba(20, 184, 166, 0.14));
+  color: #fff7ed;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    border-color 160ms ease,
+    background 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    transform 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    box-shadow 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+
+.atlas-button:hover {
+  border-color: rgba(218, 165, 32, 0.75);
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.28), rgba(20, 184, 166, 0.2));
+  box-shadow: 0 10px 28px rgba(6, 18, 28, 0.42);
+}
+
+.atlas-button:active {
+  transform: translateY(1px);
+}
+
+.atlas-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── Focus ─────────────────────────────────────────────────── */
+
+.focus-ring:focus-visible {
+  outline: 3px solid rgba(218, 165, 32, 0.55);
+  outline-offset: 3px;
+}
+
+/* ─── Map controls ──────────────────────────────────────────── */
+
+.map-control {
+  min-height: 36px;
+  width: 36px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  background: rgba(2, 6, 23, 0.88);
+  color: #e2e8f0;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease,
+    background 160ms ease;
+}
+
+.map-control:hover {
+  border-color: rgba(218, 165, 32, 0.7);
+  background: rgba(15, 23, 42, 0.96);
+  color: #fef3c7;
+}
+
+/* ─── Country stage / hero ──────────────────────────────────── */
+
+.country-stage {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(115deg, color-mix(in srgb, var(--country-background) 94%, #071017), #071017 54%, color-mix(in srgb, var(--country-primary) 20%, #0d151c)),
+    #071017;
+}
+
+.country-stage__texture {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--country-secondary) 11%, transparent) 1px, transparent 1px);
+  background-size: 42px 42px, 112px 112px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+.country-shell {
+  border: 1px solid color-mix(in srgb, var(--country-secondary) 34%, transparent);
+  background: rgba(7, 11, 16, 0.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 32px 120px rgba(0, 0, 0, 0.42);
+}
+
+.country-content {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--country-primary) 18%, transparent), transparent 34%),
+    linear-gradient(135deg, rgba(7, 11, 16, 0.98), color-mix(in srgb, var(--country-background) 72%, #101923));
+}
+
+/* ─── Heritage buttons ──────────────────────────────────────── */
+
+.heritage-button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--country-secondary, #daa520) 68%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--country-secondary, #daa520) 34%, transparent), color-mix(in srgb, var(--country-primary, #984830) 42%, transparent));
+  color: #fff7ed;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition:
+    transform 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    border-color 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    box-shadow 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    background 180ms cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+
+.heritage-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 34px color-mix(in srgb, var(--country-secondary, #daa520) 24%, transparent);
+}
+
+.heritage-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.heritage-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.heritage-button--ghost {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+/* ─── Heritage cards ────────────────────────────────────────── */
+
+.heritage-card {
+  border: 1px solid color-mix(in srgb, var(--country-secondary, #daa520) 24%, rgba(255, 255, 255, 0.02));
+  background:
+    linear-gradient(180deg, rgba(13, 18, 24, 0.78), rgba(7, 10, 15, 0.72)),
+    rgba(10, 13, 18, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 22px 80px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 200ms cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    border-color 200ms cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    box-shadow 200ms cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+
+.heritage-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--country-secondary, #daa520) 70%, transparent);
+  box-shadow: 0 26px 90px rgba(0, 0, 0, 0.36);
+}
+
+/* ─── News hero ─────────────────────────────────────────────── */
+
+.news-hero {
+  border: 1px solid rgba(218, 165, 32, 0.28);
+  background:
+    linear-gradient(135deg, rgba(14, 24, 30, 0.96), rgba(20, 16, 14, 0.98)),
+    #0c1118;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 26px 100px rgba(0, 0, 0, 0.36);
+}
+
+/* ─── Animations ────────────────────────────────────────────── */
+
+@keyframes country-fade {
+  from {
+    opacity: 0;
+    transform: scale(1.025);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes country-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-country-fade {
+  animation: country-fade 520ms ease both;
+}
+
+.animate-country-rise {
+  animation: country-rise 520ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+/* ─── Typography helpers ────────────────────────────────────── */
+
+/* Prevent long words from breaking layout on small screens */
+.prose-safe {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Balanced text wrapping */
+.text-balance {
+  text-wrap: balance;
+}

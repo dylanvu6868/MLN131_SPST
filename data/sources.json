@@ -1,0 +1,50 @@
+[
+  {
+    "name": "REST Countries",
+    "url": "https://restcountries.com/",
+    "dataTypes": ["tên quốc gia", "cờ", "mã ISO", "thủ đô", "dân số", "khu vực", "diện tích", "tọa độ"],
+    "updateFrequency": "Theo yêu cầu bằng npm run sync:countries",
+    "reliability": "cao cho dữ liệu nền về quốc gia",
+    "notes": "Không dùng để phân loại chế độ chính trị."
+  },
+  {
+    "name": "Wikidata",
+    "url": "https://www.wikidata.org/",
+    "dataTypes": ["nguyên thủ quốc gia", "người đứng đầu chính phủ", "cơ quan lập pháp", "định danh có cấu trúc"],
+    "updateFrequency": "Theo yêu cầu qua lớp bổ sung tùy chọn",
+    "reliability": "trung bình đến cao khi mệnh đề có nguồn và còn hiện hành",
+    "notes": "Các giá trị nhạy thời gian cần được rà soát lại."
+  },
+  {
+    "name": "Our World in Data",
+    "url": "https://ourworldindata.org/",
+    "dataTypes": ["dataset dân chủ", "dataset chế độ chính trị"],
+    "updateFrequency": "Nhập thủ công theo phiên bản dataset",
+    "reliability": "cao với dataset có tài liệu và phiên bản rõ",
+    "notes": "Nên hiển thị kèm ngày hoặc phiên bản dataset."
+  },
+  {
+    "name": "V-Dem",
+    "url": "https://www.v-dem.net/",
+    "dataTypes": ["điểm dân chủ", "chỉ báo nhóm chế độ"],
+    "updateFrequency": "Nhập thủ công theo phiên bản dataset",
+    "reliability": "cao cho dữ liệu học thuật về chính trị so sánh",
+    "notes": "Các nhóm phân loại cần đi kèm ghi chú phương pháp luận."
+  },
+  {
+    "name": "CIA World Factbook",
+    "url": "https://www.cia.gov/the-world-factbook/",
+    "dataTypes": ["loại hình chính phủ", "hiến pháp", "nhánh quyền lực", "bầu cử", "đảng phái chính trị"],
+    "updateFrequency": "Nhập thủ công hoặc đồng bộ theo lịch",
+    "reliability": "cao cho tóm tắt cấu trúc chính quyền",
+    "notes": "Dùng với cách trình bày trung lập và đối chiếu nguồn."
+  },
+  {
+    "name": "World Bank",
+    "url": "https://data.worldbank.org/",
+    "dataTypes": ["GDP", "GDP bình quân đầu người", "dân số", "nhóm thu nhập"],
+    "updateFrequency": "Nhập thủ công theo bộ chỉ số",
+    "reliability": "cao cho chỉ số kinh tế",
+    "notes": "Số liệu kinh tế cần đi kèm năm và mã chuỗi dữ liệu."
+  }
+]

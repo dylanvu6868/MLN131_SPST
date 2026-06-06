@@ -1,0 +1,246 @@
+{
+  "VNM": {
+    "countryName": "Vietnam",
+    "officialName": "Socialist Republic of Vietnam",
+    "stateForm": "Unitary socialist republic",
+    "governmentSystem": "Socialist republic with a one-party-led political system",
+    "constitutionalIdentity": "Socialist republic",
+    "officialIdeology": "Socialism",
+    "ideologyFamily": ["Socialism", "Marxism-Leninism", "Socialist-oriented market economy"],
+    "politicalRegime": "One-party-led state; classification varies by dataset",
+    "regimeCategory": "Electoral autocracy",
+    "powerStructure": "The Communist Party leads the state and society under the constitutional framework.",
+    "rulingParty": "Communist Party of Vietnam",
+    "partySystem": "One-party-led system",
+    "headOfStateTitle": "President",
+    "headOfGovernmentTitle": "Prime Minister",
+    "legislature": "National Assembly",
+    "legislatureStructure": "Unicameral",
+    "economicModel": "Socialist-oriented market economy",
+    "hasCommunistRulingParty": true,
+    "hasMilitaryGovernment": false,
+    "isMonarchy": false,
+    "isRepublic": true,
+    "isFederal": false,
+    "isUnitary": true,
+    "summary": "Vietnam is represented as a multi-layered profile: socialist constitutional identity, unitary state form, one-party-led power structure, and a market economy with socialist orientation.",
+    "notes": [
+      "Current leaders should be verified through Wikidata or another current source during sync.",
+      "Regime categories should be tied to a specific V-Dem or OWID dataset version before production use."
+    ],
+    "sources": [
+      {
+        "name": "Constitution of Vietnam",
+        "url": "https://constitutionnet.org/sites/default/files/tranlation_of_vietnams_new_constitution_enuk_2.pdf",
+        "field": "constitutionalIdentity"
+      },
+      {
+        "name": "Our World in Data / Regimes of the World",
+        "url": "https://ourworldindata.org/grapher/political-regime",
+        "field": "regimeCategory"
+      }
+    ],
+    "confidenceLevel": "medium"
+  },
+  "USA": {
+    "stateForm": "Federal republic",
+    "governmentSystem": "Federal presidential constitutional republic",
+    "constitutionalIdentity": "Constitutional republic",
+    "officialIdeology": "No single official ideology",
+    "ideologyFamily": ["Liberalism", "Republicanism", "Federalism"],
+    "politicalRegime": "Multi-party electoral democracy with two major parties",
+    "regimeCategory": "Liberal democracy",
+    "powerStructure": "Separated federal powers across executive, legislative, and judicial branches.",
+    "rulingParty": "Needs verification",
+    "partySystem": "Two-party dominant system",
+    "headOfStateTitle": "President",
+    "headOfGovernmentTitle": "President",
+    "legislature": "Congress",
+    "legislatureStructure": "Bicameral",
+    "judiciary": "Supreme Court",
+    "constitution": "Constitution of the United States",
+    "constitutionYear": 1789,
+    "economicModel": "Market economy with mixed regulatory and welfare institutions",
+    "hasCommunistRulingParty": false,
+    "hasMilitaryGovernment": false,
+    "isMonarchy": false,
+    "isRepublic": true,
+    "isFederal": true,
+    "isUnitary": false,
+    "summary": "The United States is represented through a federal constitutional structure, presidential government, separated powers, and a market-based mixed economy.",
+    "notes": [
+      "Current office holders and governing party status are time-sensitive and should be verified during sync."
+    ],
+    "sources": [
+      {
+        "name": "CIA World Factbook",
+        "url": "https://www.cia.gov/the-world-factbook/",
+        "field": "governmentSystem"
+      },
+      {
+        "name": "Our World in Data / Regimes of the World",
+        "url": "https://ourworldindata.org/grapher/political-regime",
+        "field": "regimeCategory"
+      }
+    ],
+    "confidenceLevel": "medium"
+  },
+  "CHN": {
+    "stateForm": "Unitary socialist republic",
+    "governmentSystem": "Socialist republic led by the Communist Party",
+    "constitutionalIdentity": "Socialist state under the people's democratic dictatorship",
+    "officialIdeology": "Socialism with Chinese characteristics",
+    "ideologyFamily": ["Socialism", "Marxism-Leninism", "Communism"],
+    "politicalRegime": "One-party-led state; classification varies by dataset",
+    "regimeCategory": "Closed autocracy",
+    "powerStructure": "The Communist Party occupies the leading role in state and society.",
+    "rulingParty": "Chinese Communist Party",
+    "partySystem": "One-party-led system with legally recognized allied parties",
+    "headOfStateTitle": "President",
+    "headOfGovernmentTitle": "Premier",
+    "legislature": "National People's Congress",
+    "legislatureStructure": "Unicameral",
+    "economicModel": "Socialist market economy",
+    "hasCommunistRulingParty": true,
+    "hasMilitaryGovernment": false,
+    "isMonarchy": false,
+    "isRepublic": true,
+    "isFederal": false,
+    "isUnitary": true,
+    "summary": "China is represented as a socialist constitutional system with a unitary state form, Communist Party leadership, and a socialist market economy.",
+    "notes": [
+      "Regime classifications vary across sources and should be shown with dataset/version context.",
+      "Current leader fields should be refreshed through Wikidata or official sources."
+    ],
+    "sources": [
+      {
+        "name": "Constitution of the People's Republic of China",
+        "url": "https://english.www.gov.cn/archive/lawsregulations/201911/20/content_WS5ed8856ec6d0b3f0e9499913.html",
+        "field": "constitutionalIdentity"
+      },
+      {
+        "name": "Our World in Data / Regimes of the World",
+        "url": "https://ourworldindata.org/grapher/political-regime",
+        "field": "regimeCategory"
+      }
+    ],
+    "confidenceLevel": "medium"
+  },
+  "GBR": {
+    "stateForm": "Unitary constitutional monarchy",
+    "governmentSystem": "Parliamentary constitutional monarchy",
+    "constitutionalIdentity": "Constitutional monarchy with parliamentary sovereignty",
+    "officialIdeology": "No single official ideology",
+    "ideologyFamily": ["Constitutional monarchy", "Parliamentarism", "Liberal democracy"],
+    "politicalRegime": "Parliamentary democracy",
+    "regimeCategory": "Liberal democracy",
+    "powerStructure": "Executive authority is exercised by ministers responsible to Parliament, with the monarch as head of state.",
+    "rulingParty": "Needs verification",
+    "partySystem": "Multi-party system with two major parties",
+    "headOfStateTitle": "Monarch",
+    "headOfGovernmentTitle": "Prime Minister",
+    "legislature": "Parliament of the United Kingdom",
+    "legislatureStructure": "Bicameral",
+    "judiciary": "Supreme Court of the United Kingdom",
+    "economicModel": "Market economy with welfare-state institutions",
+    "hasCommunistRulingParty": false,
+    "hasMilitaryGovernment": false,
+    "isMonarchy": true,
+    "isRepublic": false,
+    "isFederal": false,
+    "isUnitary": true,
+    "summary": "The United Kingdom is represented as a parliamentary constitutional monarchy with a unitary state structure and a market-based mixed economy.",
+    "notes": [
+      "Current office holders and governing party status are time-sensitive and should be verified during sync."
+    ],
+    "sources": [
+      {
+        "name": "CIA World Factbook",
+        "url": "https://www.cia.gov/the-world-factbook/",
+        "field": "governmentSystem"
+      },
+      {
+        "name": "Our World in Data / Regimes of the World",
+        "url": "https://ourworldindata.org/grapher/political-regime",
+        "field": "regimeCategory"
+      }
+    ],
+    "confidenceLevel": "medium"
+  },
+  "SWE": {
+    "stateForm": "Unitary constitutional monarchy",
+    "governmentSystem": "Parliamentary constitutional monarchy",
+    "constitutionalIdentity": "Constitutional monarchy",
+    "officialIdeology": "No single official ideology",
+    "ideologyFamily": ["Social democracy", "Liberal democracy", "Constitutional monarchy"],
+    "politicalRegime": "Parliamentary democracy",
+    "regimeCategory": "Liberal democracy",
+    "powerStructure": "Executive government is responsible to the Riksdag under a constitutional monarchy.",
+    "rulingParty": "Needs verification",
+    "partySystem": "Multi-party parliamentary system",
+    "headOfStateTitle": "Monarch",
+    "headOfGovernmentTitle": "Prime Minister",
+    "legislature": "Riksdag",
+    "legislatureStructure": "Unicameral",
+    "economicModel": "Market economy with extensive welfare-state institutions",
+    "hasCommunistRulingParty": false,
+    "hasMilitaryGovernment": false,
+    "isMonarchy": true,
+    "isRepublic": false,
+    "isFederal": false,
+    "isUnitary": true,
+    "summary": "Sweden is represented as a parliamentary constitutional monarchy with a market economy and strong welfare-state institutions.",
+    "notes": [
+      "The Nordic model should not be collapsed into Marxist-Leninist socialism."
+    ],
+    "sources": [
+      {
+        "name": "CIA World Factbook",
+        "url": "https://www.cia.gov/the-world-factbook/",
+        "field": "governmentSystem"
+      }
+    ],
+    "confidenceLevel": "medium"
+  },
+  "CUB": {
+    "stateForm": "Unitary socialist republic",
+    "governmentSystem": "Socialist republic with a one-party political system",
+    "constitutionalIdentity": "Socialist state",
+    "officialIdeology": "Socialism",
+    "ideologyFamily": ["Socialism", "Marxism-Leninism", "Communism"],
+    "politicalRegime": "One-party socialist state",
+    "regimeCategory": "Closed autocracy",
+    "powerStructure": "The Communist Party is constitutionally recognized as the leading force of society and the state.",
+    "rulingParty": "Communist Party of Cuba",
+    "partySystem": "One-party system",
+    "headOfStateTitle": "President",
+    "headOfGovernmentTitle": "Prime Minister",
+    "legislature": "National Assembly of People's Power",
+    "legislatureStructure": "Unicameral",
+    "economicModel": "State-led socialist economy with market reforms",
+    "hasCommunistRulingParty": true,
+    "hasMilitaryGovernment": false,
+    "isMonarchy": false,
+    "isRepublic": true,
+    "isFederal": false,
+    "isUnitary": true,
+    "summary": "Cuba is represented as a socialist republic with Communist Party leadership and a state-led economy with reform elements.",
+    "notes": [
+      "Current office holders should be refreshed through Wikidata or official sources.",
+      "Regime categories should be tied to a specific dataset version before production use."
+    ],
+    "sources": [
+      {
+        "name": "Constitution of Cuba",
+        "url": "https://www.constituteproject.org/constitution/Cuba_2019",
+        "field": "constitutionalIdentity"
+      },
+      {
+        "name": "Our World in Data / Regimes of the World",
+        "url": "https://ourworldindata.org/grapher/political-regime",
+        "field": "regimeCategory"
+      }
+    ],
+    "confidenceLevel": "medium"
+  }
+}

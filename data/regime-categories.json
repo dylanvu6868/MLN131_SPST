@@ -1,0 +1,37 @@
+[
+  {
+    "id": "liberal-democracy",
+    "label": "Liberal democracy",
+    "labelVi": "Dân chủ tự do",
+    "color": "#22c55e",
+    "description": "Chế độ dân chủ có bầu cử cạnh tranh, quyền tự do dân sự rộng và ràng buộc quyền lực hiệu quả."
+  },
+  {
+    "id": "electoral-democracy",
+    "label": "Electoral democracy",
+    "labelVi": "Dân chủ bầu cử",
+    "color": "#eab308",
+    "description": "Có bầu cử đa đảng cạnh tranh nhưng mức bảo vệ tự do dân sự hoặc kiểm soát quyền lực chưa đạt chuẩn dân chủ tự do."
+  },
+  {
+    "id": "electoral-autocracy",
+    "label": "Electoral autocracy",
+    "labelVi": "Chuyên chế bầu cử",
+    "color": "#f97316",
+    "description": "Có bầu cử nhưng cạnh tranh bị bóp méo đáng kể, quyền lực không được kiểm soát đầy đủ."
+  },
+  {
+    "id": "closed-autocracy",
+    "label": "Closed autocracy",
+    "labelVi": "Chuyên chế đóng",
+    "color": "#ef4444",
+    "description": "Không có bầu cử cạnh tranh thực chất ở cấp quốc gia hoặc quyền lực tập trung rất cao."
+  },
+  {
+    "id": "unknown",
+    "label": "Unknown",
+    "labelVi": "Chưa xác định",
+    "color": "#64748b",
+    "description": "Chưa có đủ dữ liệu đáng tin cậy."
+  }
+]
