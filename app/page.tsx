@@ -1,6 +1,5 @@
-import { Bot, Map } from "lucide-react";
+import { Map } from "lucide-react";
 
-import { AtlasChatbot } from "@/components/chatbot/atlas-chatbot";
 import { WorldMapPanel } from "@/components/dashboard/world-map-panel";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getAllCountries } from "@/lib/countries";
@@ -23,25 +22,6 @@ export default function HomePage() {
           </div>
         </div>
         <WorldMapPanel countries={countries} />
-      </section>
-
-      <section id="atlas-ai" className="mx-auto grid max-w-7xl gap-6 px-4 pb-12 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-        <div className="atlas-surface rounded-lg p-5">
-          <div className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-full border border-amber-300/35 bg-amber-400/10 text-amber-100">
-              <Bot className="h-5 w-5" aria-hidden="true" />
-            </span>
-            <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-amber-200">Atlas AI</p>
-              <h2 className="text-xl font-semibold text-white">Hỏi nhanh về một quốc gia</h2>
-            </div>
-          </div>
-          <p className="mt-4 text-sm leading-7 text-slate-300">
-            Đặt câu hỏi về thể chế, lãnh đạo, quốc hội, bản sắc chính trị hoặc so sánh giữa các quốc gia.
-          </p>
-        </div>
-
-        <AtlasChatbot compact />
       </section>
     </main>
   );

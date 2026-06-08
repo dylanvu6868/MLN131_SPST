@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useMemo, useRef, useState, type PointerEvent, type WheelEvent } from "react";
 import { ExternalLink, LocateFixed, Minus, MousePointerClick, Move, Plus, RotateCcw } from "lucide-react";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
@@ -10,7 +11,8 @@ import worldAtlas from "world-atlas/countries-110m.json";
 import { RegimeBadge } from "@/components/ui/badges";
 import { FlagBadge } from "@/components/ui/flag-badge";
 import { formatNumber } from "@/lib/format";
-import { displayCountryName, displayRegion, displayValue } from "@/lib/i18n";
+import { inferRegimeCategory } from "@/lib/regime-classification";
+import { displayCountryName, displayRegion, displayValue, regimeLabel } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import type { CountryPoliticalProfile, RegimeCategory } from "@/lib/types";
 
@@ -35,6 +37,26 @@ type MapFeature = {
   country?: CountryPoliticalProfile;
 };
 
+type VietnamIslandGroup = {
+  name: string;
+  shortName: string;
+  note: string;
+  coordinates: [number, number][];
+  labelOffset: {
+    x: number;
+    y: number;
+  };
+};
+
+type IslandOverlay = {
+  name: string;
+  shortName: string;
+  note: string;
+  country?: CountryPoliticalProfile;
+  points: { x: number; y: number; r: number }[];
+  label: { x: number; y: number };
+};
+
 const MAP_WIDTH = 960;
 const MAP_HEIGHT = 520;
 const MIN_SCALE = 1;
@@ -42,18 +64,63 @@ const MAX_SCALE = 7;
 
 const regimeFill: Record<RegimeCategory, string> = {
   "Liberal democracy": "#10b981",
-  "Electoral democracy": "#eab308",
+  "Electoral democracy": "#facc15",
   "Electoral autocracy": "#f97316",
   "Closed autocracy": "#ef4444",
-  Unknown: "#334155"
+  Unknown: "#64748b"
 };
 
-export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfile[] }) {
-  const countriesByNumeric = useMemo(() => {
-    return new Map(countries.map((country) => [country.numericCode?.padStart(3, "0"), country]));
-  }, [countries]);
+const regimeDescriptions: Record<RegimeCategory, string> = {
+  "Liberal democracy": "Dân chủ tự do: bầu cử cạnh tranh, pháp quyền và đối trọng thể chế mạnh.",
+  "Electoral democracy": "Dân chủ bầu cử: có cạnh tranh đa đảng, chất lượng thể chế khác nhau theo từng nước.",
+  "Electoral autocracy": "Chuyên chế bầu cử: có bầu cử nhưng cạnh tranh, truyền thông hoặc đối trọng bị hạn chế.",
+  "Closed autocracy": "Chuyên chế đóng: quyền lực tập trung cao, cạnh tranh chính trị thực chất rất hạn chế.",
+  Unknown: "Chưa xác định: cần bổ sung hoặc đối chiếu nguồn chuyên ngành."
+};
 
-  const countriesByIso3 = useMemo(() => new Map(countries.map((country) => [country.iso3, country])), [countries]);
+const vietnamIslandGroups: VietnamIslandGroup[] = [
+  {
+    name: "Quần đảo Hoàng Sa",
+    shortName: "Hoàng Sa",
+    note: "Lớp hiển thị bổ sung cho khu vực quần đảo Hoàng Sa trên Biển Đông, gắn với hồ sơ Việt Nam trong bản đồ này.",
+    coordinates: [
+      [111.2, 16.1],
+      [111.7, 16.5],
+      [112.2, 16.9],
+      [112.7, 16.4],
+      [111.9, 15.8]
+    ],
+    labelOffset: { x: 10, y: -10 }
+  },
+  {
+    name: "Quần đảo Trường Sa",
+    shortName: "Trường Sa",
+    note: "Lớp hiển thị bổ sung cho khu vực quần đảo Trường Sa trên Biển Đông, gắn với hồ sơ Việt Nam trong bản đồ này.",
+    coordinates: [
+      [112.8, 8.7],
+      [113.9, 9.7],
+      [114.8, 10.7],
+      [115.8, 11.2],
+      [116.7, 9.6],
+      [114.6, 8.1]
+    ],
+    labelOffset: { x: 12, y: 16 }
+  }
+];
+
+export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfile[] }) {
+  const router = useRouter();
+
+  const classifiedCountries = useMemo(
+    () => countries.map((country) => ({ ...country, regimeCategory: inferRegimeCategory(country) })),
+    [countries]
+  );
+
+  const classifiedByNumeric = useMemo(() => {
+    return new Map(classifiedCountries.map((country) => [country.numericCode?.padStart(3, "0"), country]));
+  }, [classifiedCountries]);
+
+  const classifiedByIso3 = useMemo(() => new Map(classifiedCountries.map((country) => [country.iso3, country])), [classifiedCountries]);
 
   const mapFeatures = useMemo(() => {
     const collection = feature(
@@ -76,22 +143,59 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
         d,
         numericId,
         geoName: geo.properties?.name ?? numericId,
-        country: countriesByNumeric.get(numericId)
+        country: classifiedByNumeric.get(numericId)
       });
     }
 
     return paths;
-  }, [countriesByNumeric]);
+  }, [classifiedByNumeric]);
+
+  const vietnamIslandOverlays = useMemo(() => {
+    const collection = feature(
+      worldAtlas as never,
+      (worldAtlas.objects as Record<string, never>).countries
+    ) as unknown as { features: GeoFeature[] };
+    const projection = geoNaturalEarth1().fitSize([MAP_WIDTH, MAP_HEIGHT], collection as never);
+    const vietnam = classifiedByIso3.get("VNM");
+
+    return vietnamIslandGroups.map((group): IslandOverlay => {
+      const projectedPoints = group.coordinates
+        .map(([lng, lat], index) => {
+          const projected = projection([lng, lat]);
+          return projected ? { x: projected[0], y: projected[1], r: index === 0 ? 2.8 : 2.2 } : null;
+        })
+        .filter((point): point is { x: number; y: number; r: number } => Boolean(point));
+
+      const center = projectedPoints.reduce(
+        (acc, point) => ({ x: acc.x + point.x, y: acc.y + point.y }),
+        { x: 0, y: 0 }
+      );
+      const divisor = projectedPoints.length || 1;
+
+      return {
+        name: group.name,
+        shortName: group.shortName,
+        note: group.note,
+        country: vietnam,
+        points: projectedPoints,
+        label: {
+          x: center.x / divisor + group.labelOffset.x,
+          y: center.y / divisor + group.labelOffset.y
+        }
+      };
+    });
+  }, [classifiedByIso3]);
 
   const [activeIso3, setActiveIso3] = useState(
-    countriesByIso3.get("VNM")?.iso3 ?? mapFeatures.find((item) => item.country)?.country?.iso3
+    classifiedByIso3.get("VNM")?.iso3 ?? mapFeatures.find((item) => item.country)?.country?.iso3
   );
   const [transform, setTransform] = useState<Transform>({ scale: 1, x: 0, y: 0 });
   const [isPanning, setIsPanning] = useState(false);
   const dragStartRef = useRef<{ x: number; y: number; transform: Transform } | null>(null);
+  const pointerMovedRef = useRef(false);
 
   const activeCountry =
-    (activeIso3 ? countriesByIso3.get(activeIso3) : undefined) ?? mapFeatures.find((item) => item.country)?.country;
+    (activeIso3 ? classifiedByIso3.get(activeIso3) : undefined) ?? mapFeatures.find((item) => item.country)?.country;
 
   function setActiveCountry(country?: CountryPoliticalProfile) {
     if (country) {
@@ -122,6 +226,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
   }
 
   function handlePointerDown(event: PointerEvent<SVGSVGElement>) {
+    pointerMovedRef.current = false;
     event.currentTarget.setPointerCapture(event.pointerId);
     setIsPanning(true);
     dragStartRef.current = {
@@ -134,6 +239,10 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
   function handlePointerMove(event: PointerEvent<SVGSVGElement>) {
     if (!dragStartRef.current) {
       return;
+    }
+
+    if (Math.abs(event.clientX - dragStartRef.current.x) > 3 || Math.abs(event.clientY - dragStartRef.current.y) > 3) {
+      pointerMovedRef.current = true;
     }
 
     const next = {
@@ -159,7 +268,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
         </div>
         <span className="inline-flex items-center gap-2 rounded-md border border-amber-300/40 bg-amber-400/10 px-3 py-2 text-sm text-amber-100">
           <MousePointerClick className="h-4 w-4" aria-hidden="true" />
-          Di chuột vào từng quốc gia để xem dữ liệu
+          Di chuột để xem nhanh · Bấm để mở hồ sơ
         </span>
       </div>
 
@@ -211,39 +320,111 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
                 const fill = regimeFill[country?.regimeCategory ?? "Unknown"];
 
                 return (
-                  <Link
+                  <path
                     key={`${item.numericId}-${index}`}
-                    href={country ? `/countries/${country.iso3}` : "#map"}
+                    d={item.d}
+                    tabIndex={country ? 0 : -1}
+                    role={country ? "link" : "img"}
                     aria-label={country ? `Mở hồ sơ ${displayCountryName(country)}` : `Không có hồ sơ cho ${item.geoName}`}
-                    onClick={(event) => {
-                      if (!country) {
+                    className={cn(
+                      "outline-none transition duration-150",
+                      country ? "cursor-pointer hover:brightness-125 focus:brightness-125" : "cursor-not-allowed opacity-40"
+                    )}
+                    fill={country ? fill : "#1f2937"}
+                    fillOpacity={isActive ? 0.96 : country ? 0.82 : 0.36}
+                    stroke={isActive ? "#f8fafc" : "#0f172a"}
+                    strokeWidth={isActive ? 1.8 / transform.scale : 0.65 / transform.scale}
+                    filter={isActive ? "url(#country-glow)" : undefined}
+                    vectorEffect="non-scaling-stroke"
+                    onMouseEnter={() => setActiveCountry(country)}
+                    onFocus={() => setActiveCountry(country)}
+                    onClick={() => {
+                      setActiveCountry(country);
+                      if (country && !pointerMovedRef.current) {
+                        router.push(`/countries/${country.iso3}`);
+                      }
+                    }}
+                    onKeyDown={(event) => {
+                      if (country && (event.key === "Enter" || event.key === " ")) {
                         event.preventDefault();
+                        router.push(`/countries/${country.iso3}`);
                       }
                     }}
                   >
-                    <path
-                      d={item.d}
-                      tabIndex={country ? 0 : -1}
-                      className={cn(
-                        "outline-none transition duration-150",
-                        country ? "cursor-pointer hover:brightness-125 focus:brightness-125" : "cursor-not-allowed opacity-40"
-                      )}
-                      fill={country ? fill : "#1f2937"}
-                      fillOpacity={isActive ? 0.96 : country ? 0.78 : 0.36}
-                      stroke={isActive ? "#f8fafc" : "#0f172a"}
-                      strokeWidth={isActive ? 1.8 / transform.scale : 0.65 / transform.scale}
-                      filter={isActive ? "url(#country-glow)" : undefined}
+                    <title>
+                      {country
+                        ? `${displayCountryName(country)} · ${regimeLabel(country.regimeCategory)} · ${displayValue(country.governmentSystem)}`
+                        : `${item.geoName} · chưa có hồ sơ`}
+                    </title>
+                  </path>
+                );
+              })}
+
+              {vietnamIslandOverlays.map((group) => {
+                const country = group.country;
+                const isActive = activeCountry?.iso3 === "VNM";
+                const fill = regimeFill[country?.regimeCategory ?? "Electoral autocracy"];
+
+                return (
+                  <g
+                    key={group.name}
+                    role="link"
+                    tabIndex={0}
+                    aria-label={`${group.name} — bấm để mở hồ sơ Việt Nam`}
+                    className="cursor-pointer outline-none transition duration-150 hover:brightness-125 focus:brightness-125"
+                    filter={isActive ? "url(#country-glow)" : undefined}
+                    onMouseEnter={() => setActiveCountry(country)}
+                    onFocus={() => setActiveCountry(country)}
+                    onClick={() => {
+                      setActiveCountry(country);
+                      if (country && !pointerMovedRef.current) {
+                        router.push(`/countries/${country.iso3}`);
+                      }
+                    }}
+                    onKeyDown={(event) => {
+                      if (country && (event.key === "Enter" || event.key === " ")) {
+                        event.preventDefault();
+                        router.push(`/countries/${country.iso3}`);
+                      }
+                    }}
+                  >
+                    {group.points.map((point, index) => (
+                      <circle
+                        key={`${group.name}-${index}`}
+                        cx={point.x}
+                        cy={point.y}
+                        r={point.r}
+                        fill={fill}
+                        fillOpacity={isActive ? 0.98 : 0.88}
+                        stroke="#f8fafc"
+                        strokeWidth={0.75 / transform.scale}
+                        vectorEffect="non-scaling-stroke"
+                      />
+                    ))}
+                    {group.points.length > 1 ? (
+                      <path
+                        d={group.points.map((point, index) => `${index === 0 ? "M" : "L"}${point.x},${point.y}`).join(" ")}
+                        fill="none"
+                        stroke={fill}
+                        strokeDasharray="2 2"
+                        strokeOpacity={0.5}
+                        strokeWidth={0.7 / transform.scale}
+                        vectorEffect="non-scaling-stroke"
+                      />
+                    ) : null}
+                    <text
+                      x={group.label.x}
+                      y={group.label.y}
+                      className="pointer-events-none select-none fill-teal-100 text-[9px] font-semibold tracking-wide"
+                      paintOrder="stroke"
+                      stroke="#07101f"
+                      strokeWidth={3 / transform.scale}
                       vectorEffect="non-scaling-stroke"
-                      onMouseEnter={() => setActiveCountry(country)}
-                      onFocus={() => setActiveCountry(country)}
                     >
-                      <title>
-                        {country
-                          ? `${displayCountryName(country)} · ${displayValue(country.governmentSystem)}`
-                          : `${item.geoName} · chưa có hồ sơ`}
-                      </title>
-                    </path>
-                  </Link>
+                      {group.shortName}
+                    </text>
+                    <title>{`${group.name} · Việt Nam · ${group.note}`}</title>
+                  </g>
                 );
               })}
             </g>
@@ -269,6 +450,11 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
                 </span>
               </div>
 
+              <div className="rounded-md border border-slate-700 bg-slate-950/70 p-3 text-sm leading-6 text-slate-300">
+                <p className="font-medium text-slate-100">{regimeLabel(activeCountry.regimeCategory)}</p>
+                <p className="mt-1">{regimeDescriptions[activeCountry.regimeCategory ?? "Unknown"]}</p>
+              </div>
+
               <dl className="grid gap-3 text-sm">
                 <MapFact label="Thủ đô" value={activeCountry.capital} />
                 <MapFact label="Dân số" value={formatNumber(activeCountry.population)} />
@@ -292,7 +478,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
       </div>
 
       <div className="flex flex-wrap items-center gap-2 p-5">
-        <span className="mr-1 text-sm text-slate-400">Chú giải chế độ:</span>
+        <span className="mr-1 text-sm text-slate-400">Chú giải màu theo nhóm chế độ:</span>
         <RegimeBadge value="Liberal democracy" />
         <RegimeBadge value="Electoral democracy" />
         <RegimeBadge value="Electoral autocracy" />
@@ -300,7 +486,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
         <RegimeBadge value="Unknown" />
         <span className="ml-auto inline-flex items-center gap-2 text-xs text-slate-500">
           <LocateFixed className="h-3.5 w-3.5" aria-hidden="true" />
-          Ranh giới quốc gia được hiển thị để quan sát và so sánh trực quan
+Có lớp bổ sung Hoàng Sa và Trường Sa gần Việt Nam để quan sát trực quan
         </span>
       </div>
     </section>

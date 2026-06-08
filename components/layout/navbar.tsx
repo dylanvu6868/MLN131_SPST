@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bot, GitCompare, Globe2, Map, Menu, Newspaper, Scale, Shield, Trophy, X } from "lucide-react";
+import { GitCompare, Globe2, Map, Menu, Newspaper, Scale, Shield, Trophy, X } from "lucide-react";
 
 const links = [
   { href: "/", label: "Bản đồ", icon: Map },
@@ -67,14 +67,6 @@ export function Navbar() {
 
         {/* Right side actions */}
         <div className="flex items-center gap-2">
-          <a
-            href="#atlas-ai"
-            className="atlas-button focus-ring px-3 text-sm"
-            aria-label="Mở Atlas AI"
-          >
-            <Bot className="h-4 w-4 shrink-0" aria-hidden="true" />
-            <span className="hidden sm:inline">Atlas AI</span>
-          </a>
           <button
             className="focus-ring grid h-9 w-9 place-items-center rounded-md border border-slate-700 bg-slate-950/80 text-slate-200 transition hover:border-amber-300/40 hover:text-amber-100 xl:hidden"
             aria-label={mobileOpen ? "Đóng menu" : "Mở menu điều hướng"}

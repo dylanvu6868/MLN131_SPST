@@ -6,9 +6,27 @@ import {
   searchCountries as searchCountryProfiles
 } from "@/lib/countries";
 import { fetchRestCountriesData as fetchRestCountriesBaseData } from "@/lib/data-sync/restcountries";
+import { FirecrawlError, searchFirecrawlResearch, type FirecrawlSourceType } from "@/lib/data-sync/firecrawl";
 import { queryWikidata } from "@/lib/data-sync/wikidata";
 import { getGlobalStats } from "@/lib/stats";
-import type { CountryPoliticalProfile } from "@/lib/types";
+import type { CountryPoliticalProfile, CountrySearchFilters } from "@/lib/types";
+
+type SearchCountriesToolInput = Pick<
+  CountrySearchFilters,
+  | "region"
+  | "regimeCategory"
+  | "officialIdeology"
+  | "governmentSystem"
+  | "stateForm"
+  | "hasCommunistRulingParty"
+  | "hasMilitaryGovernment"
+  | "isMonarchy"
+  | "isRepublic"
+  | "isFederal"
+  | "isUnitary"
+> & {
+  keyword?: string;
+};
 
 function isSafeSelectSparql(sparql: string) {
   const lowered = sparql.trim().toLowerCase();
@@ -47,8 +65,8 @@ export const atlasTools = {
       isFederal: z.boolean().optional().describe("Có phải liên bang hay không."),
       isUnitary: z.boolean().optional().describe("Có phải đơn nhất hay không.")
     }),
-    execute: async (args: any) => {
-      const results = searchCountryProfiles({ ...args, limit: 20 });
+    execute: async ({ keyword, ...filters }: SearchCountriesToolInput) => {
+      const results = searchCountryProfiles({ ...filters, search: keyword, limit: 20 });
       return {
         results: results.data,
         total: results.total
@@ -133,21 +151,71 @@ export const atlasTools = {
   },
 
   webResearchPoliticalData: {
-    description: "Ghi nhận yêu cầu nghiên cứu ngoài khi dữ liệu nội bộ chưa đủ. Tool này chỉ trả hướng dẫn nếu chưa có tích hợp nguồn đáng tin cậy.",
+    description: "Tìm và trích xuất nguồn web bằng Firecrawl khi dữ liệu nội bộ chưa đủ, kèm đánh giá sơ bộ độ tin cậy nguồn.",
     inputSchema: z.object({
-      query: z.string().describe("Câu hỏi nghiên cứu."),
+      query: z.string().max(500).describe("Câu hỏi nghiên cứu hoặc truy vấn tìm kiếm."),
       country: z.string().optional().describe("Ngữ cảnh quốc gia tùy chọn."),
-      fieldsNeeded: z.array(z.string()).optional().describe("Các trường cần xác minh ngoài.")
+      fieldsNeeded: z.array(z.string()).optional().describe("Các trường cần xác minh ngoài."),
+      sources: z.array(z.enum(["web", "news"])).optional().describe("Nguồn Firecrawl cần tìm. Mặc định là web."),
+      includeDomains: z.array(z.string()).optional().describe("Giới hạn tìm kiếm trong các hostname cụ thể, ví dụ cia.gov hoặc worldbank.org."),
+      excludeDomains: z.array(z.string()).optional().describe("Loại trừ các hostname cụ thể."),
+      tbs: z.string().optional().describe("Bộ lọc thời gian Firecrawl/Google, ví dụ qdr:m hoặc sbd:1,qdr:y."),
+      limit: z.number().int().min(1).max(10).optional().describe("Số kết quả tối đa.")
     }),
-    execute: async ({ query, country, fieldsNeeded }: { query: string; country?: string; fieldsNeeded?: string[] }) => {
-      return {
-        findings: [],
-        warnings: [
-          "Nghiên cứu web bên ngoài chưa được bật trong route server này.",
-          "Hãy dùng nguồn đáng tin cậy như Wikidata, CIA World Factbook, OWID, V-Dem, World Bank, UN Data, IMF hoặc trang chính thức của chính phủ/cơ quan lập pháp."
-        ],
-        request: { query, country, fieldsNeeded }
-      };
+    execute: async ({
+      query,
+      country,
+      fieldsNeeded,
+      sources,
+      includeDomains,
+      excludeDomains,
+      tbs,
+      limit
+    }: {
+      query: string;
+      country?: string;
+      fieldsNeeded?: string[];
+      sources?: FirecrawlSourceType[];
+      includeDomains?: string[];
+      excludeDomains?: string[];
+      tbs?: string;
+      limit?: number;
+    }) => {
+      const enrichedQuery = [query, country, fieldsNeeded?.length ? `fields: ${fieldsNeeded.join(", ")}` : ""]
+        .filter(Boolean)
+        .join(" ");
+
+      try {
+        const research = await searchFirecrawlResearch({
+          query: enrichedQuery,
+          limit,
+          sources,
+          includeDomains,
+          excludeDomains,
+          tbs,
+          scrapeMarkdown: true
+        });
+
+        return {
+          ...research,
+          request: { query, country, fieldsNeeded },
+          guidance: [
+            "Source quality is a heuristic based on domain class, not a final factual verdict.",
+            "Use high-quality institutional or official sources first when updating political fields.",
+            "If sources disagree, report the disagreement and keep confidence below high."
+          ]
+        };
+      } catch (error) {
+        return {
+          configured: true,
+          query: enrichedQuery,
+          generatedAt: new Date().toISOString(),
+          results: [],
+          error: error instanceof Error ? error.message : "Firecrawl research failed.",
+          status: error instanceof FirecrawlError ? error.status : 500,
+          request: { query, country, fieldsNeeded }
+        };
+      }
     }
   }
 };

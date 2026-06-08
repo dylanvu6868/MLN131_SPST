@@ -24,7 +24,7 @@ type NewsResponse = {
     name: string;
   };
   generatedAt: string;
-  provider?: "tavily" | "tavify" | "serpapi";
+  provider?: "tavily" | "tavify" | "serpapi" | "firecrawl";
   articles: NewsArticle[];
   query?: string;
   message?: string;

@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 
-import { AtlasChatbot } from "@/components/chatbot/atlas-chatbot";
 import { CountryProfile } from "@/components/countries/country-profile";
 import { findCountry, getAllCountries } from "@/lib/countries";
 import { displayCountryName } from "@/lib/i18n";
@@ -35,11 +34,8 @@ export default async function CountryDetailPage({ params }: PageProps) {
   }
 
   return (
-    <main className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
+    <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <CountryProfile country={country} />
-      <div className="lg:sticky lg:top-24 lg:self-start">
-        <AtlasChatbot contextCountry={country.iso3} compact />
-      </div>
     </main>
   );
 }

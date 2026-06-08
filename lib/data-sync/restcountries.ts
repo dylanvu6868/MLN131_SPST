@@ -5,6 +5,7 @@ import politicalOverrides from "@/data/political-overrides.json";
 import { clearCountryCache } from "@/lib/countries";
 import { upsertCountryProfiles } from "@/lib/db";
 import { fetchWikidataPoliticalIndex } from "@/lib/data-sync/wikidata";
+import { enrichPoliticalDefaults } from "@/lib/regime-classification";
 import type { CountryPoliticalProfile, DataSource, Region } from "@/lib/types";
 import { CountryPoliticalProfilesSchema } from "@/lib/validation/country";
 
@@ -114,6 +115,7 @@ export async function syncCountriesToDatabase(options: SyncOptions = {}) {
     .map((country) => normalizeRestCountry(country, retrievedAt))
     .map((profile) => mergeProfile(profile, overrides[profile.iso3]))
     .map((profile) => mergeProfile(profile, wikidataIndex[profile.iso3]))
+    .map(enrichPoliticalDefaults)
     .sort((a, b) => a.countryName.localeCompare(b.countryName));
 
   const parsed = CountryPoliticalProfilesSchema.parse(profiles);

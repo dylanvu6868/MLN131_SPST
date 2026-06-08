@@ -17,7 +17,7 @@ export function formatNumber(value?: number) {
     return "Chưa có dữ liệu";
   }
 
-  return new Intl.NumberFormat("en", {
+  return new Intl.NumberFormat("vi-VN", {
     notation: value >= 1_000_000 ? "compact" : "standard",
     maximumFractionDigits: 1
   }).format(value);
@@ -28,5 +28,5 @@ export function formatPlainNumber(value?: number) {
     return "Chưa có dữ liệu";
   }
 
-  return new Intl.NumberFormat("en").format(value);
+  return new Intl.NumberFormat("vi-VN").format(value);
 }

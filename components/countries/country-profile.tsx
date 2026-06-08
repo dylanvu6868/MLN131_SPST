@@ -67,8 +67,8 @@ export function CountryProfile({ country }: { country: CountryPoliticalProfile }
           <Fact label="GDP" value={country.gdp ? formatPlainNumber(country.gdp) : undefined} />
           <Fact label="GDP bình quân đầu người" value={country.gdpPerCapita ? formatPlainNumber(country.gdpPerCapita) : undefined} />
           <Fact label="Đảng cộng sản cầm quyền" value={flagValue(country.hasCommunistRulingParty)} />
-          <Fact label="Quân chủ / Cộng hòa" value={country.isMonarchy ? "Quân chủ" : country.isRepublic ? "Cộng hòa" : "Cần xác minh"} />
-          <Fact label="Liên bang / Đơn nhất" value={country.isFederal ? "Liên bang" : country.isUnitary ? "Đơn nhất" : "Cần xác minh"} />
+          <Fact label="Quân chủ / Cộng hòa" value={country.isMonarchy ? "Quân chủ" : country.isRepublic ? "Cộng hòa" : "Lãnh thổ/vùng tự trị hoặc cơ chế đặc thù"} />
+          <Fact label="Liên bang / Đơn nhất" value={country.isFederal ? "Liên bang" : country.isUnitary ? "Đơn nhất" : "Không áp dụng trực tiếp với lãnh thổ/cơ chế đặc thù"} />
         </ProfilePanel>
       </div>
 
@@ -136,7 +136,7 @@ function Fact({ label, value }: { label: string; value?: string | number | null 
 
 function flagValue(value?: boolean) {
   if (typeof value !== "boolean") {
-    return "Cần xác minh";
+    return "Không áp dụng hoặc chưa có cờ dữ liệu riêng";
   }
   return value ? "Có" : "Không";
 }

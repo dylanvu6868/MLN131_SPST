@@ -1,6 +1,7 @@
+import { getFirecrawlKey, searchFirecrawlResearch } from "@/lib/data-sync/firecrawl";
 import type { CountryPoliticalProfile } from "@/lib/types";
 
-export type NewsProvider = "auto" | "tavily" | "tavify" | "serpapi";
+export type NewsProvider = "auto" | "tavily" | "tavify" | "serpapi" | "firecrawl";
 
 export type NewsArticle = {
   title: string;
@@ -56,7 +57,8 @@ export function getAvailableNewsProviders() {
   return {
     tavily: Boolean(getTavilyKey()),
     tavify: Boolean(getTavilyKey()),
-    serpapi: Boolean(getSerpApiKey())
+    serpapi: Boolean(getSerpApiKey()),
+    firecrawl: Boolean(getFirecrawlKey())
   };
 }
 
@@ -114,18 +116,21 @@ function getAutomaticProviderOrder(): Exclude<NewsProvider, "auto">[] {
   if (preferred) {
     order.push(preferred);
   }
-  order.push("serpapi", "tavily");
+  order.push("serpapi", "firecrawl", "tavily");
 
   return Array.from(new Set(order)).filter((provider) => {
     if (provider === "serpapi") {
       return Boolean(getSerpApiKey());
+    }
+    if (provider === "firecrawl") {
+      return Boolean(getFirecrawlKey());
     }
     return Boolean(getTavilyKey());
   });
 }
 
 function normalizePreferredProvider(value?: string): Exclude<NewsProvider, "auto"> | null {
-  if (value === "serpapi" || value === "tavily" || value === "tavify") {
+  if (value === "serpapi" || value === "tavily" || value === "tavify" || value === "firecrawl") {
     return value;
   }
   return null;
@@ -140,12 +145,17 @@ function searchWithProvider(
     return searchSerpApiNews(country, query);
   }
 
+  if (selectedProvider === "firecrawl") {
+    return searchFirecrawlNews(country, query);
+  }
+
   return searchTavilyNews(query, selectedProvider);
 }
 
 function chooseProvider(provider: NewsProvider): Exclude<NewsProvider, "auto"> {
   const hasTavily = Boolean(getTavilyKey());
   const hasSerpApi = Boolean(getSerpApiKey());
+  const hasFirecrawl = Boolean(getFirecrawlKey());
 
   if (provider === "tavily" || provider === "tavify") {
     if (!hasTavily) {
@@ -161,8 +171,19 @@ function chooseProvider(provider: NewsProvider): Exclude<NewsProvider, "auto"> {
     return provider;
   }
 
+  if (provider === "firecrawl") {
+    if (!hasFirecrawl) {
+      throw new NewsProviderError("Firecrawl chưa được kết nối. Hãy cung cấp FIRECRAWL_API_KEY để dùng kênh này.", 503);
+    }
+    return provider;
+  }
+
   if (hasSerpApi) {
     return "serpapi";
+  }
+
+  if (hasFirecrawl) {
+    return "firecrawl";
   }
 
   if (hasTavily) {
@@ -248,6 +269,34 @@ async function searchSerpApiNews(country: CountryPoliticalProfile, query: string
     provider: "serpapi",
     query,
     articles: mergedResults.slice(0, 12).map((result, index) => mapSerpApiArticle(result, index, mergedResults.length))
+  };
+}
+
+async function searchFirecrawlNews(country: CountryPoliticalProfile, query: string): Promise<NewsSearchResult> {
+  const result = await searchFirecrawlResearch({
+    query,
+    country: country.iso2,
+    sources: ["news"],
+    tbs: "qdr:d",
+    limit: 12,
+    scrapeMarkdown: true
+  });
+
+  if (!result.configured) {
+    throw new NewsProviderError("Firecrawl chưa được kết nối. Hãy cung cấp FIRECRAWL_API_KEY để dùng kênh này.", 503);
+  }
+
+  return {
+    provider: "firecrawl",
+    query: result.query,
+    articles: result.results.map((item, index) => ({
+      title: item.title,
+      url: item.url,
+      content: item.description ?? item.markdownPreview ?? "",
+      publishedDate: item.publishedDate,
+      source: item.sourceHost,
+      score: 1 - index / Math.max(result.results.length, 1)
+    }))
   };
 }
 

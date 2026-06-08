@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter, Crimson_Text } from "next/font/google";
 
+import { AtlasChatbotWidget } from "@/components/chatbot/atlas-chatbot-widget";
 import { Navbar } from "@/components/layout/navbar";
 import "./globals.css";
 
@@ -54,6 +55,7 @@ export default function RootLayout({
         </a>
         <Navbar />
         <div id="main-content">{children}</div>
+        <AtlasChatbotWidget />
       </body>
     </html>
   );

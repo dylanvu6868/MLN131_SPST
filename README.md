@@ -83,6 +83,12 @@ Hồ sơ quốc gia theo type `CountryPoliticalProfile` trong `lib/types.ts` và
 - `queryWikidata`
 - `webResearchPoliticalData`
 
+`webResearchPoliticalData` dùng `FIRECRAWL_API_KEY` qua Firecrawl v2 search để tìm/scrape markdown và trả đánh giá sơ bộ chất lượng nguồn. Có thể dùng alias `FIRECRAWL_KEY` hoặc `FIRECRAWL` nếu cần.
+
+Trang tin tức cũng có thể dùng Firecrawl khi đặt `NEWS_SEARCH_PROVIDER=firecrawl`; chế độ `auto` sẽ dùng Firecrawl làm nguồn dự phòng nếu key có sẵn.
+
+Chatbot ưu tiên tốc độ qua `ATLAS_CHATBOT_MODEL` và mặc định dùng `gemini-2.5-flash-lite` khi `ATLAS_AI_FAST_MODE` không bị đặt thành `false`.
+
 ## Phương pháp luận
 
 World Ideology Atlas không gán quốc gia vào một nhãn chính trị duy nhất. Hồ sơ tách riêng hệ tư tưởng chính thức, bản sắc hiến định, mô hình chính phủ, hình thức nhà nước, chế độ chính trị, cấu trúc quyền lực, lãnh đạo, cơ quan lập pháp, kinh tế, nguồn, ngày cập nhật và mức độ tin cậy.

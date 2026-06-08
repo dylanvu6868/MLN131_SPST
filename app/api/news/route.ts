@@ -59,7 +59,7 @@ export async function GET(request: Request) {
 function normalizeProvider(value: string | null): NewsProvider {
   const selected = value === "auto" || !value ? "auto" : value;
 
-  if (selected === "tavily" || selected === "tavify" || selected === "serpapi") {
+  if (selected === "tavily" || selected === "tavify" || selected === "serpapi" || selected === "firecrawl") {
     return selected;
   }
 

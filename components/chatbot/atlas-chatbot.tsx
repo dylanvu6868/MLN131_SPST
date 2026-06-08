@@ -5,12 +5,26 @@ import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { Bot, Loader2, Send, Sparkles } from "lucide-react";
 
+function getToolPartName(part: { type: string }) {
+  if (part.type === "dynamic-tool" && "toolName" in part && typeof part.toolName === "string") {
+    return part.toolName;
+  }
+
+  if (part.type.startsWith("tool-")) {
+    return part.type.slice("tool-".length);
+  }
+
+  return null;
+}
+
 export function AtlasChatbot({
   contextCountry,
-  compact = false
+  compact = false,
+  embedded = false
 }: {
   contextCountry?: string;
   compact?: boolean;
+  embedded?: boolean;
 }) {
   const [input, setInput] = useState(contextCountry ? `Giải thích hồ sơ chính trị của ${contextCountry}` : "");
   
@@ -40,7 +54,12 @@ export function AtlasChatbot({
   };
 
   return (
-    <section id="atlas-ai" className="atlas-surface rounded-lg p-4 sm:p-5" aria-labelledby="atlas-ai-title">
+    <section
+      id={embedded ? undefined : "atlas-ai"}
+      className={embedded ? "p-4" : "atlas-surface rounded-lg p-4 sm:p-5"}
+      aria-labelledby="atlas-ai-title"
+    >
+      {!embedded ? (
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <span className="grid h-10 w-10 place-items-center rounded-md border border-teal-300/40 bg-teal-400/15">
@@ -55,19 +74,21 @@ export function AtlasChatbot({
         </div>
         <Sparkles className="h-5 w-5 text-amber-200" aria-hidden="true" />
       </div>
+      ) : null}
 
-      <div className={compact ? "mt-4 max-h-[360px] space-y-3 overflow-y-auto pr-1" : "mt-4 max-h-[520px] space-y-3 overflow-y-auto pr-1"}>
+      <div className={embedded ? "max-h-[430px] space-y-3 overflow-y-auto pr-1" : compact ? "mt-4 max-h-[360px] space-y-3 overflow-y-auto pr-1" : "mt-4 max-h-[520px] space-y-3 overflow-y-auto pr-1"}>
         {visibleMessages.map((message) => (
           <div
             key={message.id}
             className={message.role === "assistant" ? "rounded-lg border border-slate-700 bg-slate-950/55 p-3" : "rounded-lg border border-teal-400/30 bg-teal-400/10 p-3"}
           >
             <p className="whitespace-pre-wrap text-sm leading-6 text-slate-100">
-              {message.parts ? message.parts.map((part: any, index: number) => {
+              {message.parts ? message.parts.map((part, index) => {
                 if (part.type === "text") return <span key={index}>{part.text}</span>;
-                if (part.type === "tool-invocation") return (
+                const toolName = getToolPartName(part);
+                if (toolName) return (
                   <span key={index} className="block mt-2 text-xs italic text-teal-300/70">
-                    Tra cứu công cụ: {part.toolInvocation.toolName}...
+                    Tra cứu công cụ: {toolName}...
                   </span>
                 );
                 return null;

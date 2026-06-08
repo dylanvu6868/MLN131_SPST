@@ -4,7 +4,7 @@ import { getAllCountries } from "@/lib/countries";
 
 const branches = [
   {
-    title: "Marxism-Leninism",
+    title: "Chủ nghĩa Marx-Lenin",
     body: "Một truyền thống xã hội chủ nghĩa cách mạng gắn với cấu trúc nhà nước do đảng lãnh đạo và các thiết chế kinh tế kế hoạch hóa hoặc do nhà nước định hướng."
   },
   {

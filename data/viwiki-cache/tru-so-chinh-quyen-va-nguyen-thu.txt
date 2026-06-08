@@ -1,0 +1,842 @@
+Khái niệm '''Trụ sở chính quyền và nguyên thủ quốc gia''' được hiểu theo nghĩa rộng là nơi đặt cơ quan chính quyền và hành chính cao nhất của đất nước, nơi làm việc (đôi khi kiêm nơi sống) của nguyên thủ quốc gia.
+
+Do đặc thù các nước và vùng lãnh thổ, nguyên thủ quốc gia có các chức danh với tên gọi khác nhau như tổng thống, thủ tướng, chủ tịch nước, chưởng lý, tổng lý, tổng trưởng, trưởng đặc khu, công trình Trụ sở chính quyền và nguyên thủ quốc gia được gọi với nhiều tên gọi khác nhau như phủ tổng thống, dinh chủ tịch, tòa nhà chính phủ,... hoặc có khi được gọi thẳng với tên riêng như [[Nhà Trắng]], [[số 10 phố Downing]], [[Nhà Xanh]], [[Trung Nam Hải]], [[Kremlin Moskva|Điện Kremli]], [[Phủ chủ tịch]]... Trụ sở này có khi chỉ đóng vai trò là nơi làm việc nhưng có khi kiêm luôn nơi ở cho nguyên thủ đương nhiệm và gia đình.
+
+Đôi khi, tên gọi công trình này đồng nghĩa với sự lãnh đạo và chính quyền của nguyên thủ nhà nước ấy, như thuật ngữ [[Nhà Trắng]] để chỉ [[Chính quyền liên bang Hoa Kỳ]] hay thuật ngữ [[Số 10 phố Downing]] để đề cập chính quyền của [[thủ tướng Anh]], thuật ngữ [[Nhà Xanh|Nhà xanh]] thay cho chính quyền [[Hàn Quốc|Đại Hàn Dân Quốc]].
+
+== Danh sách ==
+Dưới đây là danh sách công trình trụ sở chính quyền và nguyên thủ quốc gia.
+===Châu Phi===
+{|class="wikitable sortable"
+! style="text-align:left;width:200px" | Đất nước !! Công trình !! Ghi chú !! Hình ảnh
+|-
+| {{ALG}}
+| [[El Mouradia]], [[Algiers]]
+|
+|
+|-
+| {{ANG}}
+| [[Presidential Palace, Luanda|Presidential Palace]], [[Luanda]]
+| <ref>{{chú thích web|title=Palace (in Angola)|url=http://www.roctest-group.com/node/510|publisher=Roctest Group|access-date =ngày 8 tháng 2 năm 2014|archive-date = ngày 21 tháng 2 năm 2014 |archive-url=https://web.archive.org/web/20140221171324/http://www.roctest-group.com/node/510}}</ref>
+|
+|-
+|{{BEN}}
+|[[Palais de la Marina, Cotonou|Palais de la Marina]], [[Cotonou]]
+|<ref>{{chú thích web|title=Palace (in Benin)|url=http://www.palais-marina.bj|ngày truy cập=2021-05-26|archive-date = ngày 13 tháng 3 năm 2016 |archive-url=https://web.archive.org/web/20160313090223/http://www.palais-marina.bj/}}</ref>
+|
+|-
+| {{BOT}}
+| [[Presidential Palace, Gaborone|Presidential Palace]], [[Gaborone]]
+| <ref>{{chú thích web|title=Entrance to the Presidential Palace, Gaborone, Botswana|url=http://www.agefotostock.com/en/Stock-Images/Rights-Managed/AAI-D-AAIA-0123|publisher=www.agefotostock.com|access-date =ngày 25 tháng 3 năm 2013}}</ref>
+|
+|-
+| {{CPV}}
+| [[Palácio Presidencial]], [[Praia]]
+|
+|[[Tập tin:Praia-Palácio Presidencial (1).jpg|150px]]
+|-
+| {{CMR}}
+| The Unity Palace, [[Yaoundé]]
+|
+|[[Tập tin:YaoundeUnityPalace.png|frameless|151x151px]]
+|-
+| {{CGO}}
+| [[Palais du Peuple (Congo)|Palais du Peuple]], [[Brazzaville]]
+|<ref>{{chú thích web|title=Clin d'œil historique|url=http://www.presidence.cg/palais_presidentiel/historique.php|publisher=Presidency of the Republic of Congo|language=fr|access-date =ngày 6 tháng 2 năm 2014|archive-date = ngày 31 tháng 7 năm 2019 |archive-url=https://web.archive.org/web/20190731214256/http://www.presidence.cg/palais_presidentiel/historique.php}}</ref>
+|
+|-
+| {{COD}}
+| [[Palais de la Nation (Kinshasa)|Palais de la Nation]], [[Kinshasa]]
+|<ref>{{chú thích web|title=Photo of Palais de la Nation, Kinshasa, DRC|url=https://www.panoramio.com/photo/2993685|publisher=Panoramio|access-date =ngày 6 tháng 2 năm 2014|archive-date = ngày 4 tháng 3 năm 2016 |archive-url=https://web.archive.org/web/20160304002958/http://www.panoramio.com/photo/2993685}}</ref>
+| [[Hình:Palais de la nation.jpg|150px]]
+|-
+|rowspan="2"|{{Flag|Côte d'Ivoire}}
+| Presidential Palace, [[Abidjan]]
+|
+|
+|-
+| Presidential Palace, [[Yamoussoukro]]
+|
+|
+|-
+| {{DJI}}
+| [[Presidential Palace (Djibouti)|Presidential Palace]], [[Djibouti City]]
+|<ref>{{chú thích web|title=Presidential Palaces Djibouti, Kenya iyo Somalia|url=http://www.somalinet.com/forums/viewtopic.php?f=18&t=237625|publisher=somalinet|language=so|access-date =ngày 5 tháng 2 năm 2014}}</ref>
+|
+|-
+| {{EGY}}
+| [[Abdeen Palace]], [[Cairo]]<br />[[Heliopolis Palace]], Cairo<br />[[Koubbeh Palace]], Cairo<br />[[Montaza Palace]], [[Alexandria]]<br />[[Ras el-Tin Palace]], Alexandria
+|
+|
+|-
+| {{EQG}}
+| [[Malabo Government Building]], [[Malabo]]
+|
+|
+|-
+| {{ERI}}
+| [[Asmara President's Office]], [[Asmara]]
+|
+| [[Tập tin:Asmarapalazzodelgovernatore.png|150px]]
+|-
+| {{ETH}}
+| [[National Palace (Ethiopia)|National Palace, Addis Ababa]]
+|
+|
+|-
+| {{GAB}}
+| Presidential Palace, [[Libreville]]
+|<ref>{{chú thích báo|title=Landmarks in Gabon, Africa|url=http://traveltips.usatoday.com/landmarks-gabon-africa-59728.html|newspaper=USA Today|access-date=ngày 8 tháng 2 năm 2014|archive-date=2014-02-21|archive-url=https://web.archive.org/web/20140221052851/http://traveltips.usatoday.com/landmarks-gabon-africa-59728.html|url-status=dead}}</ref>
+|
+|-
+| {{GAM}}
+| [[State House of the Gambia]], [[Banjul]]
+|
+|
+|-
+| {{GHA}}
+| [[Jubilee House]], [[Accra]]
+|
+|[[Hình:Golden Jubilee House.jpg|150px]]
+|-
+| {{GUI}}
+| [[Presidential Palace, Conakry|Presidential Palace]], [[Conakry]]
+|
+|
+|-
+| {{GBS}}
+| [[Presidential Palace, Bissau|Presidential Palace]], [[Bissau]]
+|<ref>{{chú thích báo|title=Guinea-Bissau Opens China-Funded Presidential Palace|url=http://www.foxnews.com/world/2013/07/06/guinea-bissau-opens-china-funded-presidential-palace/|work=[[Fox News]]|date=ngày 6 tháng 7 năm 2013|access-date =ngày 5 tháng 2 năm 2014}}</ref>
+|
+|-
+| {{KEN}}
+| [[State House (Kenya)|State House]], [[Nairobi]]
+|
+| [[Hình:State House Nairobi.jpg|150px]]
+|-
+| {{LBR}}
+| [[Executive Mansion (Liberia)|Executive Mansion]], [[Monrovia]]
+| <ref>[http://allafrica.com/stories/201308291200.html Executive Mansion in 'Terrible Condition' - Gongloe Raises Alarms], ''[[Heritage (Liberia)|Heritage]]'' via [[AllAfrica.com]], ngày 29 tháng 8 năm 2013. Truy cập ngày 29 tháng 1 năm 2014.</ref>
+|
+|-
+| rowspan="2"|{{MAD}}
+| [[Iavoloha Palace]], [[Antananarivo]]
+|
+| [[Tập tin:Iavoloha palace.jpg|150px]]
+|-
+| [[Ambohitsorohitra Palace]], [[Antananarivo]]
+| Ceremonial residence
+| [[Tập tin:Ambohitsorohitra Palace Antananarivo Madagascar.jpg|150px]]
+|-
+| {{MWI}}
+| [[Kamuzu Palace]], [[Lilongwe]]
+|
+|
+|-
+| {{MLI}}
+| Presidential Palace, [[Bamako]]
+|<ref>{{chú thích web|title=The Presidential Palace, Bamako, Mali|url=https://www.myspace.com/onenationonegoalones/photos/2628300|publisher=www.myspace.com|access-date =ngày 27 tháng 3 năm 2013}}</ref>
+|
+|-
+| {{MRT}}
+| [[Presidential Palace (Mauritania)|Presidential Palace]], [[Nouakchott]]
+|
+|
+|-
+| {{MRI}}
+| [[State House (Mauritius)]], [[Reduit]]
+|
+|
+|-
+| {{MOZ}}
+| [[Palácio da Ponta Vermelha]], [[Maputo]]
+|
+|
+|-
+| {{NAM}}
+| [[State House of Namibia]], [[Windhoek]]
+|
+|
+|-
+| {{NGR}}
+| [[Nigerian Presidential Complex]], [[Abuja]]
+|
+|
+|-
+| {{RWA}}
+| [[Urugwiro]], [[Kigali]]
+|
+|
+|-
+| {{STP}}
+| Presidential Palace, [[São Tomé]]
+|<ref>{{chú thích web|title=Presidential Palace - Picture of Sao Tome Island|url=http://www.tripadvisor.co.uk/LocationPhotoDirectLink-g480235-i43481295-Sao_Tome_Island.html|publisher=tripadvisor.co.uk|access-date =ngày 8 tháng 2 năm 2014}}</ref>
+|[[Tập tin:Sao tome palace.jpg|150px]]
+|-
+| {{SEN}}
+| [[Presidential Palace, Dakar|Presidential Palace]], [[Dakar]]
+|<ref>{{chú thích web|title=Presidential Palace Senegal|url=http://bindakar.wordpress.com/2011/09/02/senegalese-presidential-palace/|publisher=Wordpress|access-date =ngày 5 tháng 2 năm 2014}}</ref>
+|
+|-
+| {{SEY}}
+| [[State House (Seychelles)|State House]], [[Victoria, Seychelles|Victoria]]
+|
+|[[Tập tin:State House Seychelles.jpg|150px]]
+|-
+| {{SLE}}
+| [[State House (Sierra Leone)|State House]], [[Freetown]]
+|
+|[[Tập tin:Freetown 06 10 (13).jpg|150px]]
+|-
+| {{SOM}}
+| [[Villa Somalia]], [[Mogadishu]]
+|
+|
+|-
+| {{RSA}}
+| [[Mahlamba Ndlopfu]], [[Pretoria]]
+|
+|[[Tập tin:Libertas, since 1994 known as Mahlamba Ndlopfu, in 1934 by Gerard Moerdijk designed as official residence in Pretoria for the state of the Union of South Africa. - panoramio.jpg|150px]]
+|-
+| {{SSD}}
+| [[Presidential Palace, Juba|Presidential Palace]], [[Juba]]
+|<ref>{{chú thích báo|title=New Office of the President Opens in Juba|url=http://www.gurtong.net/ECM/Editorial/tabid/124/ctl/ArticleView/mid/519/articleId/5622/New-Office-Of-The-President-Opens-In-Juba.aspx|date=ngày 23 tháng 8 năm 2011|publisher=gurtong.net|access-date=ngày 15 tháng 7 năm 2013|archive-date=2013-11-02|archive-url=https://web.archive.org/web/20131102194506/http://www.gurtong.net/ECM/Editorial/tabid/124/ctl/ArticleView/mid/519/articleId/5622/New-Office-Of-The-President-Opens-In-Juba.aspx|url-status=dead}}</ref>
+|
+|-
+| {{SUD}}
+| [[Presidential Palace, Khartoum|Presidential Palace]], [[Khartoum]]
+|
+| [[Hình:Government House - Khartoum.jpg|150px]]
+|-
+| {{TAN}}
+| [[Ikulu]], [[Dar es Salaam]]
+|
+| [[Tập tin:President Bush and President Kikwete sign the Millennium Challenge Compact.jpg|150px]]
+|-
+| {{TGO}}
+| [[The Palace of the Governors (Togo)|Palace of the Governors]], [[Lomé]]
+|
+|
+|-
+| {{TUN}}
+| [[Carthage Palace]], [[Tunis]]
+|
+| [[Hình:PalaisCarthageMai2010.jpg|150px]]
+|-
+| rowspan="2" |{{UGA}}
+| [[State House (Uganda)|State House]], [[Kampala]]
+|
+|
+|-
+| State House, [[Entebbe]]
+|<ref>{{chú thích web|title=State House of Uganda - History|url=http://www.statehouse.go.ug/state-house/state-house-history|publisher=statehouse.go.ug|access-date=ngày 14 tháng 7 năm 2013|archive-date=2013-06-21|archive-url=https://web.archive.org/web/20130621235458/http://www.statehouse.go.ug/state-house/state-house-history|url-status=dead}}</ref>
+|
+|-
+| {{ZAM}}
+| [[State House (Zambia)|State House]], [[Lusaka]]
+|<ref>{{chú thích web|title=State House of the Republic of Zambia|url=http://www.statehouse.gov.zm/en/|publisher=statehouse.gov.zm|access-date=ngày 15 tháng 7 năm 2013|archive-date=2013-07-19|archive-url=https://web.archive.org/web/20130719092143/http://www.statehouse.gov.zm/en/|url-status=dead}}</ref>
+|
+|-
+| {{ZIM}}
+| [[Presidential Palace, Harare|Presidential Palace]], [[Harare]]
+|
+|
+|}
+
+===Châu Mỹ===
+{|class="wikitable sortable"
+! style="text-align:left;width:200px" | Đất nước !! Công trình !! Ghi chú !! Hình ảnh
+|-
+| rowspan="2"|{{ARG}}
+| [[Casa Rosada]], [[Buenos Aires]]
+|Government Office
+|
+|-
+| [[Quinta de Olivos]], [[Buenos Aires Province]]
+|Official Residence
+| [[Tập tin:Quinta de Olivos.jpg|150px|liên_kết=Special:FilePath/Quinta_de_Olivos.jpg]]
+|-
+| {{BOL}}
+| [[Casa Grande del Pueblo]], [[La Paz]]
+|
+| [[Tập tin:Palacio de Gobierno - Plaza Murillo.jpg|150px]]
+|-
+| rowspan="2"| {{BRA}}
+| [[Palácio da Alvorada]], [[Brasilia]]
+| Official residence
+| [[Tập tin:Palacio da Alvorada Exterior.JPG|150px]]
+|-
+| [[Palácio do Planalto]], [[Brasilia]]
+| Official workplace
+| [[Tập tin:PalácioPlanalto.jpg|150px]]
+|-
+| rowspan="2"| {{CHL}}
+| [[La Moneda Palace]], [[Santiago de Chile]]
+| Official office
+| [[Tập tin:Palacio de LaMoneda02.png|150px]]
+|-
+| Palacio Presidencial de Cerro Castillo, [[Viña del Mar]]
+| Summer residence
+| [[Tập tin:Palacio Presidencial del Cerro Castillo - Escorzo 01.jpeg|150px]]
+|-
+| {{COL}}
+| [[Casa de Nariño]], [[Bogotá]]
+|
+| [[Tập tin:Nariño BOGOTÁ - COLOMBIA.jpg|150px]]
+|-
+| {{CRC}}
+| [[Casa Presidencial, San José|Casa Presidencial]], [[San José, Costa Rica|San José]]
+|<ref>{{chú thích web|title=Official website of the Casa Presidencial, Costa Rica|url=http://www.presidencia.go.cr/|language=es|publisher=www.presidencia.go.cr|access-date =ngày 18 tháng 7 năm 2013}}</ref>
+|[[Tập tin:Casa Presidencial 2015 - LMM (9).JPG|150px]]
+|-
+| rowspan="2"|{{CUB}}
+| [[Museum of the Revolution (Cuba)|Presidential Palace]] (former), [[Havana]]
+| Has been a museum since 1959
+| [[Tập tin:Museum of Revolution Cuba.jpg|150px]]
+|-
+| [[Palacio de la Revolucion]] 
+|
+| 
+|-
+| {{DMA}}
+| [[Government House, Dominica|Government House, Roseau]]
+|
+| [[Tập tin:Roseau - State House (8760066984).jpg|150px]]
+|-
+| {{DOM}}
+| [[National Palace (Dominican Republic)|National Palace]] in [[Santo Domingo]]
+|
+|
+|-
+| {{ECU}}
+| [[Carondelet Palace]], [[Quito]]
+|
+| [[Tập tin:Carondelet - Quito.JPG|150px]]
+|-
+| {{ELS}}
+| [[Casa Presidencial (El Salvador)|Casa Presidencial]], [[San Salvador]]
+|
+| [[Tập tin:Visita Oficial-Presidente de Colombia. (25653454063).jpg|150px]]
+|-
+| {{GUA}}
+| [[National Palace (Guatemala)|National Palace]], [[Thành phố Guatemala]]
+|
+| [[Tập tin:Guatemala National Palace of Culture.jpg|150px]]
+|-
+| {{GUY}}
+| [[State House, Guyana|State House]], [[Georgetown, Guyana|Georgetown]]
+|
+| [[Tập tin:State house guyana.jpg|150px]]
+|-
+| {{HTI}}
+| [[National Palace (Haiti)|National Palace]], [[Port-au-Prince]]
+|
+|
+|-
+| {{HON}}
+| [[Presidential Palace, Tegucigalpa|Presidential Palace]], [[Tegucigalpa]]
+|<ref>{{chú thích web|title=Presidential palace from the hotel - Tegucigalpa|url=http://www.tripadvisor.com/LocationPhotoDirectLink-g292026-d471898-i60713984-Marriott_Tegucigalpa-Tegucigalpa_Francisco_Morazan_Department.html | publisher=tripadvisor.com|access-date =ngày 15 tháng 7 năm 2013}}</ref>
+|
+|-
+| rowspan="2"| {{MEX}}
+| [[Los Pinos]]
+| Official residence
+|
+|-
+| [[National Palace (Mexico)|National Palace]]
+| Official office
+| [[Tập tin:El Palacio Nacional.JPG|150px]]
+|-
+| {{NIC}}
+| [[Presidential Palace, Managua|Presidential Palace]], [[Managua]]
+|<ref>{{chú thích web|title= Presidential Palace, Managua, Nicaragua - Tripomatic |url=http://www.tripomatic.com/Nicaragua/Managua/Presidential-Palace-1b9f/ |publisher=tripomatic.com|access-date =ngày 15 tháng 7 năm 2013}}</ref>
+|
+|-
+| {{PAN}}
+| [[Palacio de las Garzas]], [[Thành phố Panama]]
+|
+| [[Tập tin:Palacio de las Garzas.jpg|150px]]
+|-
+| {{PAR}}
+| [[Palacio de los López]], [[Asunción]]
+|
+| [[Tập tin:Palacio de los López.jpg|150px]]
+|-
+| {{PER}}
+| [[Government Palace (Peru)|Government Palace]], [[Lima]]
+|
+| [[Tập tin:PalacioEjecutivodelPeru.jpg|150px]]
+|-
+| {{SUR}}
+| [[Gouvernementsgebouw]], [[Paramaribo]]
+|
+| [[Tập tin:Presidential palace, Paramaribo, Suriname.jpg|150px]]
+|-
+| {{TRI}}
+| [[President's House, Trinidad and Tobago|President's House]], [[Port of Spain]]
+|
+| [[Tập tin:The President's House Trinidad.jpg|150px]]
+|-
+| {{USA}}
+|[[Nhà Trắng]], [[Washington, D.C.]]
+|
+| [[Tập tin:White House, Blue Sky.jpg|150px]]
+|-
+| rowspan="2"|{{URU}}
+| [[Executive Tower, Montevideo]]
+| Government Office
+| [[Tập tin:Torre Ejecutiva (Montevideo).jpg|150px]]
+|-
+|[[Residencia de Suárez]], [[Montevideo]]
+|Official Residence
+| [[Tập tin:Residencia presidencial en el Prado.JPG|150px]]
+|-
+|rowspan="2"|{{VEN}}
+| [[Miraflores Palace]], [[Caracas]]
+|Government Office
+| [[Tập tin:Entrada Miraflores.JPG|150px]]
+|-
+|[[:es: Residencia Presidencial La Casona|La Casona]]
+|Official Residence 
+|[[Tập tin:Residencia presidencial la casona.jpg|150px]]
+|}
+
+===Châu Á===
+{|class="wikitable sortable"
+! style="text-align:left;width:200px" | Đất nước !! Công trình !! Ghi chú !! Hình ảnh
+|-
+| {{AFG}}
+| [[Arg (Kabul)|Arg]], [[Kabul]]
+|
+| [[Tập tin:Defense.gov photo essay 110604-D-XH843-036.jpg|150px]]
+|-
+| {{ARM}}
+| [[President's House, Yerevan]]
+|
+|[[Tập tin:2014 Erywań, Rezydencja Prezydenta Republiki Armenii.jpg|thế=|150x150px]]
+|-
+| {{AZE}}
+| [[The Office of Azerbaijan President|Presidential Palace, Baku]]
+| Xây dựng những năm 1970
+| [[Tập tin:Azərbaycan Respublikası Prezident Aparatının binası.jpg|150px]]
+|-
+| {{BAN}}
+| [[Bangabhaban]], [[Dhaka]]
+|
+|[[Tập tin:Bangabhaban.jpg|150px]]
+|-
+| {{PRC}}
+|[[Trung Nam Hải]], [[Bắc Kinh]]
+| Tòa nhà của chính quyền
+| [[Tập tin:Zhongnanhai06.jpg|150px]]
+|-
+| {{CYP}}
+| [[Presidential Palace, Nicosia]]
+|
+|
+|-
+| {{ETM}}
+| [[Nicolau Lobato Presidential Palace]], [[Dili]]
+|
+|[[Tập tin:Präsidentenpalast 17-05-2015.jpg|thế=|150x150px]]
+|-
+| {{IND}}
+| [[Rashtrapati Bhavan]], [[New Delhi]]
+|
+| [[Tập tin:Indian President House.jpg|150px]]
+|-
+| rowspan="6"|{{IDN}}
+| [[Merdeka Palace|Istana Merdeka]], [[Jakarta]]
+|
+| [[Tập tin:Merdeka Palace Changing Guard 2.jpg|150px]]
+|-
+| [[Istana Negara, Jakarta]]
+|
+|
+|-
+| [[Istana Cipanas]], [[Bogor]]
+|
+| [[Tập tin:Palace_Cipanas.JPG|150px]]
+|-
+| [[Bogor Palace|Istana Bogor]], [[Bogor]]
+|
+| [[Tập tin:Istana_Bogor.jpg|150px]]
+|-
+| [[Gedung Agung]], [[Yogyakarta]]
+|
+| [[Tập tin:Gedung_Agung.jpg|150px]]
+|-
+| [[Tampaksiring Palace|Istana Tampaksiring]], [[Bali]]
+|
+| [[Tập tin:Holy Water Temple Ubud, Bali, indonesia - panoramio (9).jpg|150px]]
+|-
+| {{IRN}}
+| [[Sa'dabad Palace]], [[Tehran]]
+|
+| [[Tập tin:Mellat Palace Museum 01.jpg|150px]]
+|-
+| {{IRQ}}
+| [[Radwaniyah Palace]], [[Baghdad]]
+|
+|
+|-
+| {{ISR}}
+| [[Beit HaNassi]], [[Jerusalem]]
+|
+| [[Tập tin:Beit Hanassi P4110091.JPG|150px]]
+|-
+| {{KAZ}}
+| [[Ak Orda Presidential Palace]], [[Nur-Sultan]]
+|
+|
+|-
+| {{ROK}}
+|[[Nhà Xanh|Nhà xanh]], [[Seoul]]
+|
+| [[Tập tin:Korea-Seoul-Blue House (Cheongwadae) Reception Center 0688&9-07 cropped.jpg|150px]]
+|-
+| rowspan="2"|{{DPRK}}
+| [[Ryongsong Residence]], [[Pyongyang]]
+| Hiện tại
+|
+|-
+|[[Cung kỷ niệm Kumsusan|Cung điện mặt trời Kumsusan]], [[Pyongyang]]
+| Cũ
+| [[Tập tin:Dprk pyongyang kim mausoley view 05.jpg|150px]]
+|-
+| rowspan="2"|{{KGZ}}
+| [[White House, Bishkek]]
+| Cũ
+|
+|-
+| [[Ala Archa State Residence]], [[Bishkek]]
+| Hiện tại
+| 
+|-
+| {{LAO}}
+| [[Presidential Palace (Laos)|Presidential Palace]], [[Viêng Chăn]]
+|
+| [[Tập tin:2013 Presidential palace Vientiane.jpg|150px]]
+|-
+| {{LBN}}
+|[[Dinh Baabda|Baabda Palace, Beirut]]
+|
+|
+|-
+| {{MDV}}
+| [[Muliaage]], [[Malé]]
+| Former residence
+| [[Tập tin:Muliaage presidential residence of maldives.jpg|150px]]
+|-
+| {{MNG}}
+| [[Government Palace (Mongolia)|Government Palace, Ulan Bator]]
+| Cũng là trụ sở chính phủ
+| [[Tập tin:Government Palace, Ulaanbaatar.jpg|150px]]
+|-
+| {{MYA}}
+| [[Presidential Palace, Naypyidaw]]
+| 
+|[[Tập tin:Myanmar Presidential Palace.jpg|thế=|150x150px]]
+|-
+| {{NEP}}
+| [[Rastrapati Bhawan]], [[Kathmandu]]
+|
+| [[Tập tin:Shital Nivas.jpg|150px]]
+|-
+|{{flag|Nhật Bản}}
+|[[Tổng lý Đại thần Quan để]], [[Tokyo]]
+|
+|[[Tập tin:Kantei (5845695986).jpg|thế=|200x200px]]
+|-
+| {{PAK}}
+| [[Aiwan-e-Sadr]], [[Islamabad]]
+|
+| [[Tập tin:Aiwan-e-Sadr in Islamabad.jpg|150px]]
+|-
+| {{PHL}}
+| [[Malacañang Palace]], [[Manila]]
+| Văn phòng và nơi ở tổng thống
+| 
+|-
+| {{SIN}}
+| [[Istana (Singapore)|Istana]], [[Singapore]]
+|
+| [[Tập tin:Istana 24, Singapore, Jan 06.JPG|150px]]
+|-
+| {{SRI}}
+| [[President's House, Colombo]]
+|
+|
+|-
+| rowspan="2" | {{SYR}}
+| [[Presidential Palace, Damascus|Presidential Palace]], [[Damascus]]
+|
+|
+|-
+| [[Tishreen Palace]], [[Damascus]]
+|
+|
+|-
+| rowspan="3" | {{ROC}}
+| [[Presidential Office Building, Taipei]]
+|
+| [[Tập tin:Presidential-Palace-(Taipei).png|150px]]
+|-
+| [[Presidential Palace, Guangzhou|Presidential Palace]], [[Guangzhou]]
+| 1921–1922; destroyed by mortar fire on ngày 16 tháng 6 năm 1922, now Guangzhou's [[Sun Yat-sen Memorial Hall (Guangzhou)#History|Sun Yat-sen Memorial Hall]]
+|
+|-
+| [[Presidential Palace (Nanjing)|Presidential Palace]], [[Nam Kinh]]
+| 1927–1949; now Nanjing's China Modern History Museum
+|
+|-
+| {{TJK}}
+| [[Palace of Nations, Dushanbe|Palace of Nations]], [[Dushanbe]]
+|<ref>{{chú thích web|title=The Tajik Presidential Palace in Dushanbe, Tajikistan |url=http://s292.photobucket.com/user/iam733_photos/media/UNIQUE%20ARCHITECTUAL%20WONDERS%20of%20the%20WORLD/_The_Tajik_Presidential_Palace_in_Dushanbe_Tajikistan_.jpg.html|publisher=photobucket.com|access-date =ngày 16 tháng 7 năm 2013}}</ref>
+| [[Tập tin:Dushanbe Presidential Palace 01.jpg|150px]]
+|-
+|{{TUR}}
+| [[Presidential Palace, Ankara]]
+| 
+|[[Tập tin:Ak Saray - Presidential Palace Ankara 2014 002.jpg|150px]]
+|-
+| {{TKM}}
+| [[Oguzkhan Presidential Palace|Oguzkhan Palace]], [[Ashgabat]]
+|
+|[[Tập tin:Aliyev in Turkmenistan 05.jpg|thế=|150x150px]]
+|-
+| rowspan="3"|{{UZB}}
+| [[Ok Saroy Presidential Palace]], [[Tashkent]]<ref>{{chú thích báo|title=Upmarket houses along road- Karimov to feel safer|url=http://www.uznews.net/news_single.php?lng=en&cid=30&nid=21518|date=ngày 6 tháng 12 năm 2012|publisher=www.uznews.net|access-date =ngày 25 tháng 3 năm 2013}}</ref>
+| Former Residence 
+| [[Tập tin:Stamps of Uzbekistan, 2010-23.jpg|150px]]
+|-
+| Durmen
+| Former residence
+| 
+|-
+| [[Kuksaroy Presidential Palace]], [[Tashkent]]
+| Current residence
+|
+|-
+| {{UAE}}
+|[[Qasr Al Watan|Qasr Al Watan, Abu Dhabi]]
+| <ref name="QAM">{{chú thích web |publisher=Qasr Al Watan |title=Qasr Al Watan |url=https://www.qasralwatan.ae |access-date =ngày 21 tháng 4 năm 2019}}</ref>
+|
+|-
+| {{VIE}}
+|[[Phủ Chủ tịch|Phủ chủ tịch]], [[Hà Nội]]
+|
+|[[Tập tin:Presidential Palace Hanoi (38834565094).jpg|thế=|150x150px]]
+|-
+| {{YEM}}
+| [[Presidential Palace (Yemen)|Presidential Palace, Sanaa]]
+|
+|
+|}
+
+===Châu Âu===
+{|class="wikitable sortable"
+! style="text-align:left;width:200px" | Đất nước !! Công trình !! Ghi chú !! Hình ảnh
+|-
+| {{ALB}}
+| [[Presidential Palace of Tirana]]
+|
+| [[Tập tin:Facade of Presidential Palace of Tirana.jpg|150px|liên_kết=Special:FilePath/Facade_of_Presidential_Palace_of_Tirana.jpg]]
+|-
+| {{AUT}}
+| [[Hofburg Palace]], [[Vienna]]
+|
+| [[Tập tin:Wien Hofburg Neue Burg Heldenplatz.jpg|150px]]
+|-
+| {{BLR}}
+| [[Presidential Palace, Minsk|Presidential Palace]], [[Minsk]]
+|
+| [[Tập tin:PresidentialResidenceBelarus.jpg|150px]]
+|-
+| {{BIH}}
+| [[Building of the Presidency of Bosnia and Herzegovina|Presidency Building]], [[Sarajevo]]
+|
+| [[Tập tin:Predsjedništvo BiH.JPG|150px]]
+|-
+| {{BUL}}
+| [[Largo, Sofia|Presidential Palace, Sofia]]
+|<ref>{{chú thích web|title=Presidential Palace in Sofia, Bulgaria|url=http://www.travelblog.org/Photos/4328041|publisher=www.travelblog.org|access-date =ngày 24 tháng 3 năm 2013}}</ref>
+| [[Tập tin:Presidents Administration Building Sofia 20090405 003.JPG|150px]]
+|-
+| {{CRO}}
+| [[Presidential Palace, Zagreb]]
+|
+| [[Tập tin:Predsjednicki dvori Zagreb glavni kolni ulaz.jpg|150px]]
+|-
+| {{CZE}}
+|[[Lâu đài Praha|Lâu đài Prague]], [[Prague]]
+|
+| [[Tập tin:Bird's-eye view of the Prague Castle.JPG|150px]]
+|-
+| {{EST}}
+| Presidential Palace, [[Tallinn]]
+|
+| [[Tập tin:Presidential Palace in Tallinn, Estonia.jpg|150px]]
+|-
+| {{FIN}}
+| [[Presidential Palace, Helsinki]]
+|
+| [[Tập tin:Finnish Presidential Palace.jpg|150px]]
+|-
+| {{FRA}}
+|[[Điện Élysée]], [[Paris]]
+|
+| [[Tập tin:PalaisDeL'Elysée.jpg|150px]]
+|-
+| {{DEU}}
+| [[Bellevue Palace (Germany)|Bellevue Palace]], [[Berlin]]
+|
+| [[Tập tin:Schloss Bellevue - Berlin - 2013.jpg|150px]]
+|-
+| {{GEO}}
+| [[Presidential Administration of Georgia|Presidential Palace, Tbilisi]]
+|
+| [[Tập tin:Tbilisi, Georgia — Presidential Palace.jpg|150px]]
+|-
+| {{GRC}}
+| [[Presidential Mansion, Athens]]
+|
+| [[Tập tin:Palais présidentiel d'Athènes.jpg|150px]]
+|-
+| {{HUN}}
+| [[Sándor Palace, Budapest|Sándor Palace]], [[Buda]]
+|
+| [[Tập tin:Sandor-palota-01.JPG|150px]]
+|-
+| {{ISL}}
+| [[Bessastaðir]], [[Álftanes]]
+|
+| [[Tập tin:OB090126b-3049 Bessastadir.JPG|150px]]
+|-
+| {{IRL}}
+| [[Áras an Uachtaráin]], [[Dublin]]
+|
+| [[Tập tin:Áras an Uachtaráin 2010.jpg|150px]]
+|-
+| {{ITA}}
+| [[Quirinal Palace]], [[Rome]]
+|
+| [[Tập tin:Quirinale palazzo e obelisco con dioscuri Roma.jpg|150px]]
+|-
+| {{LAT}}
+| [[Riga Castle]], [[Riga]]
+|
+| [[Tập tin:2006 09 14-17 RigaFortress054.jpg|150px]]
+|-
+| {{LIT}}
+| [[Presidential Palace, Vilnius]]
+|
+| [[Tập tin:Lithuania Vilnius Presidential Palace 1.jpg|150px]]
+|-
+| {{MKD}}
+| [[Villa Vodno]], [[Skopje]]
+|
+|
+|-
+| rowspan="2"|{{MLT}}
+| [[San Anton Palace]], [[Attard]]
+| Official residence
+| [[Tập tin:Malta Attard San Anton Palace BW 2011-10-09 10-06-16.jpg|150px]]
+|-
+| [[Verdala Palace]], [[Siġġiewi]]
+| Summer residence
+| [[Tập tin:Building Malta.jpg|150px]]
+|-
+| {{flag|Moldova}}
+| [[Presidential Palace, Chișinău|Presidential Palace]], [[Chișinau]]
+|<ref>{{chú thích web|title=Presidential Palace, Chisinau|url=http://www.virtualtourist.com/travel/Europe/Moldova/Municipiul_Chisinau/Chisinau-455261/Things_To_Do-Chisinau-Presidential_Palace-BR-1.html|publisher=www.virtualtourist.com|access-date =ngày 16 tháng 7 năm 2013|archive-date = ngày 6 tháng 8 năm 2020 |archive-url=https://web.archive.org/web/20200806150619/http://www.virtualtourist.com/travel/Europe/Moldova/Municipiul_Chisinau/Chisinau-455261/Things_To_Do-Chisinau-Presidential_Palace-BR-1.html}}</ref>
+|[[Tập tin:Chisinau President Palace.jpg|frameless|150x150px]]
+|-
+| {{MNE}}
+| [[Blue Palace]], [[Cetinje]]
+|
+| [[Tập tin:Blue palace.jpg|150px]]
+|-
+| rowspan="2"| {{POL}}
+| [[Presidential Palace, Warsaw]]
+| Official workplace
+| [[Tập tin:Koniecpolski palace warszawa.jpg|150px]]
+|-
+| [[Belweder|Belweder Palace]], [[Warsaw]]
+| Official residence
+| [[Tập tin:5 Warszawa 083.jpg|150px]]
+|-
+| {{POR}}
+| [[Belém Palace]], [[Lisbon]]
+|
+| [[Tập tin:Palacio Belem Lisboa.JPG|150px]]
+|-
+| {{ROM}}
+| [[Cotroceni Palace]], [[Bucharest]]
+|
+| [[Tập tin:Cotroceni Palace Garden - Bucharest 07.jpg|150px]]
+|-
+| rowspan="2"| {{RUS}}
+| [[Grand Kremlin Palace]], [[Moscow Kremlin]]
+| Ceremonial residence
+|[[Tập tin:Grand Kremlin Palace, Moscow.jpg|150px]]
+|-
+|[[Kremlin Moskva|Điện Kremlin]],<br /> [[Moscow Kremlin]]
+| Working residence
+|[[Tập tin:Kremlin Senate-1.jpg|150px]]
+|-
+| {{SRB}}
+| [[Novi dvor|Novi Dvor]], [[Belgrade]]
+|<ref>{{chú thích web|title=Turistička Organisacija Beograda - Novi Dvor|url=http://www.tob.rs/sr-lat/see_in.php?id=95|language=Serbo-Croatian|publisher=www.tob.rs|access-date =ngày 24 tháng 3 năm 2013|url-status=dead|archiveurl=https://web.archive.org/web/20121027204128/http://www.tob.rs/sr-lat/see_in.php?id=95|archivedate=ngày 27 tháng 10 năm 2012|df=}}</ref>
+| [[Tập tin:Novi Dvor (1).JPG|150px]]
+|-
+| {{SVK}}
+| [[Grassalkovich Palace]], [[Bratislava]]
+|
+| [[Tập tin:Grasalkovicov palac bratislava Slovakia.jpg|150px]]
+|-
+| {{SLO}}
+| [[Government and Presidential Palace (Ljubljana)|Presidential Palace]], [[Ljubljana]]
+| Also seat of government
+| [[Tập tin:Presidential palace Ljubljana.jpg|150px]]
+|-
+| {{SUI}}
+| No official presidential residence.
+| Seat of the government in the [[Federal Palace of Switzerland]].
+| 
+|-
+|{{TUR}}
+| [[Presidential Palace, Ankara]]
+| 
+|[[Tập tin:Ak Saray - Presidential Palace Ankara 2014 002.jpg|150px]]
+|-
+| {{UKR}}
+| [[Mariyinsky Palace]], [[Kiev]]
+|
+| [[Tập tin:Maryinsky Palace, residence of the Ukrainian President.JPG|150px]]
+|}
+
+=== Châu Đại Dương ===
+{|class="wikitable sortable"
+! style="text-align:left;width:200px" | Country !! Building !! Notes !! Image 
+|-
+| {{FJI}}
+| [[Government House, Suva|Government House]], [[Suva]]
+|<ref>{{chú thích web|title=Guards at the Presidential Palace, Suva|url=http://www.beautifulpacific.com/pictures/fiji/viti-levu/suva-guards.php|publisher=beautifulpacific.com|access-date =ngày 16 tháng 7 năm 2013|url-status=dead|archiveurl=https://web.archive.org/web/20140908154622/http://www.beautifulpacific.com/pictures/fiji/viti-levu/suva-guards.php|archivedate=ngày 8 tháng 9 năm 2014|df=}}</ref>
+|[[Tập tin:Governors House Suva MatthiasSuessen-8799.jpg|thế=|150x150px|150x]]
+|-
+|{{flag|Australia}}
+|The Lodge, Kirribilli House
+|
+|[[Tập tin:Kirribilli House (2019).jpg|thế=|150x150px|150x]]
+|-
+|{{flag|New Zealand}}
+|Premier House
+|
+|[[Tập tin:Premier House, Wellington 3.jpg|thế=|150x150px|150x]]
+|}
+
+== Tham khảo ==
+{{tham khảo}}
+
+[[Thể loại:Dinh tổng thống| ]]
