@@ -123,7 +123,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
   const classifiedByIso3 = useMemo(() => new Map(classifiedCountries.map((country) => [country.iso3, country])), [classifiedCountries]);
 
   const mapFeatures = useMemo(() => {
-    const atlasData: any = (worldAtlas as any).default || worldAtlas;
+    const atlasData = (worldAtlas as unknown as { default?: typeof worldAtlas }).default || worldAtlas;
     const collection = feature(
       atlasData as never,
       (atlasData.objects as Record<string, never>).countries
@@ -152,7 +152,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
   }, [classifiedByNumeric]);
 
   const vietnamIslandOverlays = useMemo(() => {
-    const atlasData: any = (worldAtlas as any).default || worldAtlas;
+    const atlasData = (worldAtlas as unknown as { default?: typeof worldAtlas }).default || worldAtlas;
     const collection = feature(
       atlasData as never,
       (atlasData.objects as Record<string, never>).countries
