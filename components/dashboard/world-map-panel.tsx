@@ -321,6 +321,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
 
                 return (
                   <path
+                    suppressHydrationWarning
                     key={`${item.numericId}-${index}`}
                     d={item.d}
                     tabIndex={country ? 0 : -1}
@@ -351,7 +352,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
                       }
                     }}
                   >
-                    <title>
+                    <title suppressHydrationWarning>
                       {country
                         ? `${displayCountryName(country)} · ${regimeLabel(country.regimeCategory)} · ${displayValue(country.governmentSystem)}`
                         : `${item.geoName} · chưa có hồ sơ`}
@@ -438,8 +439,8 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
                 <FlagBadge country={activeCountry} variant="hero" />
                 <div className="min-w-0">
                   <p className="text-xs uppercase tracking-[0.18em] text-teal-200">{activeCountry.iso3}</p>
-                  <h3 className="mt-1 text-xl font-semibold text-white">{displayCountryName(activeCountry)}</h3>
-                  <p className="text-sm text-slate-400">{displayRegion(activeCountry.region)}</p>
+                  <h3 suppressHydrationWarning className="mt-1 text-xl font-semibold text-white">{displayCountryName(activeCountry)}</h3>
+                  <p suppressHydrationWarning className="text-sm text-slate-400">{displayRegion(activeCountry.region)}</p>
                 </div>
               </div>
 

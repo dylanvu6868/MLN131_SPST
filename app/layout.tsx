@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi" className={`${inter.variable} ${crimsonText.variable}`}>
-      <body>
+      <body suppressHydrationWarning>
         <a className="skip-link" href="#main-content">
           Bỏ qua điều hướng
         </a>
