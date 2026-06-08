@@ -37,11 +37,33 @@ export function CountryNewsClient({ countries }: { countries: CountryPoliticalPr
   const [data, setData] = useState<NewsResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const selectedCountry = useMemo(
     () => countries.find((country) => country.iso3 === selectedIso3) ?? defaultCountry,
     [countries, defaultCountry, selectedIso3]
   );
+
+  const searchResults = useMemo(() => {
+    const needle = normalizeSearch(searchTerm);
+    if (!needle) {
+      return countries;
+    }
+
+    return countries.filter((country) => {
+      const haystack = normalizeSearch(
+        `${displayCountryName(country)} ${country.countryName} ${country.officialName} ${country.englishName} ${country.iso2} ${country.iso3}`
+      );
+      return haystack.includes(needle);
+    });
+  }, [countries, searchTerm]);
+
+  function selectCountry(country: CountryPoliticalProfile) {
+    setSelectedIso3(country.iso3);
+    setSearchTerm("");
+    setIsSearchOpen(false);
+  }
 
   useEffect(() => {
     if (!selectedIso3) {
@@ -99,25 +121,48 @@ export function CountryNewsClient({ countries }: { countries: CountryPoliticalPr
             </div>
 
             <div className="rounded-lg border border-amber-300/25 bg-slate-950/55 p-4 shadow-2xl shadow-black/20">
-              <label className="block">
+              <label className="relative block">
                 <span className="mb-2 flex items-center gap-2 text-sm font-medium text-stone-200">
                   <Search className="h-4 w-4 text-amber-200" aria-hidden="true" />
-                  Chọn quốc gia
+                  Tìm và chọn quốc gia
                 </span>
                 <span className="relative block">
-                  <select
-                    className="atlas-input h-12 w-full appearance-none rounded-md px-3 pr-10"
-                    value={selectedIso3}
-                    onChange={(event) => setSelectedIso3(event.target.value)}
-                  >
-                    {countries.map((country) => (
-                      <option key={country.iso3} value={country.iso3}>
-                        {displayCountryName(country)}
-                      </option>
-                    ))}
-                  </select>
+                  <input
+                    type="text"
+                    className="atlas-input h-12 w-full rounded-md px-3 pr-10"
+                    placeholder="Gõ tên quốc gia để tìm…"
+                    value={isSearchOpen ? searchTerm : displayCountryName2(selectedCountry)}
+                    onFocus={() => {
+                      setIsSearchOpen(true);
+                      setSearchTerm("");
+                    }}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                    onBlur={() => window.setTimeout(() => setIsSearchOpen(false), 150)}
+                  />
                   <ChevronDown className="pointer-events-none absolute right-3 top-4 h-4 w-4 text-amber-200" aria-hidden="true" />
                 </span>
+
+                {isSearchOpen ? (
+                  <ul className="absolute left-0 right-0 top-full z-30 mt-1 max-h-72 overflow-y-auto rounded-md border border-amber-300/25 bg-slate-950 shadow-2xl shadow-black/40">
+                    {searchResults.length ? (
+                      searchResults.slice(0, 60).map((country) => (
+                        <li key={country.iso3}>
+                          <button
+                            type="button"
+                            className="flex w-full items-center gap-3 px-3 py-2 text-left text-sm text-stone-200 transition hover:bg-amber-300/10 hover:text-white"
+                            onMouseDown={(event) => event.preventDefault()}
+                            onClick={() => selectCountry(country)}
+                          >
+                            <FlagBadge country={country} variant="inline" />
+                            <span>{displayCountryName(country)}</span>
+                          </button>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="px-3 py-2 text-sm text-stone-400">Không tìm thấy quốc gia phù hợp.</li>
+                    )}
+                  </ul>
+                ) : null}
               </label>
 
               {selectedCountry ? (
@@ -212,6 +257,18 @@ function NewsSkeleton() {
       </div>
     </div>
   );
+}
+
+function displayCountryName2(country?: CountryPoliticalProfile) {
+  return country ? displayCountryName(country) : "";
+}
+
+function normalizeSearch(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "");
 }
 
 function getHost(url: string) {
