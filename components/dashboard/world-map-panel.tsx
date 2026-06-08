@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useMemo, useRef, useState, type PointerEvent, type WheelEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type PointerEvent, type WheelEvent } from "react";
 import { ExternalLink, LocateFixed, Minus, MousePointerClick, Move, Plus, RotateCcw } from "lucide-react";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
@@ -123,9 +123,10 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
   const classifiedByIso3 = useMemo(() => new Map(classifiedCountries.map((country) => [country.iso3, country])), [classifiedCountries]);
 
   const mapFeatures = useMemo(() => {
+    const atlasData: any = (worldAtlas as any).default || worldAtlas;
     const collection = feature(
-      worldAtlas as never,
-      (worldAtlas.objects as Record<string, never>).countries
+      atlasData as never,
+      (atlasData.objects as Record<string, never>).countries
     ) as unknown as { features: GeoFeature[] };
 
     const projection = geoNaturalEarth1().fitSize([MAP_WIDTH, MAP_HEIGHT], collection as never);
@@ -151,9 +152,10 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
   }, [classifiedByNumeric]);
 
   const vietnamIslandOverlays = useMemo(() => {
+    const atlasData: any = (worldAtlas as any).default || worldAtlas;
     const collection = feature(
-      worldAtlas as never,
-      (worldAtlas.objects as Record<string, never>).countries
+      atlasData as never,
+      (atlasData.objects as Record<string, never>).countries
     ) as unknown as { features: GeoFeature[] };
     const projection = geoNaturalEarth1().fitSize([MAP_WIDTH, MAP_HEIGHT], collection as never);
     const vietnam = classifiedByIso3.get("VNM");
@@ -193,6 +195,9 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
   const [isPanning, setIsPanning] = useState(false);
   const dragStartRef = useRef<{ x: number; y: number; transform: Transform } | null>(null);
   const pointerMovedRef = useRef(false);
+
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => setIsMounted(true), []);
 
   const activeCountry =
     (activeIso3 ? classifiedByIso3.get(activeIso3) : undefined) ?? mapFeatures.find((item) => item.country)?.country;
@@ -314,7 +319,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
             <rect width={MAP_WIDTH} height={MAP_HEIGHT} fill="url(#atlas-grid)" opacity="0.85" />
 
             <g transform={`translate(${transform.x} ${transform.y}) scale(${transform.scale})`}>
-              {mapFeatures.map((item, index) => {
+              {isMounted && mapFeatures.map((item, index) => {
                 const country = item.country;
                 const isActive = country?.iso3 === activeCountry?.iso3;
                 const fill = regimeFill[country?.regimeCategory ?? "Unknown"];
@@ -361,7 +366,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
                 );
               })}
 
-              {vietnamIslandOverlays.map((group) => {
+              {isMounted && vietnamIslandOverlays.map((group) => {
                 const country = group.country;
                 const isActive = activeCountry?.iso3 === "VNM";
                 const fill = regimeFill[country?.regimeCategory ?? "Electoral autocracy"];
