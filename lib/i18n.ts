@@ -1,6 +1,34 @@
 import type { ConfidenceLevel, CountryPoliticalProfile, RegimeCategory } from "@/lib/types";
 
-const regionNames = new Intl.DisplayNames(["vi"], { type: "region" });
+export type DisplayLanguage = "vi" | "en";
+
+let displayLanguage: DisplayLanguage = "vi";
+
+export function setDisplayLanguage(language: DisplayLanguage) {
+  displayLanguage = language;
+}
+
+export function getDisplayLanguage() {
+  return displayLanguage;
+}
+
+const regionNamesVi = new Intl.DisplayNames(["vi"], { type: "region" });
+const regionNamesEn = new Intl.DisplayNames(["en"], { type: "region" });
+
+const regimeLabelsEn: Record<RegimeCategory, string> = {
+  "Liberal democracy": "Liberal democracy",
+  "Electoral democracy": "Electoral democracy",
+  "Electoral autocracy": "Electoral autocracy",
+  "Closed autocracy": "Closed autocracy",
+  Unknown: "Unknown"
+};
+
+const confidenceLabelsEn: Record<ConfidenceLevel, string> = {
+  high: "high",
+  medium: "medium",
+  low: "low",
+  unknown: "unknown"
+};
 
 const regimeLabels: Record<RegimeCategory, string> = {
   "Liberal democracy": "Dân chủ tự do",
@@ -196,29 +224,45 @@ const phraseMap: Record<string, string> = {
 };
 
 export function regimeLabel(value?: RegimeCategory | string) {
+  if (displayLanguage === "en") {
+    return regimeLabelsEn[(value as RegimeCategory) ?? "Unknown"] ?? value ?? "Unknown";
+  }
+
   return regimeLabels[(value as RegimeCategory) ?? "Unknown"] ?? phraseMap[String(value)] ?? value ?? "Chưa xác định";
 }
 
 export function confidenceLabel(value?: ConfidenceLevel) {
+  if (displayLanguage === "en") {
+    return confidenceLabelsEn[value ?? "unknown"];
+  }
+
   return confidenceLabels[value ?? "unknown"];
 }
 
 export function displayCountryName(country: CountryPoliticalProfile) {
-  return regionNames.of(country.iso2) ?? country.countryName;
+  if (displayLanguage === "en") {
+    return regionNamesEn.of(country.iso2) ?? country.englishName ?? country.countryName;
+  }
+
+  return regionNamesVi.of(country.iso2) ?? country.countryName;
 }
 
 export function displayRegion(region?: string) {
-  return region ? phraseMap[region] ?? region : "Chưa xác định";
+  if (!region) {
+    return displayLanguage === "en" ? "Unknown" : "Chưa xác định";
+  }
+
+  return displayLanguage === "en" ? region : phraseMap[region] ?? region;
 }
 
 export function displayValue(value?: string | number | null) {
   if (value === undefined || value === null || value === "") {
-    return "Chưa có dữ liệu";
+    return displayLanguage === "en" ? "Data unavailable" : "Chưa có dữ liệu";
   }
 
   if (typeof value === "number") {
     return String(value);
   }
 
-  return phraseMap[value] ?? value;
+  return displayLanguage === "en" ? value : phraseMap[value] ?? value;
 }

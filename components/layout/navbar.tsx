@@ -3,7 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GitCompare, Globe2, Map, Menu, Newspaper, Scale, Shield, Trophy, X } from "lucide-react";
+import { GitCompare, Globe2, Languages, Map, Menu, Newspaper, Scale, Shield, Trophy, X } from "lucide-react";
+
+import { useLanguage } from "@/lib/language-context";
 
 const links = [
   { href: "/", label: "Bản đồ", icon: Map },
@@ -18,6 +20,7 @@ const links = [
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { language, toggleLanguage } = useLanguage();
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
@@ -67,6 +70,16 @@ export function Navbar() {
 
         {/* Right side actions */}
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            className="focus-ring inline-flex h-9 items-center gap-1.5 rounded-md border border-slate-700 bg-slate-950/80 px-3 text-sm font-medium text-slate-200 transition hover:border-amber-300/40 hover:text-amber-100"
+            aria-label={language === "vi" ? "Switch to English" : "Chuyển sang tiếng Việt"}
+            title={language === "vi" ? "Switch to English" : "Chuyển sang tiếng Việt"}
+          >
+            <Languages className="h-4 w-4" aria-hidden="true" />
+            {language === "vi" ? "VI" : "EN"}
+          </button>
           <button
             className="focus-ring grid h-9 w-9 place-items-center rounded-md border border-slate-700 bg-slate-950/80 text-slate-200 transition hover:border-amber-300/40 hover:text-amber-100 xl:hidden"
             aria-label={mobileOpen ? "Đóng menu" : "Mở menu điều hướng"}

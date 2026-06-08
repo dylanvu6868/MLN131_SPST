@@ -1,3 +1,5 @@
+"use client";
+
 import { getRegimeColorClass } from "@/lib/format";
 import { confidenceLabel, regimeLabel } from "@/lib/i18n";
 import { cn } from "@/lib/utils";

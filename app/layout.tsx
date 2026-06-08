@@ -4,6 +4,7 @@ import { Inter, Crimson_Text } from "next/font/google";
 
 import { AtlasChatbotWidget } from "@/components/chatbot/atlas-chatbot-widget";
 import { Navbar } from "@/components/layout/navbar";
+import { LanguageProvider } from "@/lib/language-context";
 import "./globals.css";
 
 const inter = Inter({
@@ -50,12 +51,14 @@ export default function RootLayout({
   return (
     <html lang="vi" className={`${inter.variable} ${crimsonText.variable}`}>
       <body suppressHydrationWarning>
-        <a className="skip-link" href="#main-content">
-          Bỏ qua điều hướng
-        </a>
-        <Navbar />
-        <div id="main-content">{children}</div>
-        <AtlasChatbotWidget />
+        <LanguageProvider>
+          <a className="skip-link" href="#main-content">
+            Bỏ qua điều hướng
+          </a>
+          <Navbar />
+          <div id="main-content">{children}</div>
+          <AtlasChatbotWidget />
+        </LanguageProvider>
       </body>
     </html>
   );
