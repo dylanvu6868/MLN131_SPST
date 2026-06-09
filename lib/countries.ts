@@ -1,5 +1,5 @@
+import allCountriesData from "@/data/countries.all.json";
 import sampleCountries from "@/data/countries.sample.json";
-import { readCountryProfilesFromDb } from "@/lib/db";
 import { enrichPoliticalDefaults } from "@/lib/regime-classification";
 import type {
   CountryPoliticalProfile,
@@ -35,24 +35,15 @@ export function getAllCountries(): CountryPoliticalProfile[] {
   }
 
   try {
-    const dbProfiles = readCountryProfilesFromDb();
-    if (dbProfiles.length > 0) {
-      const profiles = CountryPoliticalProfilesSchema.parse(dbProfiles).map(enrichPoliticalDefaults);
-      countryCache = {
-        profiles,
-        cachedAt: Date.now()
-      };
-      return profiles;
-    }
+    const profiles = CountryPoliticalProfilesSchema.parse(allCountriesData).map(enrichPoliticalDefaults);
+    countryCache = { profiles, cachedAt: Date.now() };
+    return profiles;
   } catch (error) {
-    console.warn("Falling back to sample countries because database read failed:", error);
+    console.warn("Falling back to sample countries because countries.all.json failed to parse:", error);
   }
 
   const profiles = getFallbackCountries().map(enrichPoliticalDefaults);
-  countryCache = {
-    profiles,
-    cachedAt: Date.now()
-  };
+  countryCache = { profiles, cachedAt: Date.now() };
   return profiles;
 }
 
