@@ -181,9 +181,9 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
           <table className="min-w-full divide-y divide-slate-700 text-sm">
             <thead className="bg-slate-950/60">
               <tr>
-                <th className="px-4 py-3 text-left font-medium text-slate-300">{tr("Trường dữ liệu")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{tr("Trường dữ liệu")}</th>
                 {result.comparisonTable.map((row) => (
-                  <th key={String(row.iso3)} className="px-4 py-3 text-left font-medium text-slate-300">
+                  <th key={String(row.iso3)} className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-300">
                     {displayComparedHeader(row, countries)}
                   </th>
                 ))}
@@ -192,7 +192,7 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
             <tbody className="divide-y divide-slate-800">
               {fields.slice(1).map((field) => (
                 <tr key={field}>
-                  <td className="px-4 py-3 font-medium text-slate-400">{tr(fieldLabels[field] ?? field)}</td>
+                  <td className="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-slate-400">{tr(fieldLabels[field] ?? field)}</td>
                   {result.comparisonTable.map((row) => (
                     <td key={`${String(row.iso3)}-${field}`} className="max-w-[320px] px-4 py-3 text-slate-100">
                       {formatComparedValue(field, row[field])}
