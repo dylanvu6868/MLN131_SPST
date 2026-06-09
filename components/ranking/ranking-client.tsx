@@ -210,7 +210,7 @@ export function RankingClient({ countries }: { countries: CountryPoliticalProfil
           </div>
           <div className="inline-flex items-center gap-2 text-sm text-slate-300">
             {direction === "desc" ? <ArrowDownWideNarrow className="h-4 w-4 text-teal-200" /> : <ArrowUpWideNarrow className="h-4 w-4 text-teal-200" />}
-            {metricLabels[metric]}
+            {tr(metricLabels[metric])}
           </div>
         </div>
 
@@ -227,13 +227,13 @@ export function RankingClient({ countries }: { countries: CountryPoliticalProfil
             </colgroup>
             <thead className="bg-slate-950/70">
               <tr>
-                <th className="px-4 py-3 text-left font-medium text-slate-400">Hạng</th>
-                <th className="px-4 py-3 text-left font-medium text-slate-400">Quốc gia</th>
-                <th className="px-4 py-3 text-left font-medium text-slate-400">Giá trị</th>
-                <th className="px-4 py-3 text-left font-medium text-slate-400">Khu vực</th>
-                <th className="px-4 py-3 text-left font-medium text-slate-400">Nhóm chế độ</th>
-                <th className="px-4 py-3 text-left font-medium text-slate-400">Mô hình chính phủ</th>
-                <th className="px-4 py-3 text-left font-medium text-slate-400">Hồ sơ</th>
+                <th className="px-4 py-3 text-left font-medium text-slate-400">{tr("Hạng")}</th>
+                <th className="px-4 py-3 text-left font-medium text-slate-400">{tr("Tên quốc gia")}</th>
+                <th className="px-4 py-3 text-left font-medium text-slate-400">{tr("Giá trị")}</th>
+                <th className="px-4 py-3 text-left font-medium text-slate-400">{tr("Khu vực")}</th>
+                <th className="px-4 py-3 text-left font-medium text-slate-400">{tr("Nhóm chế độ")}</th>
+                <th className="px-4 py-3 text-left font-medium text-slate-400">{tr("Mô hình chính phủ")}</th>
+                <th className="px-4 py-3 text-left font-medium text-slate-400">{tr("Hồ sơ")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800">
@@ -261,7 +261,7 @@ export function RankingClient({ countries }: { countries: CountryPoliticalProfil
                     <Link
                       href={`/countries/${item.country.iso3}`}
                       className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-700 bg-slate-950 text-slate-200 hover:border-teal-300/60 hover:text-teal-100"
-                      aria-label={`Mở hồ sơ ${displayCountryName(item.country)}`}
+                      aria-label={`${tr("Mở hồ sơ")} ${displayCountryName(item.country)}`}
                     >
                       <ExternalLink className="h-4 w-4" aria-hidden="true" />
                     </Link>
@@ -274,9 +274,9 @@ export function RankingClient({ countries }: { countries: CountryPoliticalProfil
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
-        <RankingNote icon={<BarChart3 className="h-4 w-4" />} label="Tiêu chí tổng hợp" value="Độ đầy đủ hồ sơ dựa trên 22 nhóm thông tin chính của mỗi quốc gia." />
-        <RankingNote label="Khi thiếu số liệu" value="Những quốc gia chưa có số liệu cho tiêu chí đang chọn sẽ được đưa xuống cuối bảng." />
-        <RankingNote label="Độ tin cậy" value="Mỗi hồ sơ có mức tin cậy riêng để người xem cân nhắc khi so sánh." />
+        <RankingNote icon={<BarChart3 className="h-4 w-4" />} label={tr("Tiêu chí tổng hợp")} value={tr("Độ đầy đủ hồ sơ dựa trên 22 nhóm thông tin chính của mỗi quốc gia.")} />
+        <RankingNote label={tr("Khi thiếu số liệu")} value={tr("Những quốc gia chưa có số liệu cho tiêu chí đang chọn sẽ được đưa xuống cuối bảng.")} />
+        <RankingNote label={tr("Độ tin cậy")} value={tr("Mỗi hồ sơ có mức tin cậy riêng để người xem cân nhắc khi so sánh.")} />
       </section>
     </div>
   );
@@ -344,7 +344,7 @@ function getProfileCompleteness(country: CountryPoliticalProfile) {
 
 function formatMetricValue(country: CountryPoliticalProfile, metric: RankingMetric) {
   if (!hasMetricData(country, metric)) {
-    return "Chưa có dữ liệu";
+    return tr("Chưa có dữ liệu");
   }
 
   switch (metric) {
@@ -353,17 +353,17 @@ function formatMetricValue(country: CountryPoliticalProfile, metric: RankingMetr
     case "confidenceLevel":
       return confidenceLabel(country.confidenceLevel);
     case "sourceCount":
-      return `${country.sources.length} tham chiếu`;
+      return `${country.sources.length} ${tr("tham chiếu")}`;
     case "population":
       return formatPlainNumber(country.population);
     case "areaKm2":
-      return `${formatPlainNumber(country.areaKm2)} km2`;
+      return `${formatPlainNumber(country.areaKm2)} km²`;
     case "gdp":
       return formatPlainNumber(country.gdp);
     case "gdpPerCapita":
       return formatPlainNumber(country.gdpPerCapita);
     case "democracyScore":
-      return typeof country.democracyScore === "number" ? country.democracyScore.toFixed(2) : "Chưa có dữ liệu";
+      return typeof country.democracyScore === "number" ? country.democracyScore.toFixed(2) : tr("Chưa có dữ liệu");
     case "dataUpdatedAt":
       return formatDate(country.dataUpdatedAt);
   }
@@ -372,10 +372,10 @@ function formatMetricValue(country: CountryPoliticalProfile, metric: RankingMetr
 function formatDate(value: string) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) {
-    return "Chưa có dữ liệu";
+    return tr("Chưa có dữ liệu");
   }
 
-  return new Intl.DateTimeFormat("vi-VN", {
+  return new Intl.DateTimeFormat(getDisplayLanguage() === "en" ? "en-US" : "vi-VN", {
     dateStyle: "medium"
   }).format(date);
 }

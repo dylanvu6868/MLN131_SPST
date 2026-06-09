@@ -45,7 +45,9 @@ const HEAD_VI_TO_EN: Record<string, string> = {
 const FIXUPS: Record<string, string> = {
   "Hiến pháp the United States": "Constitution of the United States",
   "Đảng Cộng sản Vietnam": "Communist Party of Vietnam",
-  "Party Tổng Bí thư and Tổng thống": "Party General Secretary and President"
+  "Party Tổng Bí thư and Tổng thống": "Party General Secretary and President",
+  "Tòa án Tối cao of the United Kingdom": "Supreme Court of the United Kingdom",
+  "Tòa án Tối cao": "Supreme Court"
 };
 
 // Vietnamese place names inside the "seat of government" Wikipedia note.

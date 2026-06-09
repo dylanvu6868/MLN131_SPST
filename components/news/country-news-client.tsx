@@ -4,7 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { AlertCircle, ChevronDown, ExternalLink, Loader2, Newspaper, RefreshCcw, Search } from "lucide-react";
 
 import { FlagBadge } from "@/components/ui/flag-badge";
-import { displayCountryName, displayRegion } from "@/lib/i18n";
+import { displayCountryName, displayRegion, getDisplayLanguage, tr } from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
 import type { CountryPoliticalProfile } from "@/lib/types";
 
 type NewsArticle = {
@@ -32,6 +33,7 @@ type NewsResponse = {
 };
 
 export function CountryNewsClient({ countries }: { countries: CountryPoliticalProfile[] }) {
+  useLanguage();
   const defaultCountry = countries.find((country) => country.iso3 === "VNM") ?? countries[0];
   const [selectedIso3, setSelectedIso3] = useState(defaultCountry?.iso3 ?? "");
   const [data, setData] = useState<NewsResponse | null>(null);
@@ -86,14 +88,14 @@ export function CountryNewsClient({ countries }: { countries: CountryPoliticalPr
       });
       const payload = (await response.json()) as NewsResponse;
       if (!response.ok) {
-        throw new Error(payload.error ?? payload.message ?? "Không thể tải tin tức lúc này.");
+        throw new Error(payload.error ?? payload.message ?? tr("Không thể tải tin tức lúc này."));
       }
       setData(payload);
     } catch (requestError) {
       if (requestError instanceof DOMException && requestError.name === "AbortError") {
         return;
       }
-      setError(requestError instanceof Error ? requestError.message : "Không thể tải tin tức lúc này.");
+      setError(requestError instanceof Error ? requestError.message : tr("Không thể tải tin tức lúc này."));
       setData(null);
     } finally {
       setIsLoading(false);
@@ -110,13 +112,13 @@ export function CountryNewsClient({ countries }: { countries: CountryPoliticalPr
             <div>
               <div className="inline-flex items-center gap-2 rounded-md border border-amber-300/35 bg-black/35 px-3 py-2 text-sm text-amber-100">
                 <Newspaper className="h-4 w-4" aria-hidden="true" />
-                Cập nhật trong ngày
+                {tr("Cập nhật trong ngày")}
               </div>
               <h1 className="mt-5 max-w-4xl font-serif text-3xl font-semibold leading-tight text-white text-balance sm:text-5xl">
-                Tin nóng theo từng quốc gia
+                {tr("Tin nóng theo từng quốc gia")}
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg">
-                Chọn quốc gia để xem các bài báo đáng chú ý nhất trong ngày hôm nay, gồm cả báo trong nước và báo quốc tế.
+                {tr("Chọn quốc gia để xem các bài báo đáng chú ý nhất trong ngày hôm nay, gồm cả báo trong nước và báo quốc tế.")}
               </p>
             </div>
 
@@ -124,13 +126,13 @@ export function CountryNewsClient({ countries }: { countries: CountryPoliticalPr
               <label className="relative block">
                 <span className="mb-2 flex items-center gap-2 text-sm font-medium text-stone-200">
                   <Search className="h-4 w-4 text-amber-200" aria-hidden="true" />
-                  Tìm và chọn quốc gia
+                  {tr("Tìm và chọn quốc gia")}
                 </span>
                 <span className="relative block">
                   <input
                     type="text"
                     className="atlas-input h-12 w-full rounded-md px-3 pr-10"
-                    placeholder="Gõ tên quốc gia để tìm…"
+                    placeholder={tr("Gõ tên quốc gia để tìm…")}
                     value={isSearchOpen ? searchTerm : displayCountryName2(selectedCountry)}
                     onFocus={() => {
                       setIsSearchOpen(true);
@@ -159,7 +161,7 @@ export function CountryNewsClient({ countries }: { countries: CountryPoliticalPr
                         </li>
                       ))
                     ) : (
-                      <li className="px-3 py-2 text-sm text-stone-400">Không tìm thấy quốc gia phù hợp.</li>
+                      <li className="px-3 py-2 text-sm text-stone-400">{tr("Không tìm thấy quốc gia phù hợp.")}</li>
                     )}
                   </ul>
                 ) : null}
@@ -177,7 +179,7 @@ export function CountryNewsClient({ countries }: { countries: CountryPoliticalPr
 
               <button className="heritage-button focus-ring mt-4 w-full px-4" onClick={() => void loadNews(selectedIso3)} disabled={isLoading}>
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <RefreshCcw className="h-4 w-4" aria-hidden="true" />}
-                Làm mới tin hôm nay
+                {tr("Làm mới tin hôm nay")}
               </button>
             </div>
           </div>
@@ -189,7 +191,7 @@ export function CountryNewsClient({ countries }: { countries: CountryPoliticalPr
           <div className="flex items-start gap-3">
             <AlertCircle className="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" />
             <div>
-              <p className="font-medium">Tin thời gian thực chưa sẵn sàng</p>
+              <p className="font-medium">{tr("Tin thời gian thực chưa sẵn sàng")}</p>
               <p className="mt-1 text-sm leading-6 text-amber-100/85">{error}</p>
             </div>
           </div>
@@ -204,7 +206,7 @@ export function CountryNewsClient({ countries }: { countries: CountryPoliticalPr
 
       {!isLoading && data?.articles.length === 0 ? (
         <div className="rounded-lg border border-slate-700 bg-slate-950/60 p-6 text-center text-slate-300">
-          Chưa tìm thấy bài nổi bật trong ngày cho quốc gia này. Hãy thử làm mới sau ít phút.
+          {tr("Chưa tìm thấy bài nổi bật trong ngày cho quốc gia này. Hãy thử làm mới sau ít phút.")}
         </div>
       ) : null}
     </div>
@@ -237,7 +239,7 @@ function NewsCard({ article, index }: { article: NewsArticle; index: number }) {
         <h2 className="mt-3 line-clamp-3 text-lg font-semibold leading-6 text-white text-balance">{article.title}</h2>
         <p className="mt-3 line-clamp-4 text-sm leading-6 text-stone-400">{article.content}</p>
         <a href={article.url} target="_blank" rel="noreferrer" className="focus-ring mt-auto inline-flex items-center gap-2 rounded-md pt-5 text-sm font-medium text-amber-100 transition hover:text-amber-50">
-          Đọc bài viết
+          {tr("Đọc bài viết")}
           <ExternalLink className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
@@ -275,7 +277,7 @@ function getHost(url: string) {
   try {
     return new URL(url).hostname.replace(/^www\./, "");
   } catch {
-    return "Báo quốc tế";
+    return tr("Báo quốc tế");
   }
 }
 
@@ -285,7 +287,7 @@ function formatDate(value: string) {
     return "";
   }
 
-  return new Intl.DateTimeFormat("vi-VN", {
+  return new Intl.DateTimeFormat(getDisplayLanguage() === "en" ? "en-US" : "vi-VN", {
     dateStyle: "medium"
   }).format(date);
 }

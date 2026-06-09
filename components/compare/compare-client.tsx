@@ -4,8 +4,17 @@ import { useMemo, useState } from "react";
 import { GitCompare, Loader2, Plus, X } from "lucide-react";
 
 import { FlagBadge } from "@/components/ui/flag-badge";
-import { displayCountryName, displayRegion, displayValue } from "@/lib/i18n";
-import type { CountryPoliticalProfile } from "@/lib/types";
+import {
+  confidenceLabel,
+  displayCountryName,
+  displayLegislature,
+  displayRegion,
+  displayValue,
+  regimeLabel,
+  tr
+} from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
+import type { ConfidenceLevel, CountryPoliticalProfile, RegimeCategory } from "@/lib/types";
 
 type CompareResult = {
   comparisonTable: Record<string, unknown>[];
@@ -44,6 +53,7 @@ const fieldLabels: Record<string, string> = {
 };
 
 export function CompareClient({ countries }: { countries: CountryPoliticalProfile[] }) {
+  useLanguage();
   const [selected, setSelected] = useState<string[]>(countries.slice(0, 2).map((country) => country.iso3));
   const [result, setResult] = useState<CompareResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -55,6 +65,10 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
   );
 
   async function runCompare() {
+    if (selected.length < 2) {
+      setError(tr("Vui lòng cung cấp từ 2 đến 4 tên quốc gia hoặc mã ISO."));
+      return;
+    }
     setIsLoading(true);
     setError("");
     try {
@@ -68,16 +82,29 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
           fields
         })
       });
-      const data = (await response.json()) as CompareResult & { error?: string };
-      if (!response.ok) {
-        throw new Error(data.error ?? "Không thể so sánh.");
+
+      // Read as text first so an HTML error page never crashes JSON parsing.
+      const raw = await response.text();
+      let data: (CompareResult & { error?: string }) | null = null;
+      try {
+        data = JSON.parse(raw) as CompareResult & { error?: string };
+      } catch {
+        data = null;
+      }
+
+      if (!response.ok || !data) {
+        throw new Error(data?.error ?? tr("Không thể so sánh."));
       }
       setResult(data);
     } catch (requestError) {
-      setError(requestError instanceof Error ? requestError.message : "Không thể so sánh.");
+      setError(requestError instanceof Error ? requestError.message : tr("Không thể so sánh."));
     } finally {
       setIsLoading(false);
     }
+  }
+
+  function removeAt(index: number) {
+    setSelected((current) => current.filter((_, itemIndex) => itemIndex !== index));
   }
 
   return (
@@ -94,11 +121,11 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
                 >
                   {country ? <FlagBadge country={country} variant="inline" /> : iso3}
                   {country ? displayCountryName(country) : iso3}
-                  {selected.length > 2 ? (
+                  {selected.length > 1 ? (
                     <button
                       className="focus-ring grid h-6 w-6 place-items-center rounded-md text-slate-400 hover:text-white"
-                      onClick={() => setSelected((current) => current.filter((_, itemIndex) => itemIndex !== index))}
-                      aria-label={`Bỏ ${country ? displayCountryName(country) : iso3}`}
+                      onClick={() => removeAt(index)}
+                      aria-label={`${tr("Bỏ")} ${country ? displayCountryName(country) : iso3}`}
                     >
                       <X className="h-4 w-4" aria-hidden="true" />
                     </button>
@@ -110,7 +137,7 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
 
           <div className="flex flex-col gap-2 sm:flex-row">
             <label className="min-w-[220px]">
-              <span className="sr-only">Thêm quốc gia</span>
+              <span className="sr-only">{tr("Thêm quốc gia")}</span>
               <select
                 className="atlas-input w-full rounded-md px-3 py-2"
                 value=""
@@ -121,7 +148,7 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
                 }}
                 disabled={selected.length >= 4}
               >
-                <option value="">Thêm quốc gia</option>
+                <option value="">{tr("Thêm quốc gia")}</option>
                 {available.map((country) => (
                   <option key={country.iso3} value={country.iso3}>
                     {displayCountryName(country)}
@@ -129,20 +156,23 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
                 ))}
               </select>
             </label>
-            <button className="atlas-button focus-ring px-4" onClick={runCompare} disabled={isLoading}>
+            <button className="atlas-button focus-ring px-4" onClick={runCompare} disabled={isLoading || selected.length < 2}>
               {isLoading ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <GitCompare className="h-4 w-4" aria-hidden="true" />}
-              So sánh
+              {tr("So sánh")}
             </button>
           </div>
         </div>
+        {selected.length < 2 ? (
+          <p className="mt-3 text-sm text-amber-200/90">{tr("Vui lòng cung cấp từ 2 đến 4 tên quốc gia hoặc mã ISO.")}</p>
+        ) : null}
       </div>
 
-      {error ? <p className="rounded-md border border-red-400/30 bg-red-500/10 px-3 py-2 text-sm text-red-100">{error}</p> : null}
+      {error ? <p className="rounded-md border border-red-400/30 bg-red-500/10 px-3 py-2 text-sm text-red-100">{tr(error)}</p> : null}
 
       {!result ? (
-        <button className="atlas-button focus-ring px-4" onClick={runCompare}>
+        <button className="atlas-button focus-ring px-4" onClick={runCompare} disabled={isLoading || selected.length < 2}>
           <Plus className="h-4 w-4" aria-hidden="true" />
-          Tải bảng so sánh
+          {tr("Tải bảng so sánh")}
         </button>
       ) : null}
 
@@ -151,7 +181,7 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
           <table className="min-w-full divide-y divide-slate-700 text-sm">
             <thead className="bg-slate-950/60">
               <tr>
-                <th className="px-4 py-3 text-left font-medium text-slate-300">Trường dữ liệu</th>
+                <th className="px-4 py-3 text-left font-medium text-slate-300">{tr("Trường dữ liệu")}</th>
                 {result.comparisonTable.map((row) => (
                   <th key={String(row.iso3)} className="px-4 py-3 text-left font-medium text-slate-300">
                     {displayComparedHeader(row, countries)}
@@ -162,7 +192,7 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
             <tbody className="divide-y divide-slate-800">
               {fields.slice(1).map((field) => (
                 <tr key={field}>
-                  <td className="px-4 py-3 font-medium text-slate-400">{fieldLabels[field] ?? field}</td>
+                  <td className="px-4 py-3 font-medium text-slate-400">{tr(fieldLabels[field] ?? field)}</td>
                   {result.comparisonTable.map((row) => (
                     <td key={`${String(row.iso3)}-${field}`} className="max-w-[320px] px-4 py-3 text-slate-100">
                       {formatComparedValue(field, row[field])}
@@ -177,21 +207,16 @@ export function CompareClient({ countries }: { countries: CountryPoliticalProfil
 
       {result?.notes?.length ? (
         <div className="atlas-surface rounded-lg p-4">
-          <h2 className="text-base font-semibold text-white">Ghi chú</h2>
+          <h2 className="text-base font-semibold text-white">{tr("Ghi chú")}</h2>
           <ul className="mt-3 space-y-2 text-sm text-slate-300">
             {result.notes.map((note) => (
-              <li key={note}>{note}</li>
+              <li key={note}>{tr(note)}</li>
             ))}
           </ul>
         </div>
       ) : null}
     </div>
   );
-}
-
-function displayComparedName(row: Record<string, unknown>, countries: CountryPoliticalProfile[]) {
-  const country = countries.find((entry) => entry.iso3 === row.iso3);
-  return country ? displayCountryName(country) : String(row.countryName ?? row.iso3);
 }
 
 function displayComparedHeader(row: Record<string, unknown>, countries: CountryPoliticalProfile[]) {
@@ -212,10 +237,19 @@ function formatComparedValue(field: string, value: unknown) {
   if (field === "region" && typeof value === "string") {
     return displayRegion(value);
   }
+  if (field === "regimeCategory") {
+    return regimeLabel(value as RegimeCategory);
+  }
+  if (field === "confidenceLevel") {
+    return confidenceLabel(value as ConfidenceLevel);
+  }
+  if (field === "legislature" && typeof value === "string") {
+    return displayLegislature(value);
+  }
 
   if (typeof value === "string" || typeof value === "number") {
     return displayValue(value);
   }
 
-  return "Chưa có dữ liệu";
+  return displayValue(null);
 }

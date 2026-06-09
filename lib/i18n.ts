@@ -106,7 +106,7 @@ export function displaySummary(country: CountryPoliticalProfile) {
     return buildGenericSummary(
       {
         englishName: country.englishName,
-        countryName: displayLanguage === "en" ? country.englishName : country.countryName,
+        countryName: displayCountryName(country),
         region: country.region,
         capital: country.capital,
         population: country.population

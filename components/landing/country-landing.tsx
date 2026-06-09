@@ -23,12 +23,14 @@ import {
 } from "lucide-react";
 
 import { generateCountryExperiences, type CountryExperience } from "@/lib/country-experience";
-import { displayCountryName, displayValue } from "@/lib/i18n";
+import { displayCountryName, displayValue, tr } from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
 import type { CountryPoliticalProfile } from "@/lib/types";
 
 type CountrySection = CountryExperience["sections"][number];
 
 export function CountryLandingExperience({ countries }: { countries: CountryPoliticalProfile[] }) {
+  useLanguage();
   const experiences = useMemo(() => generateCountryExperiences(countries), [countries]);
   const [selectedSlug, setSelectedSlug] = useState(() => experiences[0]?.slug ?? "vnm");
   
@@ -70,22 +72,22 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                     <Crown className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span>
-                    <span className="block font-serif text-lg font-semibold tracking-wide text-white">Biểu tượng quốc gia</span>
-                    <span className="text-xs uppercase tracking-[0.22em] text-[var(--country-secondary)]">Di sản · Văn hóa · Bản sắc</span>
+                    <span className="block font-serif text-lg font-semibold tracking-wide text-white">{tr("Biểu tượng quốc gia")}</span>
+                    <span className="text-xs uppercase tracking-[0.22em] text-[var(--country-secondary)]">{tr("Di sản · Văn hóa · Bản sắc")}</span>
                   </span>
                 </Link>
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                   <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-2 text-sm text-stone-200 backdrop-blur md:flex">
-                    <a href="#politics" className="rounded-full px-3 py-1.5 hover:bg-white/10">Chính trị</a>
-                    <a href="#heritage" className="rounded-full px-3 py-1.5 hover:bg-white/10">Di sản</a>
-                    <a href="#leaders" className="rounded-full px-3 py-1.5 hover:bg-white/10">Lãnh đạo</a>
-                    <a href="#culture" className="rounded-full px-3 py-1.5 hover:bg-white/10">Văn hóa</a>
-                    <Link href="/news" className="rounded-full px-3 py-1.5 hover:bg-white/10">Tin tức</Link>
+                    <a href="#politics" className="rounded-full px-3 py-1.5 hover:bg-white/10">{tr("Chính trị")}</a>
+                    <a href="#heritage" className="rounded-full px-3 py-1.5 hover:bg-white/10">{tr("Di sản")}</a>
+                    <a href="#leaders" className="rounded-full px-3 py-1.5 hover:bg-white/10">{tr("Lãnh đạo")}</a>
+                    <a href="#culture" className="rounded-full px-3 py-1.5 hover:bg-white/10">{tr("Văn hóa")}</a>
+                    <Link href="/news" className="rounded-full px-3 py-1.5 hover:bg-white/10">{tr("Tin tức")}</Link>
                   </nav>
 
                   <label className="relative min-w-[220px]">
-                    <span className="sr-only">Chọn quốc gia</span>
+                    <span className="sr-only">{tr("Chọn quốc gia")}</span>
                     <select
                       className="focus-ring h-11 w-full appearance-none rounded-full border border-[var(--country-secondary)]/50 bg-black/45 px-4 pr-10 text-sm font-medium text-white outline-none backdrop-blur"
                       value={selectedSlug}
@@ -122,10 +124,10 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a href="#heritage" className="heritage-button focus-ring px-5">
                       <Compass className="h-4 w-4" aria-hidden="true" />
-                      Khám phá di sản
+                      {tr("Khám phá di sản")}
                     </a>
                     <Link href="/ranking" className="heritage-button heritage-button--ghost focus-ring px-5">
-                      Xem xếp hạng
+                      {tr("Xem xếp hạng")}
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
                   </div>
@@ -153,10 +155,10 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
 
           <div id="heritage" className="country-content px-5 py-8 sm:px-8 lg:px-10">
             <div className="mb-6 grid gap-3 rounded-lg border border-white/10 bg-black/30 p-4 sm:grid-cols-2 lg:grid-cols-4">
-              <MetaChip label="Tên tiếng Anh" value={selected.meta.countryNameEn} />
-              <MetaChip label="Mã ISO" value={`${selected.meta.iso2} · ${selected.meta.iso3}`} />
-              <MetaChip label="Khu vực" value={selected.meta.regionVi} />
-              <MetaChip label="Mức xác minh" value={selected.meta.verificationLevel} />
+              <MetaChip label={tr("Tên tiếng Anh")} value={selected.meta.countryNameEn} />
+              <MetaChip label={tr("Mã ISO")} value={`${selected.meta.iso2} · ${selected.meta.iso3}`} />
+              <MetaChip label={tr("Khu vực")} value={selected.meta.regionVi} />
+              <MetaChip label={tr("Mức xác minh")} value={selected.meta.verificationLevel} />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -185,7 +187,7 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                           rel="noreferrer"
                           className="focus-ring mb-4 inline-flex items-center gap-1 rounded-full border border-[var(--country-secondary)]/25 px-3 py-1.5 text-xs text-[var(--country-secondary)] transition-colors hover:bg-[var(--country-secondary)]/10"
                         >
-                          Xem vị trí trên bản đồ
+                          {tr("Xem vị trí trên bản đồ")}
                           <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                         </a>
                       ) : null}
@@ -197,11 +199,11 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                             preload="none"
                             src={section.audioUrl}
                           >
-                            Trình duyệt của bạn không hỗ trợ phát âm thanh.
+                            {tr("Trình duyệt của bạn không hỗ trợ phát âm thanh.")}
                           </audio>
                         ) : (
                           <p className="mb-4 rounded-md border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-stone-400">
-                            Chưa có file âm thanh quốc ca đã xác minh.
+                            {tr("Chưa có file âm thanh quốc ca đã xác minh.")}
                           </p>
                         )
                       ) : null}
@@ -235,7 +237,7 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                             rel="noreferrer"
                             className="focus-ring inline-flex items-center gap-1 rounded-full border border-[var(--country-secondary)]/25 px-3 py-1 text-[var(--country-secondary)] transition-colors hover:bg-[var(--country-secondary)]/10"
                           >
-                            {section.sourceLabel ?? "Nguồn kiểm chứng"}
+                            {section.sourceLabel ?? tr("Nguồn kiểm chứng")}
                             <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                           </a>
                         ) : (
@@ -261,8 +263,8 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                     <UserRound className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <div>
-                    <h2 className="font-serif text-2xl font-semibold text-white">Lãnh đạo quốc gia hiện nay</h2>
-                    <p className="text-sm text-stone-400">Cập nhật từ Wikipedia — nguyên thủ, thủ tướng, quân chủ, lãnh tụ và các chức vụ lãnh đạo cao nhất</p>
+                    <h2 className="font-serif text-2xl font-semibold text-white">{tr("Lãnh đạo quốc gia hiện nay")}</h2>
+                    <p className="text-sm text-stone-400">{tr("Cập nhật từ Wikipedia — nguyên thủ, thủ tướng, quân chủ, lãnh tụ và các chức vụ lãnh đạo cao nhất")}</p>
                   </div>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -289,10 +291,10 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                         <div className="flex flex-col p-5">
                           <p className="text-[10px] uppercase tracking-[0.18em] text-[var(--country-secondary)]">
                             {leader.role === "headOfState"
-                              ? "Nguyên thủ / Lãnh tụ"
+                              ? tr("Nguyên thủ / Lãnh tụ")
                               : leader.role === "headOfGovernment"
-                                ? "Đứng đầu chính phủ"
-                                : "Lãnh đạo nhà nước"}
+                                ? tr("Đứng đầu chính phủ")
+                                : tr("Lãnh đạo nhà nước")}
                           </p>
                           <h3 className="mt-2 font-serif text-xl font-semibold leading-snug text-white">{leader.title}</h3>
                           <p className="mt-2 text-lg font-medium text-stone-100">{leader.name}</p>
@@ -300,7 +302,7 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                             <p className="mt-1 text-xs text-stone-400">{leader.titleEn}</p>
                           ) : null}
                           {leader.since ? (
-                            <p className="mt-2 text-sm text-stone-400">Nhậm chức từ năm {leader.since}</p>
+                            <p className="mt-2 text-sm text-stone-400">{tr("Nhậm chức từ năm")} {leader.since}</p>
                           ) : null}
                           {leader.sourceUrl ? (
                             <a
@@ -346,16 +348,16 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
                 style={{ animationDelay: "100ms" }}
               >
                 <div className="grid gap-4 sm:grid-cols-3">
-                  <MiniFact icon={<Building2 className="h-4 w-4" />} label="Mô hình" value={displayValue(profile?.governmentSystem)} />
-                  <MiniFact icon={<Landmark className="h-4 w-4" />} label="Thiết chế" value={displayValue(profile?.legislature)} />
-                  <MiniFact icon={<Camera className="h-4 w-4" />} label="Thủ đô" value={displayValue(profile?.capital)} />
+                  <MiniFact icon={<Building2 className="h-4 w-4" />} label={tr("Mô hình")} value={displayValue(profile?.governmentSystem)} />
+                  <MiniFact icon={<Landmark className="h-4 w-4" />} label={tr("Thiết chế")} value={displayValue(profile?.legislature)} />
+                  <MiniFact icon={<Camera className="h-4 w-4" />} label={tr("Thủ đô")} value={displayValue(profile?.capital)} />
                 </div>
                 <div className="mt-auto pt-6">
                   <div className="rounded-lg border border-[var(--country-secondary)]/20 bg-[var(--country-primary)]/10 p-5 backdrop-blur-md">
                     <p className="text-sm leading-relaxed text-stone-200/90">
                       {profile
-                        ? `${displayCountryName(profile)} được đặt trong bối cảnh chính trị, văn hóa và di sản để người xem hiểu quốc gia như một chỉnh thể sống động.`
-                        : "Mỗi quốc gia được đặt trong bối cảnh chính trị, văn hóa và di sản để người xem hiểu quốc gia như một chỉnh thể sống động."}
+                        ? `${displayCountryName(profile)} ${tr("được đặt trong bối cảnh chính trị, văn hóa và di sản để người xem hiểu quốc gia như một chỉnh thể sống động.")}`
+                        : tr("Mỗi quốc gia được đặt trong bối cảnh chính trị, văn hóa và di sản để người xem hiểu quốc gia như một chỉnh thể sống động.")}
                     </p>
                   </div>
                 </div>
@@ -368,18 +370,18 @@ export function CountryLandingExperience({ countries }: { countries: CountryPoli
               <div className="absolute inset-0 bg-[var(--country-primary)]/5 mix-blend-overlay" aria-hidden="true" />
               <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
                 <div>
-                  <h2 className="font-serif text-3xl font-semibold tracking-tight text-white">Tiếp tục khám phá {selected.localName}</h2>
+                  <h2 className="font-serif text-3xl font-semibold tracking-tight text-white">{tr("Tiếp tục khám phá")} {selected.localName}</h2>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   <Link href={`/countries/${selected.iso3}`} className="heritage-button focus-ring px-5 py-2.5 shadow-lg transition-transform hover:scale-105 active:scale-95">
-                    Hồ sơ chi tiết
+                    {tr("Hồ sơ chi tiết")}
                   </Link>
                   <Link href="/news" className="heritage-button heritage-button--ghost focus-ring px-5 py-2.5 transition-transform hover:scale-105 active:scale-95">
                     <Newspaper className="h-4 w-4" aria-hidden="true" />
-                    Tin nóng
+                    {tr("Tin nóng")}
                   </Link>
                   <Link href="/#map" className="heritage-button heritage-button--ghost focus-ring px-5 py-2.5 transition-transform hover:scale-105 active:scale-95">
-                    Bản đồ thế giới
+                    {tr("Bản đồ thế giới")}
                   </Link>
                 </div>
               </div>

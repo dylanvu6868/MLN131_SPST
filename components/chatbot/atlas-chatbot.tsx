@@ -5,6 +5,9 @@ import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { Bot, Loader2, Send, Sparkles } from "lucide-react";
 
+import { tr } from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
+
 function getToolPartName(part: { type: string }) {
   if (part.type === "dynamic-tool" && "toolName" in part && typeof part.toolName === "string") {
     return part.toolName;
@@ -26,8 +29,9 @@ export function AtlasChatbot({
   compact?: boolean;
   embedded?: boolean;
 }) {
-  const [input, setInput] = useState(contextCountry ? `Giải thích hồ sơ chính trị của ${contextCountry}` : "");
-  
+  useLanguage();
+  const [input, setInput] = useState(contextCountry ? `${tr("Giải thích hồ sơ chính trị của")} ${contextCountry}` : "");
+
   const { messages, status, error, sendMessage } = useChat({
     transport: new DefaultChatTransport({
       api: "/api/chatbot",
@@ -37,7 +41,7 @@ export function AtlasChatbot({
       {
         id: "initial-msg",
         role: "assistant",
-        parts: [{ type: "text", text: "Atlas AI sẵn sàng hỗ trợ. Hãy hỏi theo nhiều lớp: hệ tư tưởng, hình thức nhà nước, cơ cấu quyền lực, lãnh đạo, kinh tế và tài liệu tham khảo." }]
+        parts: [{ type: "text", text: tr("Atlas AI sẵn sàng hỗ trợ. Hãy hỏi theo nhiều lớp: hệ tư tưởng, hình thức nhà nước, cơ cấu quyền lực, lãnh đạo, kinh tế và tài liệu tham khảo.") }]
       }
     ],
   });
@@ -69,7 +73,7 @@ export function AtlasChatbot({
             <h2 id="atlas-ai-title" className="text-lg font-semibold text-white">
               Atlas AI
             </h2>
-            <p className="text-sm text-slate-400">Trợ lý phân tích hồ sơ quốc gia</p>
+            <p className="text-sm text-slate-400">{tr("Trợ lý phân tích hồ sơ quốc gia")}</p>
           </div>
         </div>
         <Sparkles className="h-5 w-5 text-amber-200" aria-hidden="true" />
@@ -88,7 +92,7 @@ export function AtlasChatbot({
                 const toolName = getToolPartName(part);
                 if (toolName) return (
                   <span key={index} className="block mt-2 text-xs italic text-teal-300/70">
-                    Tra cứu công cụ: {toolName}...
+                    {tr("Tra cứu công cụ:")} {toolName}...
                   </span>
                 );
                 return null;
@@ -99,28 +103,28 @@ export function AtlasChatbot({
         {isLoading && messages.length > 0 && (messages[messages.length - 1].role as string) === "user" ? (
           <div className="flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-950/55 p-3 text-sm text-slate-300">
             <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
-            Atlas AI đang suy nghĩ...
+            {tr("Atlas AI đang suy nghĩ...")}
           </div>
         ) : null}
       </div>
 
       {error ? (
         <p className="mt-3 rounded-md border border-red-400/30 bg-red-500/10 px-3 py-2 text-sm text-red-100">
-          {error.message || "Đã xảy ra lỗi khi kết nối với Atlas AI."}
+          {error.message || tr("Đã xảy ra lỗi khi kết nối với Atlas AI.")}
         </p>
       ) : null}
 
       <form onSubmit={handleSubmit} className="mt-4 flex gap-2">
         <label className="min-w-0 flex-1">
-          <span className="sr-only">Hỏi Atlas AI</span>
+          <span className="sr-only">{tr("Hỏi Atlas AI")}</span>
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="atlas-input w-full rounded-md px-3 py-2"
-            placeholder={contextCountry ? `Hỏi về ${contextCountry}...` : "Hỏi về Việt Nam, Hoa Kỳ, Trung Quốc..."}
+            placeholder={contextCountry ? `${tr("Hỏi về")} ${contextCountry}...` : tr("Hỏi về Việt Nam, Hoa Kỳ, Trung Quốc...")}
           />
         </label>
-        <button className="atlas-button focus-ring w-12 shrink-0" type="submit" aria-label="Gửi tin nhắn" disabled={isLoading || !input.trim()}>
+        <button className="atlas-button focus-ring w-12 shrink-0" type="submit" aria-label={tr("Gửi tin nhắn")} disabled={isLoading || !input.trim()}>
           {isLoading ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Send className="h-4 w-4" aria-hidden="true" />}
         </button>
       </form>

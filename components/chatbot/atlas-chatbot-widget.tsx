@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { Bot, MessageCircle, X } from "lucide-react";
 
 import { AtlasChatbot } from "@/components/chatbot/atlas-chatbot";
+import { tr } from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
 
 function getContextCountry(pathname: string | null) {
   const match = pathname?.match(/^\/countries\/([A-Z0-9]{3})/i);
@@ -12,6 +14,7 @@ function getContextCountry(pathname: string | null) {
 }
 
 export function AtlasChatbotWidget() {
+  useLanguage();
   const pathname = usePathname();
   const contextCountry = useMemo(() => getContextCountry(pathname), [pathname]);
   const [open, setOpen] = useState(false);
@@ -28,14 +31,14 @@ export function AtlasChatbotWidget() {
               <div>
                 <p className="text-sm font-semibold text-white">Atlas AI</p>
                 <p className="text-xs text-slate-400">
-                  {contextCountry ? `Đang xem hồ sơ ${contextCountry}` : "Hỏi đáp nhanh trên mọi trang"}
+                  {contextCountry ? `${tr("Đang xem hồ sơ")} ${contextCountry}` : tr("Hỏi đáp nhanh trên mọi trang")}
                 </p>
               </div>
             </div>
             <button
               type="button"
               className="focus-ring grid h-9 w-9 place-items-center rounded-md border border-slate-700 bg-slate-900 text-slate-200 hover:border-amber-300/50 hover:text-amber-100"
-              aria-label="Đóng Atlas AI"
+              aria-label={tr("Đóng Atlas AI")}
               onClick={() => setOpen(false)}
             >
               <X className="h-4 w-4" aria-hidden="true" />
@@ -47,13 +50,13 @@ export function AtlasChatbotWidget() {
         <button
           type="button"
           className="focus-ring group flex min-h-14 items-center gap-3 rounded-full border border-teal-300/35 bg-slate-950/95 px-4 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(0,0,0,0.38)] backdrop-blur-xl transition hover:border-amber-300/50 hover:bg-slate-900"
-          aria-label="Mở Atlas AI"
+          aria-label={tr("Mở Atlas AI")}
           onClick={() => setOpen(true)}
         >
           <span className="grid h-10 w-10 place-items-center rounded-full bg-teal-400/15 text-teal-100 transition group-hover:bg-amber-300/15 group-hover:text-amber-100">
             <MessageCircle className="h-5 w-5" aria-hidden="true" />
           </span>
-          <span className="hidden pr-1 sm:inline">Hỏi Atlas AI</span>
+          <span className="hidden pr-1 sm:inline">{tr("Hỏi Atlas AI")}</span>
         </button>
       )}
     </div>

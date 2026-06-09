@@ -12,7 +12,8 @@ import { RegimeBadge } from "@/components/ui/badges";
 import { FlagBadge } from "@/components/ui/flag-badge";
 import { formatNumber } from "@/lib/format";
 import { inferRegimeCategory } from "@/lib/regime-classification";
-import { displayCountryName, displayRegion, displayValue, regimeLabel } from "@/lib/i18n";
+import { displayCountryName, displayRegion, displayValue, regimeLabel, tr } from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
 import { cn } from "@/lib/utils";
 import type { CountryPoliticalProfile, RegimeCategory } from "@/lib/types";
 
@@ -109,6 +110,7 @@ const vietnamIslandGroups: VietnamIslandGroup[] = [
 ];
 
 export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfile[] }) {
+  useLanguage();
   const router = useRouter();
 
   const classifiedCountries = useMemo(
@@ -268,30 +270,30 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
     <section id="map" className="atlas-surface overflow-hidden rounded-lg">
       <div className="flex flex-col gap-4 border-b border-slate-700/60 p-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-200">Bản đồ phân mảnh theo quốc gia</p>
-          <h2 className="mt-2 text-2xl font-semibold text-white">Bản đồ chính trị thế giới</h2>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-200">{tr("Bản đồ phân mảnh theo quốc gia")}</p>
+          <h2 className="mt-2 text-2xl font-semibold text-white">{tr("Bản đồ chính trị thế giới")}</h2>
         </div>
         <span className="inline-flex items-center gap-2 rounded-md border border-amber-300/40 bg-amber-400/10 px-3 py-2 text-sm text-amber-100">
           <MousePointerClick className="h-4 w-4" aria-hidden="true" />
-          Di chuột để xem nhanh · Bấm để mở hồ sơ
+          {tr("Di chuột để xem nhanh · Bấm để mở hồ sơ")}
         </span>
       </div>
 
       <div className="grid lg:grid-cols-[minmax(0,1fr)_360px]">
         <div className="relative min-h-[560px] overflow-hidden bg-[#07101f]">
           <div className="absolute left-5 top-5 z-20 flex flex-wrap items-center gap-2">
-            <button className="map-control" type="button" onClick={() => zoomBy(0.5)} aria-label="Phóng to bản đồ">
+            <button className="map-control" type="button" onClick={() => zoomBy(0.5)} aria-label={tr("Phóng to bản đồ")}>
               <Plus className="h-4 w-4" aria-hidden="true" />
             </button>
-            <button className="map-control" type="button" onClick={() => zoomBy(-0.5)} aria-label="Thu nhỏ bản đồ">
+            <button className="map-control" type="button" onClick={() => zoomBy(-0.5)} aria-label={tr("Thu nhỏ bản đồ")}>
               <Minus className="h-4 w-4" aria-hidden="true" />
             </button>
-            <button className="map-control" type="button" onClick={resetMap} aria-label="Đặt lại bản đồ">
+            <button className="map-control" type="button" onClick={resetMap} aria-label={tr("Đặt lại bản đồ")}>
               <RotateCcw className="h-4 w-4" aria-hidden="true" />
             </button>
             <span className="inline-flex min-h-9 items-center gap-2 rounded-md border border-slate-600 bg-slate-950/85 px-3 text-xs text-slate-300">
               <Move className="h-3.5 w-3.5 text-teal-200" aria-hidden="true" />
-              Kéo để di chuyển · Cuộn để zoom
+              {tr("Kéo để di chuyển · Cuộn để zoom")}
             </span>
           </div>
 
@@ -299,7 +301,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
             className={cn("h-[560px] w-full select-none", isPanning ? "cursor-grabbing" : "cursor-grab")}
             viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
             role="img"
-            aria-label="Bản đồ thế giới phân tách theo quốc gia"
+            aria-label={tr("Bản đồ thế giới phân tách theo quốc gia")}
             onWheel={handleWheel}
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
@@ -331,7 +333,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
                     d={item.d}
                     tabIndex={country ? 0 : -1}
                     role={country ? "link" : "img"}
-                    aria-label={country ? `Mở hồ sơ ${displayCountryName(country)}` : `Không có hồ sơ cho ${item.geoName}`}
+                    aria-label={country ? `${tr("Mở hồ sơ")} ${displayCountryName(country)}` : `${tr("Không có hồ sơ cho")} ${item.geoName}`}
                     className={cn(
                       "outline-none transition duration-150",
                       country ? "cursor-pointer hover:brightness-125 focus:brightness-125" : "cursor-not-allowed opacity-40"
@@ -360,7 +362,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
                     <title suppressHydrationWarning>
                       {country
                         ? `${displayCountryName(country)} · ${regimeLabel(country.regimeCategory)} · ${displayValue(country.governmentSystem)}`
-                        : `${item.geoName} · chưa có hồ sơ`}
+                        : `${item.geoName} · ${tr("chưa có hồ sơ")}`}
                     </title>
                   </path>
                 );
@@ -458,33 +460,33 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
 
               <div className="rounded-md border border-slate-700 bg-slate-950/70 p-3 text-sm leading-6 text-slate-300">
                 <p className="font-medium text-slate-100">{regimeLabel(activeCountry.regimeCategory)}</p>
-                <p className="mt-1">{regimeDescriptions[activeCountry.regimeCategory ?? "Unknown"]}</p>
+                <p className="mt-1">{tr(regimeDescriptions[activeCountry.regimeCategory ?? "Unknown"])}</p>
               </div>
 
               <dl className="grid gap-3 text-sm">
-                <MapFact label="Thủ đô" value={activeCountry.capital} />
-                <MapFact label="Dân số" value={formatNumber(activeCountry.population)} />
-                <MapFact label="Hệ tư tưởng chính thức" value={activeCountry.officialIdeology} />
-                <MapFact label="Hình thức nhà nước" value={activeCountry.stateForm} />
-                <MapFact label="Mô hình chính phủ" value={activeCountry.governmentSystem} />
-                <MapFact label="Cấu trúc quyền lực" value={activeCountry.powerStructure} />
+                <MapFact label={tr("Thủ đô")} value={activeCountry.capital} />
+                <MapFact label={tr("Dân số")} value={formatNumber(activeCountry.population)} />
+                <MapFact label={tr("Hệ tư tưởng chính thức")} value={activeCountry.officialIdeology} />
+                <MapFact label={tr("Hình thức nhà nước")} value={activeCountry.stateForm} />
+                <MapFact label={tr("Mô hình chính phủ")} value={activeCountry.governmentSystem} />
+                <MapFact label={tr("Cấu trúc quyền lực")} value={activeCountry.powerStructure} />
               </dl>
 
               <Link href={`/countries/${activeCountry.iso3}`} className="atlas-button focus-ring w-full px-4">
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                Mở hồ sơ chi tiết
+                {tr("Mở hồ sơ chi tiết")}
               </Link>
             </div>
           ) : (
             <div className="flex min-h-[320px] items-center justify-center rounded-lg border border-dashed border-slate-700 text-center text-sm text-slate-400">
-              Di chuột lên một quốc gia để xem dữ liệu.
+              {tr("Di chuột lên một quốc gia để xem dữ liệu.")}
             </div>
           )}
         </aside>
       </div>
 
       <div className="flex flex-wrap items-center gap-2 p-5">
-        <span className="mr-1 text-sm text-slate-400">Chú giải màu theo nhóm chế độ:</span>
+        <span className="mr-1 text-sm text-slate-400">{tr("Chú giải màu theo nhóm chế độ:")}</span>
         <RegimeBadge value="Liberal democracy" />
         <RegimeBadge value="Electoral democracy" />
         <RegimeBadge value="Electoral autocracy" />
@@ -492,7 +494,7 @@ export function WorldMapPanel({ countries }: { countries: CountryPoliticalProfil
         <RegimeBadge value="Unknown" />
         <span className="ml-auto inline-flex items-center gap-2 text-xs text-slate-500">
           <LocateFixed className="h-3.5 w-3.5" aria-hidden="true" />
-Có lớp bổ sung Hoàng Sa và Trường Sa gần Việt Nam để quan sát trực quan
+          {tr("Có lớp bổ sung Hoàng Sa và Trường Sa gần Việt Nam để quan sát trực quan")}
         </span>
       </div>
     </section>

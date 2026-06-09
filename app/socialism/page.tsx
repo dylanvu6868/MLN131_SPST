@@ -1,5 +1,6 @@
 import { CountryCard } from "@/components/countries/country-card";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { TrText } from "@/components/ui/tr-text";
 import { getAllCountries } from "@/lib/countries";
 
 const branches = [
@@ -45,16 +46,16 @@ export default function SocialismPage() {
       <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {branches.map((branch) => (
           <article key={branch.title} className="atlas-surface rounded-lg p-5">
-            <h2 className="text-lg font-semibold text-white">{branch.title}</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-300">{branch.body}</p>
+            <h2 className="text-lg font-semibold text-white"><TrText vi={branch.title} /></h2>
+            <p className="mt-3 text-sm leading-6 text-slate-300"><TrText vi={branch.body} /></p>
           </article>
         ))}
       </div>
 
       <section className="mt-10 atlas-surface rounded-lg p-5">
-        <h2 className="text-lg font-semibold text-white">Ghi chú về mô hình Bắc Âu</h2>
+        <h2 className="text-lg font-semibold text-white"><TrText vi="Ghi chú về mô hình Bắc Âu" /></h2>
         <p className="mt-3 text-sm leading-6 text-slate-300">
-          Mô hình Bắc Âu thường là kinh tế thị trường kết hợp nhà nước phúc lợi mạnh, không phải nhà nước xã hội chủ nghĩa theo nghĩa Marxist-Leninist.
+          <TrText vi="Mô hình Bắc Âu thường là kinh tế thị trường kết hợp nhà nước phúc lợi mạnh, không phải nhà nước xã hội chủ nghĩa theo nghĩa Marxist-Leninist." />
         </p>
       </section>
 

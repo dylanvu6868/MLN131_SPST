@@ -33,10 +33,12 @@ export const UI_STRINGS: Record<string, string> = {
   "Đặt lại bản đồ": "Reset map",
   "Bản đồ thế giới phân tách theo quốc gia": "World map split by country",
   "Mở hồ sơ chi tiết": "Open full profile",
+  "Không có hồ sơ cho": "No profile for",
+  "chưa có hồ sơ": "no profile yet",
   "Di chuột lên một quốc gia để xem dữ liệu.": "Hover over a country to see its data.",
   "Chú giải màu theo nhóm chế độ:": "Color legend by regime group:",
   "Có lớp bổ sung Hoàng Sa và Trường Sa gần Việt Nam để quan sát trực quan":
-    "Includes supplementary Hoàng Sa and Trường Sa layers near Vietnam for visual reference",
+    "Includes supplementary Paracel and Spratly layers near Vietnam for visual reference",
   "Dân chủ tự do: bầu cử cạnh tranh, pháp quyền và đối trọng thể chế mạnh.":
     "Liberal democracy: competitive elections, the rule of law, and strong institutional checks.",
   "Dân chủ bầu cử: có cạnh tranh đa đảng, chất lượng thể chế khác nhau theo từng nước.":
@@ -220,5 +222,55 @@ export const UI_STRINGS: Record<string, string> = {
   "Đọc bài viết": "Read article",
   "Chưa tìm thấy bài nổi bật trong ngày cho quốc gia này. Hãy thử làm mới sau ít phút.":
     "No featured articles found today for this country. Try refreshing in a few minutes.",
-  "Không thể tải tin tức lúc này.": "Unable to load news right now."
+  "Không thể tải tin tức lúc này.": "Unable to load news right now.",
+  "Báo quốc tế": "International outlet",
+
+  // --- chatbot ---
+  "Đang xem hồ sơ": "Viewing profile",
+  "Hỏi đáp nhanh trên mọi trang": "Quick Q&A on every page",
+  "Đóng Atlas AI": "Close Atlas AI",
+  "Mở Atlas AI": "Open Atlas AI",
+  "Hỏi Atlas AI": "Ask Atlas AI",
+  "Trợ lý phân tích hồ sơ quốc gia": "Country-profile analysis assistant",
+  "Atlas AI sẵn sàng hỗ trợ. Hãy hỏi theo nhiều lớp: hệ tư tưởng, hình thức nhà nước, cơ cấu quyền lực, lãnh đạo, kinh tế và tài liệu tham khảo.":
+    "Atlas AI is ready to help. Ask across layers: ideology, state form, power structure, leadership, economy, and reference sources.",
+  "Tra cứu công cụ:": "Tool lookup:",
+  "Atlas AI đang suy nghĩ...": "Atlas AI is thinking...",
+  "Đã xảy ra lỗi khi kết nối với Atlas AI.": "An error occurred while connecting to Atlas AI.",
+  "Gửi tin nhắn": "Send message",
+  "Giải thích hồ sơ chính trị của": "Explain the political profile of",
+  "Hỏi về": "Ask about",
+  "Hỏi về Việt Nam, Hoa Kỳ, Trung Quốc...": "Ask about Vietnam, the United States, China...",
+
+  // --- country-symbols landing (chrome only; heritage content stays Vietnamese) ---
+  "Biểu tượng quốc gia": "National symbols",
+  "Di sản · Văn hóa · Bản sắc": "Heritage · Culture · Identity",
+  "Chính trị": "Politics",
+  "Di sản": "Heritage",
+  "Văn hóa": "Culture",
+  "Chọn quốc gia": "Select a country",
+  "Khám phá di sản": "Explore heritage",
+  "Xem xếp hạng": "View ranking",
+  "Tên tiếng Anh": "English name",
+  "Mã ISO": "ISO code",
+  "Mức xác minh": "Verification level",
+  "Xem vị trí trên bản đồ": "View location on map",
+  "Trình duyệt của bạn không hỗ trợ phát âm thanh.": "Your browser does not support audio playback.",
+  "Chưa có file âm thanh quốc ca đã xác minh.": "No verified national-anthem audio file yet.",
+  "Nguồn kiểm chứng": "Verification source",
+  "Lãnh đạo quốc gia hiện nay": "Current national leaders",
+  "Cập nhật từ Wikipedia — nguyên thủ, thủ tướng, quân chủ, lãnh tụ và các chức vụ lãnh đạo cao nhất":
+    "Updated from Wikipedia — heads of state, prime ministers, monarchs, leaders, and the highest leadership positions",
+  "Nguyên thủ / Lãnh tụ": "Head of state / Leader",
+  "Đứng đầu chính phủ": "Head of government",
+  "Lãnh đạo nhà nước": "State leadership",
+  "Nhậm chức từ năm": "In office since",
+  "Mô hình": "System",
+  "được đặt trong bối cảnh chính trị, văn hóa và di sản để người xem hiểu quốc gia như một chỉnh thể sống động.":
+    "is placed in its political, cultural, and heritage context so viewers can understand the country as a living whole.",
+  "Mỗi quốc gia được đặt trong bối cảnh chính trị, văn hóa và di sản để người xem hiểu quốc gia như một chỉnh thể sống động.":
+    "Each country is placed in its political, cultural, and heritage context so viewers can understand it as a living whole.",
+  "Tiếp tục khám phá": "Keep exploring",
+  "Hồ sơ chi tiết": "Full profile",
+  "Tin nóng": "Breaking news"
 };

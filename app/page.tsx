@@ -2,6 +2,7 @@ import { Map } from "lucide-react";
 
 import { WorldMapPanel } from "@/components/dashboard/world-map-panel";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { TrText } from "@/components/ui/tr-text";
 import { getAllCountries } from "@/lib/countries";
 
 export default function HomePage() {
@@ -18,7 +19,7 @@ export default function HomePage() {
           />
           <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/25 bg-amber-400/10 px-3 py-2 text-sm text-amber-100">
             <Map className="h-4 w-4" aria-hidden="true" />
-            Kéo để di chuyển · Cuộn để zoom
+            <TrText vi="Kéo để di chuyển · Cuộn để zoom" />
           </div>
         </div>
         <WorldMapPanel countries={countries} />
