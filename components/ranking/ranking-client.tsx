@@ -8,7 +8,8 @@ import { ArrowDownWideNarrow, ArrowUpWideNarrow, BarChart3, ExternalLink, Slider
 import { ConfidenceBadge, RegimeBadge } from "@/components/ui/badges";
 import { FlagBadge } from "@/components/ui/flag-badge";
 import { formatPlainNumber } from "@/lib/format";
-import { confidenceLabel, displayCountryName, displayRegion, displayValue } from "@/lib/i18n";
+import { confidenceLabel, displayCountryName, displayRegion, displayValue, getDisplayLanguage, tr } from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
 import type { ConfidenceLevel, CountryPoliticalProfile } from "@/lib/types";
 
 type RankingMetric =
@@ -81,6 +82,7 @@ const confidenceScores: Record<ConfidenceLevel, number> = {
 };
 
 export function RankingClient({ countries }: { countries: CountryPoliticalProfile[] }) {
+  useLanguage();
   const [metric, setMetric] = useState<RankingMetric>("profileCompleteness");
   const [direction, setDirection] = useState<SortDirection>("desc");
   const [region, setRegion] = useState("all");
@@ -122,14 +124,14 @@ export function RankingClient({ countries }: { countries: CountryPoliticalProfil
           <div>
             <div className="flex items-center gap-2 text-sm font-medium text-teal-100">
               <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
-              Bộ tiêu chí
+              {tr("Bộ tiêu chí")}
             </div>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">{metricDescriptions[metric]}</p>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">{tr(metricDescriptions[metric])}</p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-[220px_180px_180px_auto]">
             <label>
-              <span className="mb-1 block text-xs font-medium text-slate-400">Tiêu chí</span>
+              <span className="mb-1 block text-xs font-medium text-slate-400">{tr("Tiêu chí")}</span>
               <select
                 className="atlas-input w-full rounded-md px-3 py-2"
                 value={metric}
@@ -137,16 +139,16 @@ export function RankingClient({ countries }: { countries: CountryPoliticalProfil
               >
                 {Object.entries(metricLabels).map(([value, label]) => (
                   <option key={value} value={value}>
-                    {label}
+                    {tr(label)}
                   </option>
                 ))}
               </select>
             </label>
 
             <label>
-              <span className="mb-1 block text-xs font-medium text-slate-400">Khu vực</span>
+              <span className="mb-1 block text-xs font-medium text-slate-400">{tr("Khu vực")}</span>
               <select className="atlas-input w-full rounded-md px-3 py-2" value={region} onChange={(event) => setRegion(event.target.value)}>
-                <option value="all">Tất cả khu vực</option>
+                <option value="all">{tr("Tất cả khu vực")}</option>
                 {regions.map((item) => (
                   <option key={item} value={item}>
                     {displayRegion(item)}
@@ -156,14 +158,14 @@ export function RankingClient({ countries }: { countries: CountryPoliticalProfil
             </label>
 
             <label>
-              <span className="mb-1 block text-xs font-medium text-slate-400">Thứ tự</span>
+              <span className="mb-1 block text-xs font-medium text-slate-400">{tr("Thứ tự")}</span>
               <select
                 className="atlas-input w-full rounded-md px-3 py-2"
                 value={direction}
                 onChange={(event) => setDirection(event.target.value as SortDirection)}
               >
-                <option value="desc">Cao đến thấp</option>
-                <option value="asc">Thấp đến cao</option>
+                <option value="desc">{tr("Cao đến thấp")}</option>
+                <option value="asc">{tr("Thấp đến cao")}</option>
               </select>
             </label>
 
@@ -174,7 +176,7 @@ export function RankingClient({ countries }: { countries: CountryPoliticalProfil
                 checked={onlyWithData}
                 onChange={(event) => setOnlyWithData(event.target.checked)}
               />
-              Chỉ hiện mục có số liệu
+              {tr("Chỉ hiện mục có số liệu")}
             </label>
           </div>
         </div>
@@ -203,8 +205,8 @@ export function RankingClient({ countries }: { countries: CountryPoliticalProfil
       <section className="atlas-surface overflow-hidden rounded-lg">
         <div className="flex flex-col gap-2 border-b border-slate-700/70 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="text-base font-semibold text-white">Bảng xếp hạng</h2>
-            <p className="mt-1 text-sm text-slate-400">{rankedCountries.length} quốc gia trong phạm vi hiện tại</p>
+            <h2 className="text-base font-semibold text-white">{tr("Bảng xếp hạng")}</h2>
+            <p className="mt-1 text-sm text-slate-400">{rankedCountries.length} {tr("quốc gia trong phạm vi hiện tại")}</p>
           </div>
           <div className="inline-flex items-center gap-2 text-sm text-slate-300">
             {direction === "desc" ? <ArrowDownWideNarrow className="h-4 w-4 text-teal-200" /> : <ArrowUpWideNarrow className="h-4 w-4 text-teal-200" />}

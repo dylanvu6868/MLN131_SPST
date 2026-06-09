@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { GitCompare, Globe2, Languages, Map, Menu, Newspaper, Scale, Shield, Trophy, X } from "lucide-react";
 
 import { useLanguage } from "@/lib/language-context";
+import { tr } from "@/lib/i18n";
 
 const links = [
   { href: "/", label: "Bản đồ", icon: Map },
@@ -31,7 +32,7 @@ export function Navbar() {
     <header className="sticky top-0 z-40 border-b border-teal-200/10 bg-[#081017]/92 shadow-[0_10px_36px_rgba(3,10,18,0.28)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="focus-ring flex min-w-0 items-center gap-3 rounded-md" aria-label="Trang chủ World Ideology Atlas">
+        <Link href="/" className="focus-ring flex min-w-0 items-center gap-3 rounded-md" aria-label={tr("Trang chủ World Ideology Atlas")}>
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-teal-300/35 bg-teal-300/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
             <Globe2 className="h-5 w-5 text-teal-100" aria-hidden="true" />
           </span>
@@ -40,13 +41,13 @@ export function Navbar() {
               World Ideology Atlas
             </span>
             <span className="hidden whitespace-nowrap text-[11px] leading-tight text-slate-400 sm:block">
-              Bản đồ Chủ nghĩa &amp; Bộ máy Nhà nước
+              {tr("Bản đồ Chủ nghĩa & Bộ máy Nhà nước")}
             </span>
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Điều hướng chính">
+        <nav className="hidden items-center gap-0.5 xl:flex" aria-label={tr("Điều hướng chính")}>
           {links.map((link) => {
             const Icon = link.icon;
             const active = isActive(link.href);
@@ -62,7 +63,7 @@ export function Navbar() {
                 aria-current={active ? "page" : undefined}
               >
                 <Icon className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                {link.label}
+                {tr(link.label)}
               </Link>
             );
           })}
@@ -82,7 +83,7 @@ export function Navbar() {
           </button>
           <button
             className="focus-ring grid h-9 w-9 place-items-center rounded-md border border-slate-700 bg-slate-950/80 text-slate-200 transition hover:border-amber-300/40 hover:text-amber-100 xl:hidden"
-            aria-label={mobileOpen ? "Đóng menu" : "Mở menu điều hướng"}
+            aria-label={mobileOpen ? tr("Đóng menu") : tr("Mở menu điều hướng")}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
           >
@@ -99,7 +100,7 @@ export function Navbar() {
       {mobileOpen && (
         <nav
           className="border-t border-teal-200/10 bg-[#081017]/97 px-4 pb-4 pt-2 shadow-2xl shadow-black/25 xl:hidden"
-          aria-label="Điều hướng di động"
+          aria-label={tr("Điều hướng di động")}
         >
           <ul className="flex flex-col gap-0.5">
             {links.map((link) => {
@@ -118,7 +119,7 @@ export function Navbar() {
                     aria-current={active ? "page" : undefined}
                   >
                     <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
-                    {link.label}
+                    {tr(link.label)}
                   </Link>
                 </li>
               );

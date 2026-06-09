@@ -6,7 +6,7 @@ import { ArrowRight, Building2, Landmark, Users } from "lucide-react";
 import { ConfidenceBadge, RegimeBadge } from "@/components/ui/badges";
 import { FlagBadge } from "@/components/ui/flag-badge";
 import { formatNumber } from "@/lib/format";
-import { displayCountryName, displayValue } from "@/lib/i18n";
+import { displayCountryName, displaySummary, displayValue, tr } from "@/lib/i18n";
 import type { CountryPoliticalProfile } from "@/lib/types";
 
 export function CountryCard({ country }: { country: CountryPoliticalProfile }) {
@@ -23,7 +23,7 @@ export function CountryCard({ country }: { country: CountryPoliticalProfile }) {
         <Link
           href={`/countries/${country.iso3}`}
           className="focus-ring grid h-9 w-9 shrink-0 place-items-center rounded-md border border-slate-600 bg-slate-900 text-slate-200 hover:border-teal-300/60 hover:text-teal-100"
-          aria-label={`Mở hồ sơ ${displayCountryName(country)}`}
+          aria-label={`${tr("Mở hồ sơ")} ${displayCountryName(country)}`}
         >
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
@@ -38,27 +38,27 @@ export function CountryCard({ country }: { country: CountryPoliticalProfile }) {
         <div className="flex items-start gap-2">
           <Landmark className="mt-0.5 h-4 w-4 shrink-0 text-teal-200" aria-hidden="true" />
           <div>
-            <dt className="text-xs text-slate-500">Mô hình chính phủ</dt>
+            <dt className="text-xs text-slate-500">{tr("Mô hình chính phủ")}</dt>
             <dd className="mt-0.5 text-sm leading-6 text-slate-200">{displayValue(country.governmentSystem)}</dd>
           </div>
         </div>
         <div className="flex items-start gap-2">
           <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-200" aria-hidden="true" />
           <div>
-            <dt className="text-xs text-slate-500">Hình thức nhà nước</dt>
+            <dt className="text-xs text-slate-500">{tr("Hình thức nhà nước")}</dt>
             <dd className="mt-0.5 text-sm leading-6 text-slate-200">{displayValue(country.stateForm)}</dd>
           </div>
         </div>
         <div className="flex items-start gap-2">
           <Users className="mt-0.5 h-4 w-4 shrink-0 text-amber-200" aria-hidden="true" />
           <div>
-            <dt className="text-xs text-slate-500">Dân số</dt>
+            <dt className="text-xs text-slate-500">{tr("Dân số")}</dt>
             <dd className="mt-0.5 text-sm leading-6 text-slate-200">{formatNumber(country.population)}</dd>
           </div>
         </div>
       </dl>
 
-      <p className="mt-4 line-clamp-3 text-sm leading-6 text-slate-400 prose-safe">{displayValue(country.summary ?? country.powerStructure)}</p>
+      <p className="mt-4 line-clamp-3 text-sm leading-6 text-slate-400 prose-safe">{country.summary ? displaySummary(country) : displayValue(country.powerStructure)}</p>
     </article>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { getRegimeColorClass } from "@/lib/format";
-import { confidenceLabel, regimeLabel } from "@/lib/i18n";
+import { confidenceLabel, regimeLabel, tr } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import type { ConfidenceLevel, RegimeCategory } from "@/lib/types";
 
@@ -30,7 +30,7 @@ export function ConfidenceBadge({ value }: { value?: ConfidenceLevel }) {
 
   return (
     <span className={cn("inline-flex min-h-7 items-center rounded-md border px-2.5 py-1 text-xs font-medium", styles[label])}>
-      Độ tin cậy: {confidenceLabel(label)}
+      {tr("Độ tin cậy")}: {confidenceLabel(label)}
     </span>
   );
 }

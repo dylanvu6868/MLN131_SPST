@@ -1,3 +1,4 @@
+import { tr } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import type { CountryPoliticalProfile } from "@/lib/types";
 
@@ -45,12 +46,12 @@ export function FlagBadge({
       {country.flagSvgUrl ? (
         <img
           src={country.flagSvgUrl}
-          alt={`Cờ ${country.countryName}`}
+          alt={`${tr("Cờ")} ${country.countryName}`}
           className={cn("object-cover shadow-sm", flagClasses[variant])}
           loading="lazy"
         />
       ) : (
-        <span className={cn("grid place-items-center text-lg", flagClasses[variant])} aria-label={`Cờ ${country.countryName}`}>
+        <span className={cn("grid place-items-center text-lg", flagClasses[variant])} aria-label={`${tr("Cờ")} ${country.countryName}`}>
           {country.flagEmoji}
         </span>
       )}

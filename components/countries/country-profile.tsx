@@ -6,10 +6,12 @@ import type { ReactNode } from "react";
 import { ConfidenceBadge, RegimeBadge, SourceBadge } from "@/components/ui/badges";
 import { FlagBadge } from "@/components/ui/flag-badge";
 import { formatPlainNumber } from "@/lib/format";
-import { displayCountryName, displayRegion, displayValue } from "@/lib/i18n";
+import { displayCountryName, displayLegislature, displayNote, displayRegion, displaySummary, displayValue, tr } from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
 import type { CountryPoliticalProfile } from "@/lib/types";
 
 export function CountryProfile({ country }: { country: CountryPoliticalProfile }) {
+  useLanguage();
   return (
     <div className="space-y-6">
       <section className="atlas-surface rounded-lg p-5">
@@ -27,62 +29,66 @@ export function CountryProfile({ country }: { country: CountryPoliticalProfile }
             </div>
           </div>
           <dl className="grid min-w-[240px] gap-3 text-sm">
-            <Fact label="Thủ đô" value={country.capital} />
-            <Fact label="Khu vực" value={`${displayRegion(country.region)}${country.subregion ? ` / ${country.subregion}` : ""}`} />
-            <Fact label="Dân số" value={formatPlainNumber(country.population)} />
-            <Fact label="Diện tích" value={country.areaKm2 ? `${formatPlainNumber(country.areaKm2)} km²` : undefined} />
+            <Fact label={tr("Thủ đô")} value={country.capital} />
+            <Fact label={tr("Khu vực")} value={`${displayRegion(country.region)}${country.subregion ? ` / ${country.subregion}` : ""}`} />
+            <Fact label={tr("Dân số")} value={formatPlainNumber(country.population)} />
+            <Fact label={tr("Diện tích")} value={country.areaKm2 ? `${formatPlainNumber(country.areaKm2)} km²` : undefined} />
           </dl>
         </div>
       </section>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <ProfilePanel title="Bản sắc chính trị">
-          <Fact label="Hệ tư tưởng chính thức" value={country.officialIdeology} />
-          <Fact label="Bản sắc hiến định" value={country.constitutionalIdentity} />
-          <Fact label="Mô hình chính phủ" value={country.governmentSystem} />
-          <Fact label="Hình thức nhà nước" value={country.stateForm} />
-          <Fact label="Chế độ chính trị" value={country.politicalRegime} />
-          <Fact label="Cấu trúc quyền lực" value={country.powerStructure} />
+        <ProfilePanel title={tr("Bản sắc chính trị")}>
+          <Fact label={tr("Hệ tư tưởng chính thức")} value={country.officialIdeology} />
+          <Fact label={tr("Bản sắc hiến định")} value={country.constitutionalIdentity} />
+          <Fact label={tr("Mô hình chính phủ")} value={country.governmentSystem} />
+          <Fact label={tr("Hình thức nhà nước")} value={country.stateForm} />
+          <Fact label={tr("Chế độ chính trị")} value={country.politicalRegime} />
+          <Fact label={tr("Cấu trúc quyền lực")} value={country.powerStructure} />
         </ProfilePanel>
 
-        <ProfilePanel title="Lãnh đạo">
-          <Fact label="Đảng cầm quyền" value={country.rulingParty} />
-          <Fact label="Hệ thống đảng" value={country.partySystem} />
-          <Fact label={country.headOfStateTitle ? displayValue(country.headOfStateTitle) : "Nguyên thủ quốc gia"} value={country.headOfState} />
+        <ProfilePanel title={tr("Lãnh đạo")}>
+          <Fact label={tr("Đảng cầm quyền")} value={country.rulingParty} />
+          <Fact label={tr("Hệ thống đảng")} value={country.partySystem} />
+          <Fact label={country.headOfStateTitle ? displayValue(country.headOfStateTitle) : tr("Nguyên thủ quốc gia")} value={country.headOfState} />
           <Fact
-            label={country.headOfGovernmentTitle ? displayValue(country.headOfGovernmentTitle) : "Người đứng đầu chính phủ"}
+            label={country.headOfGovernmentTitle ? displayValue(country.headOfGovernmentTitle) : tr("Người đứng đầu chính phủ")}
             value={country.headOfGovernment}
           />
         </ProfilePanel>
 
-        <ProfilePanel title="Thiết chế">
-          <Fact label="Cơ quan lập pháp" value={country.legislature} />
-          <Fact label="Cấu trúc lập pháp" value={country.legislatureStructure} />
-          <Fact label="Tư pháp" value={country.judiciary} />
-          <Fact label="Hiến pháp" value={country.constitution} />
-          <Fact label="Bầu cử gần nhất" value={country.lastElection} />
-          <Fact label="Bầu cử tiếp theo" value={country.nextElection} />
+        <ProfilePanel title={tr("Thiết chế")}>
+          <Fact label={tr("Cơ quan lập pháp")} value={displayLegislature(country.legislature)} />
+          <Fact label={tr("Cấu trúc lập pháp")} value={country.legislatureStructure} />
+          <Fact label={tr("Tư pháp")} value={country.judiciary} />
+          <Fact label={tr("Hiến pháp")} value={country.constitution} />
+          <Fact label={tr("Bầu cử gần nhất")} value={country.lastElection} />
+          <Fact label={tr("Bầu cử tiếp theo")} value={country.nextElection} />
         </ProfilePanel>
 
-        <ProfilePanel title="Kinh tế & dấu hiệu">
-          <Fact label="Mô hình kinh tế" value={country.economicModel} />
-          <Fact label="GDP" value={country.gdp ? formatPlainNumber(country.gdp) : undefined} />
-          <Fact label="GDP bình quân đầu người" value={country.gdpPerCapita ? formatPlainNumber(country.gdpPerCapita) : undefined} />
-          <Fact label="Đảng cộng sản cầm quyền" value={flagValue(country.hasCommunistRulingParty)} />
-          <Fact label="Quân chủ / Cộng hòa" value={country.isMonarchy ? "Quân chủ" : country.isRepublic ? "Cộng hòa" : "Lãnh thổ/vùng tự trị hoặc cơ chế đặc thù"} />
-          <Fact label="Liên bang / Đơn nhất" value={country.isFederal ? "Liên bang" : country.isUnitary ? "Đơn nhất" : "Không áp dụng trực tiếp với lãnh thổ/cơ chế đặc thù"} />
+        <ProfilePanel title={tr("Kinh tế & dấu hiệu")}>
+          <Fact label={tr("Mô hình kinh tế")} value={country.economicModel} />
+          <Fact label={tr("GDP")} value={country.gdp ? formatPlainNumber(country.gdp) : undefined} />
+          <Fact label={tr("GDP bình quân đầu người")} value={country.gdpPerCapita ? formatPlainNumber(country.gdpPerCapita) : undefined} />
+          <Fact label={tr("Đảng cộng sản cầm quyền")} value={flagValue(country.hasCommunistRulingParty)} />
+          <Fact
+            label={tr("Quân chủ / Cộng hòa")}
+            value={country.isMonarchy ? tr("Quân chủ") : country.isRepublic ? tr("Cộng hòa") : tr("Lãnh thổ/vùng tự trị hoặc cơ chế đặc thù")}
+          />
+          <Fact
+            label={tr("Liên bang / Đơn nhất")}
+            value={country.isFederal ? tr("Liên bang") : country.isUnitary ? tr("Đơn nhất") : tr("Không áp dụng trực tiếp với lãnh thổ/cơ chế đặc thù")}
+          />
         </ProfilePanel>
       </div>
 
-      {country.summary ? (
-        <section className="atlas-surface rounded-lg p-5">
-          <h2 className="text-lg font-semibold text-white">Tóm tắt</h2>
-          <p className="mt-3 leading-7 text-slate-300">{displayValue(country.summary)}</p>
-        </section>
-      ) : null}
+      <section className="atlas-surface rounded-lg p-5">
+        <h2 className="text-lg font-semibold text-white">{tr("Tóm tắt")}</h2>
+        <p className="mt-3 leading-7 text-slate-300">{displaySummary(country)}</p>
+      </section>
 
       <section className="atlas-surface rounded-lg p-5">
-        <h2 className="text-lg font-semibold text-white">Tài liệu tham khảo</h2>
+        <h2 className="text-lg font-semibold text-white">{tr("Tài liệu tham khảo")}</h2>
         <div className="mt-3 flex flex-wrap gap-2">
           {country.sources.map((source, index) =>
             source.url ? (
@@ -101,15 +107,15 @@ export function CountryProfile({ country }: { country: CountryPoliticalProfile }
             )
           )}
         </div>
-        <p className="mt-4 text-sm text-slate-400">Cập nhật hồ sơ: {country.dataUpdatedAt}</p>
+        <p className="mt-4 text-sm text-slate-400">{tr("Cập nhật hồ sơ:")} {country.dataUpdatedAt}</p>
       </section>
 
       {country.notes?.length ? (
         <section className="atlas-surface rounded-lg p-5">
-          <h2 className="text-lg font-semibold text-white">Ghi chú học thuật</h2>
+          <h2 className="text-lg font-semibold text-white">{tr("Ghi chú học thuật")}</h2>
           <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-300">
             {country.notes.map((note) => (
-              <li key={note}>{displayValue(note)}</li>
+              <li key={note}>{displayNote(note)}</li>
             ))}
           </ul>
         </section>
@@ -138,7 +144,7 @@ function Fact({ label, value }: { label: string; value?: string | number | null 
 
 function flagValue(value?: boolean) {
   if (typeof value !== "boolean") {
-    return "Không áp dụng hoặc chưa có cờ dữ liệu riêng";
+    return tr("Không áp dụng hoặc chưa có cờ dữ liệu riêng");
   }
-  return value ? "Có" : "Không";
+  return value ? tr("Có") : tr("Không");
 }
