@@ -46,6 +46,18 @@ function getMaxOutputTokens(provider: AtlasProvider) {
   return provider === "openrouter" ? DEFAULT_OPENROUTER_MAX_OUTPUT_TOKENS : DEFAULT_GEMINI_MAX_OUTPUT_TOKENS;
 }
 
+type GoogleProvider = ReturnType<typeof createGoogleGenerativeAI>;
+
+function makeGeminiConfig(googleProvider: GoogleProvider, modelName: string) {
+  return {
+    provider: "gemini" as const,
+    model: googleProvider(modelName),
+    googleProvider,
+    modelName,
+    maxOutputTokens: getMaxOutputTokens("gemini")
+  };
+}
+
 function getAtlasModel() {
   const preferredProvider = (process.env.ATLAS_AI_PROVIDER ?? "gemini").toLowerCase();
   const geminiKey = process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENERATIVE_AI_API_KEY ?? process.env.GOOGLE_API_KEY;
@@ -60,19 +72,14 @@ function getAtlasModel() {
     return {
       provider: "openai" as const,
       model: openai(openAIModelName),
+      googleProvider: null,
       modelName: openAIModelName,
       maxOutputTokens: getMaxOutputTokens("openai")
     };
   }
 
   if (preferredProvider === "gemini" && geminiKey) {
-    const google = createGoogleGenerativeAI({ apiKey: geminiKey });
-    return {
-      provider: "gemini" as const,
-      model: google(geminiModelName),
-      modelName: geminiModelName,
-      maxOutputTokens: getMaxOutputTokens("gemini")
-    };
+    return makeGeminiConfig(createGoogleGenerativeAI({ apiKey: geminiKey }), geminiModelName);
   }
 
   if (preferredProvider === "openrouter" && openRouterKey) {
@@ -88,19 +95,14 @@ function getAtlasModel() {
     return {
       provider: "openrouter" as const,
       model: openrouter(openRouterModelName),
+      googleProvider: null,
       modelName: openRouterModelName,
       maxOutputTokens: getMaxOutputTokens("openrouter")
     };
   }
 
   if (geminiKey) {
-    const google = createGoogleGenerativeAI({ apiKey: geminiKey });
-    return {
-      provider: "gemini" as const,
-      model: google(geminiModelName),
-      modelName: geminiModelName,
-      maxOutputTokens: getMaxOutputTokens("gemini")
-    };
+    return makeGeminiConfig(createGoogleGenerativeAI({ apiKey: geminiKey }), geminiModelName);
   }
 
   if (openRouterKey) {
@@ -116,6 +118,7 @@ function getAtlasModel() {
     return {
       provider: "openrouter" as const,
       model: openrouter(openRouterModelName),
+      googleProvider: null,
       modelName: openRouterModelName,
       maxOutputTokens: getMaxOutputTokens("openrouter")
     };
@@ -126,6 +129,7 @@ function getAtlasModel() {
     return {
       provider: "openai" as const,
       model: openai(openAIModelName),
+      googleProvider: null,
       modelName: openAIModelName,
       maxOutputTokens: getMaxOutputTokens("openai")
     };
@@ -314,7 +318,15 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    const tools = getTools(modelConfig.provider, messages);
+    const customTools = getTools(modelConfig.provider, messages);
+    // Always include Google Search grounding for Gemini — free, real-time, no extra API key.
+    const googleSearchTool = modelConfig.googleProvider
+      ? { googleSearch: modelConfig.googleProvider.tools.googleSearch({}) }
+      : null;
+    const tools = googleSearchTool
+      ? { ...googleSearchTool, ...customTools }
+      : customTools ?? undefined;
+
     const result = streamText({
       model: modelConfig.model,
       system: getSystemPrompt(modelConfig.provider, contextCountry),
@@ -322,7 +334,7 @@ export async function POST(req: NextRequest) {
       maxOutputTokens: modelConfig.maxOutputTokens,
       messages: await convertToModelMessages(getRecentMessages(messages)),
       tools,
-      stopWhen: tools ? stepCountIs(2) : undefined,
+      stopWhen: tools ? stepCountIs(3) : undefined,
       temperature: 0.25
     });
 
