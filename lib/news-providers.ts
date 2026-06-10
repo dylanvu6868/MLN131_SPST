@@ -364,7 +364,9 @@ function buildNewsQuery(country: CountryPoliticalProfile, displayName: string) {
     .slice(0, 3)
     .map((value) => `"${value}"`);
 
-  return `${names.join(" OR ")} tin nóng hôm nay latest breaking news today báo trong nước báo quốc tế international media politics economy society culture`;
+  // The APIs (Tavily, SerpApi, Firecrawl) already filter by news categories.
+  // Adding extra keywords like "tin nóng", "politics" causes them to return generic global news instead of country news.
+  return names.join(" OR ");
 }
 
 function getTavilyKey() {
