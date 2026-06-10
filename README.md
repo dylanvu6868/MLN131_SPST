@@ -1,6 +1,6 @@
-# AtlasSocialism AI Agent (Bản đồ Chủ nghĩa & Bộ máy Nhà nước)
+# AtlasSocialism AI (Bản đồ Chủ nghĩa & Bộ máy Nhà nước)
 
-**AtlasSocialism AI Agent** (trước đây là World Ideology Atlas) là một nền tảng Dashboard dữ liệu chính trị, bách khoa toàn thư học thuật và hệ thống Trợ lý AI chuyên dụng phục vụ cho việc tra cứu, nghiên cứu và học tập các môn Lý luận chính trị (đặc biệt là Chủ nghĩa xã hội khoa học).
+**AtlasSocialism AI** (trước đây là World Ideology Atlas) là một nền tảng Dashboard dữ liệu chính trị, bách khoa toàn thư học thuật và hệ thống Trợ lý AI chuyên dụng phục vụ cho việc tra cứu, nghiên cứu và học tập các môn Lý luận chính trị (đặc biệt là Chủ nghĩa xã hội khoa học).
 
 Dự án cung cấp cái nhìn trực quan, đa chiều về hệ tư tưởng, cấu trúc nhà nước, thiết chế chính trị, và mô hình kinh tế của hơn 250 quốc gia/vùng lãnh thổ trên thế giới.
 

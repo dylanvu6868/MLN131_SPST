@@ -32,13 +32,13 @@ export function Navbar() {
     <header className="sticky top-0 z-40 border-b border-teal-200/10 bg-[#081017]/92 shadow-[0_10px_36px_rgba(3,10,18,0.28)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="focus-ring flex min-w-0 items-center gap-3 rounded-md" aria-label={tr("Trang chủ AtlasSocialism AI Agent")}>
+        <Link href="/" className="focus-ring flex min-w-0 items-center gap-3 rounded-md" aria-label={tr("Trang chủ AtlasSocialism AI")}>
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-teal-300/35 bg-teal-300/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
             <Globe2 className="h-5 w-5 text-teal-100" aria-hidden="true" />
           </span>
           <span className="min-w-0">
             <span className="block whitespace-nowrap text-sm font-semibold leading-tight text-white sm:text-base">
-              AtlasSocialism AI Agent
+              AtlasSocialism AI
             </span>
             <span className="hidden whitespace-nowrap text-[11px] leading-tight text-slate-400 sm:block">
               {tr("Bản đồ Chủ nghĩa & Bộ máy Nhà nước")}

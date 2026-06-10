@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps) {
   const { iso3 } = await params;
   const country = findCountry(iso3);
   return {
-    title: country ? `${displayCountryName(country)} — AtlasSocialism AI Agent` : "Quốc gia — AtlasSocialism AI Agent",
+    title: country ? `${displayCountryName(country)} — AtlasSocialism AI` : "Quốc gia — AtlasSocialism AI",
     description: country?.summary ?? "Hồ sơ chính trị quốc gia với nguồn và metadata độ tin cậy."
   };
 }

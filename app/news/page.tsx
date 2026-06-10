@@ -4,7 +4,7 @@ import { CountryNewsClient } from "@/components/news/country-news-client";
 import { getAllCountries } from "@/lib/countries";
 
 export const metadata: Metadata = {
-  title: "Tin tức hôm nay | AtlasSocialism AI Agent",
+  title: "Tin tức hôm nay | AtlasSocialism AI",
   description: "Tin nóng theo từng quốc gia, cập nhật trong ngày."
 };
 
