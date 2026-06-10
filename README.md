@@ -50,5 +50,39 @@ Dự án được xây dựng dựa trên nguyên tắc:
 1. **Trung lập & Khách quan:** Không gán mác một chiều, dữ liệu được trình bày thành nhiều lớp.
 2. **Minh bạch:** Có đánh dấu độ tin cậy (Confidence Level) của dữ liệu và cảnh báo về sự biến động đối với tên lãnh đạo, chính phủ.
 
+## 🚀 Hướng dẫn cài đặt & sử dụng
+
+### 1. Yêu cầu hệ thống
+- Node.js (phiên bản 18 trở lên)
+- Trình quản lý gói `npm`, `yarn`, `pnpm` hoặc `bun`.
+
+### 2. Cài đặt và Khởi chạy
+Chạy các lệnh sau trong terminal để khởi động dự án:
+
+```bash
+# Cài đặt các thư viện cần thiết
+npm install
+
+# Khởi chạy server ở chế độ phát triển (Development)
+npm run dev
+```
+
+Mở trình duyệt và truy cập vào [http://localhost:3000](http://localhost:3000) để xem ứng dụng.
+
+### 3. Cấu hình Môi trường (Biến môi trường)
+Để sử dụng đầy đủ chức năng của Chatbot và Tin tức thời gian thực, bạn cần tạo file `.env.local` ở thư mục gốc và cung cấp các API key tương ứng:
+
+```env
+# AI Chatbot (bắt buộc để Chatbot hoạt động)
+OPENAI_API_KEY="sk-..."
+# Hoặc sử dụng Gemini
+GEMINI_API_KEY="AIza..."
+
+# Tìm kiếm Tin tức (chọn 1 trong 3)
+TAVILY_API_KEY="tvly-..."
+SERPAPI_API_KEY="..."
+FIRECRAWL_API_KEY="fc-..."
+```
+
 ---
 *Dự án phục vụ giáo dục, học tập và nghiên cứu.*
