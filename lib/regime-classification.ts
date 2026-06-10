@@ -68,21 +68,21 @@ export function enrichPoliticalDefaults(profile: CountryPoliticalProfile): Count
 
   const stateForm = needsReview(profile.stateForm)
     ? isTerritory
-      ? "Lãnh thổ phụ thuộc / vùng tự trị"
+      ? "Lãnh thổ Phụ thuộc / Vùng Tự trị"
       : isFederal
         ? isMonarchy
-          ? "Quân chủ liên bang"
-          : "Cộng hòa liên bang"
+          ? "Quân chủ Liên bang"
+          : "Cộng hòa Liên bang"
         : isMonarchy
-          ? "Quân chủ đơn nhất"
-          : "Cộng hòa đơn nhất"
+          ? "Quân chủ Đơn nhất"
+          : "Cộng hòa Đơn nhất"
     : profile.stateForm;
 
   const governmentSystem = needsReview(profile.governmentSystem)
     ? isTerritory
       ? "Chính quyền lãnh thổ trong khuôn khổ quốc gia quản lý"
       : isMonarchy
-        ? "Quân chủ lập hiến hoặc quân chủ chuyên chế tùy bối cảnh"
+        ? "Quân chủ Lập hiến hoặc Quân chủ Chuyên chế tùy bối cảnh"
         : regimeCategory === "Closed autocracy"
           ? "Chính quyền tập trung quyền lực cao"
           : regimeCategory === "Electoral autocracy"
@@ -91,6 +91,9 @@ export function enrichPoliticalDefaults(profile: CountryPoliticalProfile): Count
     : profile.governmentSystem;
 
   const politicalRegime = needsReview(profile.politicalRegime) ? regimeCategory : profile.politicalRegime;
+  const politicalModel = needsReview(profile.politicalModel)
+    ? derivePoliticalModel(profile, regimeCategory, isMonarchy, isTerritory)
+    : profile.politicalModel;
   const officialIdeology = needsReview(profile.officialIdeology) ? "Không có hệ tư tưởng chính thức duy nhất / cần đối chiếu nguồn hiến định" : profile.officialIdeology;
   const powerStructure = needsReview(profile.powerStructure)
     ? powerStructureFor(regimeCategory, isTerritory)
@@ -126,6 +129,7 @@ export function enrichPoliticalDefaults(profile: CountryPoliticalProfile): Count
     stateForm,
     governmentSystem,
     politicalRegime,
+    politicalModel,
     officialIdeology,
     powerStructure,
     economicModel,
@@ -142,6 +146,38 @@ export function enrichPoliticalDefaults(profile: CountryPoliticalProfile): Count
 
 function needsReview(value?: string | null) {
   return !value || value === "Needs verification" || value === "Data unavailable" || value === "Unknown";
+}
+
+// A single concise, comparable label for each country's political model,
+// synthesized from the regime category, ruling-party structure and state form.
+// English-canonical (translated for display via the phrase table). Read it
+// alongside the more granular regime/state-form fields, not as a sole label.
+function derivePoliticalModel(
+  profile: CountryPoliticalProfile,
+  regimeCategory: RegimeCategory,
+  isMonarchy: boolean,
+  isTerritory: boolean
+): string {
+  if (isTerritory) return "Dependent territory / special administration";
+  if (profile.hasCommunistRulingParty) return "One-party socialist state";
+  if (profile.hasMilitaryGovernment) return "Military-led government";
+  if (isMonarchy && regimeCategory === "Closed autocracy") return "Absolute monarchy";
+
+  switch (regimeCategory) {
+    case "Liberal democracy":
+      return "Multi-party liberal democracy";
+    case "Electoral democracy":
+      return "Multi-party electoral democracy";
+    case "Electoral autocracy":
+      return "Electoral authoritarian system";
+    case "Closed autocracy":
+      return "Authoritarian system";
+    default:
+      break;
+  }
+
+  if (isMonarchy) return "Constitutional monarchy";
+  return "Mixed system; needs verification";
 }
 
 function powerStructureFor(category: RegimeCategory, isTerritory: boolean) {

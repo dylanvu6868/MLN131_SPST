@@ -41,40 +41,40 @@ export const PHRASES: Bi[] = [
   { en: "None", vi: "Không có" },
 
   // --- state form ---
-  { en: "Unitary republic", vi: "Cộng hòa đơn nhất" },
-  { en: "Federal republic", vi: "Cộng hòa liên bang" },
-  { en: "Unitary monarchy", vi: "Quân chủ đơn nhất" },
-  { en: "Federal monarchy", vi: "Quân chủ liên bang" },
-  { en: "Dependent territory / autonomous region", vi: "Lãnh thổ phụ thuộc / vùng tự trị" },
-  { en: "Unitary socialist republic", vi: "Cộng hòa xã hội chủ nghĩa đơn nhất" },
-  { en: "Unitary constitutional monarchy", vi: "Quân chủ lập hiến đơn nhất" },
+  { en: "Unitary republic", vi: "Cộng hòa Đơn nhất" },
+  { en: "Federal republic", vi: "Cộng hòa Liên bang" },
+  { en: "Unitary monarchy", vi: "Quân chủ Đơn nhất" },
+  { en: "Federal monarchy", vi: "Quân chủ Liên bang" },
+  { en: "Dependent territory / autonomous region", vi: "Lãnh thổ Phụ thuộc / Vùng Tự trị" },
+  { en: "Unitary socialist republic", vi: "Cộng hòa Xã hội Chủ nghĩa Đơn nhất" },
+  { en: "Unitary constitutional monarchy", vi: "Quân chủ Lập hiến Đơn nhất" },
 
   // --- government system ---
   { en: "Representative democracy", vi: "Chính thể dân chủ đại diện" },
   { en: "Electoral republic with limited political competition", vi: "Cộng hòa có bầu cử với cạnh tranh chính trị hạn chế" },
   { en: "Territorial administration within the administering state's framework", vi: "Chính quyền lãnh thổ trong khuôn khổ quốc gia quản lý" },
-  { en: "Constitutional or absolute monarchy depending on context", vi: "Quân chủ lập hiến hoặc quân chủ chuyên chế tùy bối cảnh" },
+  { en: "Constitutional or absolute monarchy depending on context", vi: "Quân chủ Lập hiến hoặc Quân chủ Chuyên chế tùy bối cảnh" },
   { en: "Highly centralized government", vi: "Chính quyền tập trung quyền lực cao" },
-  { en: "Parliamentary constitutional monarchy", vi: "Quân chủ lập hiến đại nghị" },
-  { en: "Federal presidential constitutional republic", vi: "Cộng hòa hiến định tổng thống liên bang" },
-  { en: "Socialist republic led by the Communist Party", vi: "Cộng hòa xã hội chủ nghĩa do Đảng Cộng sản lãnh đạo" },
-  { en: "Socialist republic with a one-party political system", vi: "Cộng hòa xã hội chủ nghĩa với hệ thống một đảng" },
-  { en: "Socialist republic with a one-party-led political system", vi: "Cộng hòa xã hội chủ nghĩa với hệ thống chính trị do một đảng lãnh đạo" },
+  { en: "Parliamentary constitutional monarchy", vi: "Quân chủ Lập hiến Đại nghị" },
+  { en: "Federal presidential constitutional republic", vi: "Cộng hòa Hiến định Tổng thống Liên bang" },
+  { en: "Socialist republic led by the Communist Party", vi: "Cộng hòa Xã hội Chủ nghĩa do Đảng Cộng sản lãnh đạo" },
+  { en: "Socialist republic with a one-party political system", vi: "Cộng hòa Xã hội Chủ nghĩa với hệ thống một đảng" },
+  { en: "Socialist republic with a one-party-led political system", vi: "Cộng hòa Xã hội Chủ nghĩa với hệ thống chính trị do một đảng lãnh đạo" },
 
   // --- official ideology ---
   { en: "No single official ideology / verify against constitutional sources", vi: "Không có hệ tư tưởng chính thức duy nhất / cần đối chiếu nguồn hiến định" },
   { en: "No single official ideology", vi: "Không có hệ tư tưởng chính thức duy nhất" },
-  { en: "Socialism", vi: "Chủ nghĩa xã hội" },
-  { en: "Socialism with Chinese characteristics", vi: "Chủ nghĩa xã hội đặc sắc Trung Quốc" },
+  { en: "Socialism", vi: "Chủ nghĩa Xã hội" },
+  { en: "Socialism with Chinese characteristics", vi: "Chủ nghĩa Xã hội đặc sắc Trung Quốc" },
 
   // --- constitutional identity ---
   { en: "Constitutional identity is presented according to the state form, political regime, and current foundational documents.", vi: "Bản sắc hiến định được trình bày theo hình thức nhà nước, chế độ chính trị và văn bản nền tảng hiện hành." },
-  { en: "Socialist state under the people's democratic dictatorship", vi: "Nhà nước xã hội chủ nghĩa dưới nền chuyên chính dân chủ nhân dân" },
-  { en: "Socialist state", vi: "Nhà nước xã hội chủ nghĩa" },
-  { en: "Socialist republic", vi: "Cộng hòa xã hội chủ nghĩa" },
-  { en: "Constitutional monarchy", vi: "Quân chủ lập hiến" },
-  { en: "Constitutional monarchy with parliamentary sovereignty", vi: "Quân chủ lập hiến với chủ quyền nghị viện" },
-  { en: "Constitutional republic", vi: "Cộng hòa hiến định" },
+  { en: "Socialist state under the people's democratic dictatorship", vi: "Nhà nước Xã hội Chủ nghĩa dưới nền chuyên chính dân chủ nhân dân" },
+  { en: "Socialist state", vi: "Nhà nước Xã hội Chủ nghĩa" },
+  { en: "Socialist republic", vi: "Cộng hòa Xã hội Chủ nghĩa" },
+  { en: "Constitutional monarchy", vi: "Quân chủ Lập hiến" },
+  { en: "Constitutional monarchy with parliamentary sovereignty", vi: "Quân chủ Lập hiến với chủ quyền nghị viện" },
+  { en: "Constitutional republic", vi: "Cộng hòa Hiến định" },
 
   // --- ideology family / coalition / elections (generic templates) ---
   { en: "Composite political identity", vi: "Bản sắc chính trị tổng hợp" },
@@ -82,10 +82,20 @@ export const PHRASES: Bi[] = [
   { en: "Most recent election information is updated from encyclopedic sources and electoral authorities when data is available.", vi: "Thông tin bầu cử gần nhất được cập nhật theo nguồn bách khoa và cơ quan bầu cử khi có dữ liệu." },
   { en: "The next election schedule depends on the constitutional cycle and announcements by the electoral authority.", vi: "Lịch bầu cử tiếp theo phụ thuộc chu kỳ hiến định và thông báo của cơ quan bầu cử." },
 
+  // --- political model (synthesized comparison label) ---
+  { en: "Multi-party liberal democracy", vi: "Dân chủ Tự do Đa đảng" },
+  { en: "Multi-party electoral democracy", vi: "Dân chủ Bầu cử Đa đảng" },
+  { en: "Electoral authoritarian system", vi: "Chế độ Chuyên chế Bầu cử" },
+  { en: "Authoritarian system", vi: "Chế độ Chuyên chế" },
+  { en: "Absolute monarchy", vi: "Quân chủ Chuyên chế" },
+  { en: "Military-led government", vi: "Chính quyền Quân sự" },
+  { en: "Dependent territory / special administration", vi: "Lãnh thổ Phụ thuộc / Cơ chế Đặc thù" },
+  { en: "Mixed system; needs verification", vi: "Mô hình Hỗn hợp; cần xác minh" },
+
   // --- political regime (free strings beyond the enum) ---
   { en: "One-party-led state; classification varies by dataset", vi: "Nhà nước do một đảng lãnh đạo; phân loại có thể khác nhau theo từng hệ thống đánh giá" },
   { en: "Parliamentary democracy", vi: "Dân chủ đại nghị" },
-  { en: "One-party socialist state", vi: "Nhà nước xã hội chủ nghĩa một đảng" },
+  { en: "One-party socialist state", vi: "Nhà nước Xã hội Chủ nghĩa một đảng" },
   { en: "Multi-party electoral democracy with two major parties", vi: "Dân chủ bầu cử đa đảng với hai đảng lớn chi phối" },
 
   // --- power structure ---

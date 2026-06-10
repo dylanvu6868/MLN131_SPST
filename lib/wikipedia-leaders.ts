@@ -253,6 +253,34 @@ export async function fetchLeaderPersonDetails(personName: string) {
   };
 }
 
+/**
+ * Lightweight current-leaders pull: one Wikipedia API call (the country
+ * infobox), no per-person image/summary fetches. Used by the live leaders
+ * endpoint so the country page can show the freshest head of state / head of
+ * government on every view (Wikipedia infoboxes are edited within minutes of a
+ * change — the most realtime open source for this sensitive field).
+ */
+export async function fetchCurrentLeadersLite(countryNameEn: string, iso3?: string) {
+  const pageTitle = getWikipediaCountryPage(countryNameEn, iso3);
+  const wikitext = await fetchWikipediaWikitext(pageTitle);
+
+  const sourceUrl = `https://en.wikipedia.org/wiki/${pageTitle.replace(/ /g, "_")}`;
+  if (!wikitext) {
+    return { pageTitle, sourceUrl, leaders: [] as CountryLeaderEntry[] };
+  }
+
+  const leaders: CountryLeaderEntry[] = parseInfoboxLeaders(wikitext).map((leader) => ({
+    role: inferRole(leader.title),
+    title: localizeTitle(leader.title, iso3),
+    titleEn: leader.title,
+    name: leader.name,
+    sourceUrl,
+    order: leader.order
+  }));
+
+  return { pageTitle, sourceUrl, leaders };
+}
+
 export async function fetchCountryLeadersFromWikipedia(countryNameEn: string, iso3?: string) {
   const pageTitle = getWikipediaCountryPage(countryNameEn, iso3);
   const wikitext = await fetchWikipediaWikitext(pageTitle);

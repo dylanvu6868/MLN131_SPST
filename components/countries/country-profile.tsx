@@ -4,10 +4,11 @@ import { ExternalLink } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { RealtimeGdp, RealtimePopulation } from "@/components/live/realtime";
+import { RealtimeLeaders } from "@/components/live/realtime-leaders";
 import { ConfidenceBadge, RegimeBadge, SourceBadge } from "@/components/ui/badges";
 import { FlagBadge } from "@/components/ui/flag-badge";
 import { formatPlainNumber } from "@/lib/format";
-import { displayCountryName, displayLegislature, displayNote, displayRegion, displaySummary, displayValue, tr } from "@/lib/i18n";
+import { displayCountryName, displayLegislature, displayNote, displayOfficialName, displayRegion, displaySummary, displayValue, tr } from "@/lib/i18n";
 import { useLanguage } from "@/lib/language-context";
 import type { CountryPoliticalProfile } from "@/lib/types";
 
@@ -22,7 +23,7 @@ export function CountryProfile({ country }: { country: CountryPoliticalProfile }
             <div>
               <p className="text-sm uppercase tracking-[0.18em] text-teal-200">{country.iso3}</p>
               <h1 className="mt-2 text-3xl font-semibold text-white">{displayCountryName(country)}</h1>
-              <p className="mt-1 text-slate-300">{country.officialName}</p>
+              <p className="mt-1 text-slate-300">{displayOfficialName(country)}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <RegimeBadge value={country.regimeCategory} />
                 <ConfidenceBadge value={country.confidenceLevel} />
@@ -45,17 +46,14 @@ export function CountryProfile({ country }: { country: CountryPoliticalProfile }
           <Fact label={tr("Mô hình chính phủ")} value={country.governmentSystem} />
           <Fact label={tr("Hình thức nhà nước")} value={country.stateForm} />
           <Fact label={tr("Chế độ chính trị")} value={country.politicalRegime} />
+          <Fact label={tr("Mô hình chính trị")} value={country.politicalModel} />
           <Fact label={tr("Cấu trúc quyền lực")} value={country.powerStructure} />
         </ProfilePanel>
 
         <ProfilePanel title={tr("Lãnh đạo")}>
           <Fact label={tr("Đảng cầm quyền")} value={country.rulingParty} />
           <Fact label={tr("Hệ thống đảng")} value={country.partySystem} />
-          <Fact label={country.headOfStateTitle ? displayValue(country.headOfStateTitle) : tr("Nguyên thủ quốc gia")} value={country.headOfState} />
-          <Fact
-            label={country.headOfGovernmentTitle ? displayValue(country.headOfGovernmentTitle) : tr("Người đứng đầu chính phủ")}
-            value={country.headOfGovernment}
-          />
+          <RealtimeLeaders country={country} />
         </ProfilePanel>
 
         <ProfilePanel title={tr("Thiết chế")}>

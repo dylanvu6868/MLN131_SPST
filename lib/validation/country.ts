@@ -117,6 +117,8 @@ export const CountryPoliticalProfileSchema = z.object({
   officialIdeology: z.string().optional(),
   ideologyFamily: z.array(z.string()).optional(),
   politicalRegime: z.string().optional(),
+  politicalModel: z.string().optional(),
+  politicalModelVi: z.string().optional(),
   regimeCategory: z
     .enum([
       "Liberal democracy",

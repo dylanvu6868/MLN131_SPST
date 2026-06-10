@@ -131,6 +131,7 @@ export function compareCountries(countryQueries: string[], fields?: string[]) {
     "region",
     "stateForm",
     "governmentSystem",
+    "politicalModel",
     "officialIdeology",
     "regimeCategory",
     "rulingParty",

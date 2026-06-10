@@ -121,6 +121,8 @@ export type CountryPoliticalProfile = {
   ideologyFamily?: string[];
 
   politicalRegime?: string;
+  politicalModel?: string;
+  politicalModelVi?: string;
   regimeCategory?: RegimeCategory;
   democracyScore?: number;
   democracySource?: string;
