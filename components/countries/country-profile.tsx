@@ -1,19 +1,23 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
+import { Calendar, Clock, Landmark, ScrollText } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { RealtimeGdp, RealtimePopulation } from "@/components/live/realtime";
 import { RealtimeLeaders } from "@/components/live/realtime-leaders";
-import { ConfidenceBadge, RegimeBadge, SourceBadge } from "@/components/ui/badges";
+import { ConfidenceBadge, RegimeBadge } from "@/components/ui/badges";
 import { FlagBadge } from "@/components/ui/flag-badge";
+import { getCountrySymbolProfile } from "@/lib/country-symbols";
 import { formatPlainNumber } from "@/lib/format";
-import { displayCountryName, displayLegislature, displayNote, displayOfficialName, displayRegion, displaySummary, displayValue, tr } from "@/lib/i18n";
+import { displayCountryName, displayLegislature, displayOfficialName, displayRegion, displaySummary, displayValue, tr } from "@/lib/i18n";
 import { useLanguage } from "@/lib/language-context";
 import type { CountryPoliticalProfile } from "@/lib/types";
 
 export function CountryProfile({ country }: { country: CountryPoliticalProfile }) {
   useLanguage();
+  const symbolProfile = getCountrySymbolProfile(country.iso3);
+  const history = symbolProfile?.sections.historyDepth;
+
   return (
     <div className="space-y-6">
       <section className="atlas-surface rounded-lg p-5">
@@ -85,39 +89,67 @@ export function CountryProfile({ country }: { country: CountryPoliticalProfile }
         <p className="mt-3 leading-7 text-slate-300">{displaySummary(country)}</p>
       </section>
 
+      {/* Lịch sử hình thành nhà nước */}
       <section className="atlas-surface rounded-lg p-5">
-        <h2 className="text-lg font-semibold text-white">{tr("Tài liệu tham khảo")}</h2>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {country.sources.map((source, index) =>
-            source.url ? (
-              <a
-                key={`${source.name}-${source.field ?? index}`}
-                href={source.url}
-                target="_blank"
-                rel="noreferrer"
-                className="focus-ring inline-flex min-h-8 items-center gap-2 rounded-md border border-cyan-300/30 bg-cyan-400/10 px-3 text-sm text-cyan-100"
-              >
-                {source.name}
-                <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
-            ) : (
-              <SourceBadge key={`${source.name}-${source.field ?? index}`} name={source.name} />
-            )
-          )}
+        <div className="flex items-center gap-2.5">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/15">
+            <Landmark className="h-4.5 w-4.5 text-amber-400" aria-hidden="true" />
+          </div>
+          <h2 className="text-lg font-semibold text-white">{tr("Lịch sử hình thành")}</h2>
         </div>
-        <p className="mt-4 text-sm text-slate-400">{tr("Cập nhật hồ sơ:")} {country.dataUpdatedAt}</p>
-      </section>
 
-      {country.notes?.length ? (
-        <section className="atlas-surface rounded-lg p-5">
-          <h2 className="text-lg font-semibold text-white">{tr("Ghi chú học thuật")}</h2>
-          <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-300">
-            {country.notes.map((note) => (
-              <li key={note}>{displayNote(note)}</li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
+        {history ? (
+          <div className="mt-4 space-y-4">
+            {/* Key stats row */}
+            <div className="grid gap-3 sm:grid-cols-3">
+              {history.modernFoundingYear && (
+                <div className="flex items-start gap-3 rounded-lg border border-slate-700/60 bg-slate-800/40 p-3">
+                  <Calendar className="mt-0.5 h-4 w-4 shrink-0 text-teal-400" aria-hidden="true" />
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-wider text-slate-500">{tr("Năm thành lập hiện đại")}</p>
+                    <p className="mt-0.5 text-lg font-semibold text-white">{history.modernFoundingYear}</p>
+                  </div>
+                </div>
+              )}
+              {history.yearsCount && (
+                <div className="flex items-start gap-3 rounded-lg border border-slate-700/60 bg-slate-800/40 p-3">
+                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" aria-hidden="true" />
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-wider text-slate-500">{tr("Tuổi nhà nước")}</p>
+                    <p className="mt-0.5 text-lg font-semibold text-white">{history.yearsCount} {tr("năm")}</p>
+                  </div>
+                </div>
+              )}
+              {history.keyMilestone && (
+                <div className="flex items-start gap-3 rounded-lg border border-slate-700/60 bg-slate-800/40 p-3 sm:col-span-1">
+                  <ScrollText className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" aria-hidden="true" />
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-wider text-slate-500">{tr("Mốc lịch sử")}</p>
+                    <p className="mt-0.5 text-sm leading-6 text-slate-200">{history.keyMilestone}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Ancient depth */}
+            {history.ancientDepth && (
+              <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 px-4 py-3">
+                <p className="text-xs font-medium uppercase tracking-wider text-amber-400/80">{tr("Chiều sâu văn minh")}</p>
+                <p className="mt-1.5 text-sm leading-6 text-slate-300">{history.ancientDepth}</p>
+              </div>
+            )}
+
+            {/* Description */}
+            {history.description && (
+              <p className="text-sm leading-7 text-slate-400">{history.description}</p>
+            )}
+          </div>
+        ) : (
+          <p className="mt-3 text-sm text-slate-500">{tr("Chưa có dữ liệu lịch sử hình thành cho quốc gia này.")}</p>
+        )}
+
+        <p className="mt-4 text-sm text-slate-500">{tr("Cập nhật hồ sơ:")} {country.dataUpdatedAt}</p>
+      </section>
     </div>
   );
 }
