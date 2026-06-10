@@ -23,7 +23,7 @@ const crimsonText = Crimson_Text({
 });
 
 export const metadata: Metadata = {
-  title: "World Ideology Atlas — Bản đồ hệ tư tưởng và bộ máy nhà nước thế giới",
+  title: "AtlasSocialism AI Agent — Bản đồ hệ tư tưởng và bộ máy nhà nước thế giới",
   description:
     "Khám phá hệ tư tưởng, chế độ chính trị, mô hình nhà nước, đảng cầm quyền và lãnh đạo của hơn 200 quốc gia qua bản đồ tương tác.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "government systems"
   ],
   openGraph: {
-    title: "World Ideology Atlas",
+    title: "AtlasSocialism AI Agent",
     description:
       "Atlas chính trị có nguồn về hệ tư tưởng, chế độ, cấu trúc chính phủ, lãnh đạo và thiết chế nhà nước.",
     type: "website"

@@ -21,7 +21,7 @@ const FAST_MODE_MAX_OUTPUT_TOKENS = 900;
 const MAX_MESSAGES_PER_REQUEST = 8;
 
 const COMPACT_SYSTEM_PROMPT = [
-  "Bạn là Atlas AI, trợ lý tiếng Việt của World Ideology Atlas.",
+  "Bạn là Atlas AI, trợ lý tiếng Việt của AtlasSocialism AI Agent.",
   "Luôn trả lời bằng tiếng Việt, ngắn gọn, rõ ràng, trung lập và học thuật.",
   "Ưu tiên câu trả lời 2-5 ý, không lan man; nếu người dùng yêu cầu chi tiết thì mới mở rộng.",
   "Không bình luận về yêu cầu định dạng; hãy trả lời trực tiếp vào nội dung.",
@@ -88,7 +88,7 @@ function getAtlasModel() {
       baseURL: "https://openrouter.ai/api/v1",
       headers: {
         "HTTP-Referer": process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-        "X-Title": "World Ideology Atlas"
+        "X-Title": "AtlasSocialism AI Agent"
       }
     });
 
@@ -111,7 +111,7 @@ function getAtlasModel() {
       baseURL: "https://openrouter.ai/api/v1",
       headers: {
         "HTTP-Referer": process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-        "X-Title": "World Ideology Atlas"
+        "X-Title": "AtlasSocialism AI Agent"
       }
     });
 

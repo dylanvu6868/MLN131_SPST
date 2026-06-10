@@ -10,7 +10,7 @@ export const UI_STRINGS: Record<string, string> = {
   "Xã hội chủ nghĩa": "Socialism",
   "Tin tức": "News",
   "Xếp hạng": "Ranking",
-  "Trang chủ World Ideology Atlas": "World Ideology Atlas home",
+  "Trang chủ AtlasSocialism AI Agent": "AtlasSocialism AI Agent home",
   "Điều hướng chính": "Primary navigation",
   "Điều hướng di động": "Mobile navigation",
   "Bản đồ Chủ nghĩa & Bộ máy Nhà nước": "A Map of Ideologies & State Machinery",

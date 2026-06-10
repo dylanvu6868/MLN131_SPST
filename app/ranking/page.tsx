@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { getAllCountries } from "@/lib/countries";
 
 export const metadata: Metadata = {
-  title: "Xếp hạng quốc gia | World Ideology Atlas",
+  title: "Xếp hạng quốc gia | AtlasSocialism AI Agent",
   description: "Sắp xếp quốc gia theo các tiêu chí có trong hồ sơ chính trị, dữ liệu và kinh tế."
 };
 
