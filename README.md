@@ -50,6 +50,15 @@ Dự án được xây dựng dựa trên nguyên tắc:
 1. **Trung lập & Khách quan:** Không gán mác một chiều, dữ liệu được trình bày thành nhiều lớp.
 2. **Minh bạch:** Có đánh dấu độ tin cậy (Confidence Level) của dữ liệu và cảnh báo về sự biến động đối với tên lãnh đạo, chính phủ.
 
+## 📖 Hướng dẫn thao tác trên Web (User Guide)
+
+- **Trang chủ (Bản đồ):** Trỏ chuột hoặc bấm vào các điểm sáng trên Quả địa cầu để xem tóm tắt thông tin của quốc gia. Bấm vào nút "Tìm hiểu" để đi tới hồ sơ chi tiết.
+- **Thanh tìm kiếm:** Sử dụng thanh tìm kiếm (hoặc bấm `Ctrl+K`) ở trên cùng để tìm nhanh một quốc gia bất kỳ theo tên hoặc mã ISO.
+- **Hồ sơ quốc gia:** Tại trang của mỗi quốc gia, bạn có thể đọc các thẻ dữ liệu về chính trị, chế độ, xem dân số và lãnh đạo thời gian thực. Bấm vào icon "Tin tức" để đọc tin mới nhất của nước đó.
+- **Học tập CNXHKH:** Chuyển sang tab "Xã hội chủ nghĩa" trên thanh điều hướng để truy cập Bách khoa toàn thư. Tại đây bạn có thể đọc lý thuyết về nguồn gốc, đặc trưng, quá độ và tìm hiểu về các nhà tư tưởng.
+- **Hỏi đáp với AI Chatbot:** Bấm vào biểu tượng Chat (hoặc nhấn nút Trợ lý AI). Đặt câu hỏi về bộ máy nhà nước, lịch sử, hay các học thuyết chính trị, AI sẽ phân tích và giải đáp cho bạn dựa trên dữ liệu học thuật. *(Lưu ý: AI không trả lời các vấn đề ngoài lề).*
+- **So sánh & Xếp hạng:** Vào tab "So sánh" và chọn tối đa 4 quốc gia để đối chiếu hiến pháp, đảng phái cạnh nhau. Vào tab "Xếp hạng" để xem thống kê theo nhóm chế độ hoặc hệ tư tưởng toàn cầu.
+
 ## 🚀 Hướng dẫn cài đặt & sử dụng
 
 ### 1. Yêu cầu hệ thống
