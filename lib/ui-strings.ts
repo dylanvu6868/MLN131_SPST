@@ -213,6 +213,16 @@ export const UI_STRINGS: Record<string, string> = {
   "Quốc gia có dấu hiệu XHCN": "Countries with socialist markers",
   "Danh sách này được suy ra từ hồ sơ hiện có và nên được đọc cùng phần tài liệu tham khảo của từng quốc gia.":
     "This list is inferred from existing profiles and should be read alongside each country's reference section.",
+  "Các trường phái chính": "Main branches",
+  "Nguồn gốc & lịch sử phát triển": "Origins & historical development",
+  "Đặc trưng cơ bản của CNXH": "Core characteristics of socialism",
+  "Quá độ lên CNXH": "Transition to socialism",
+  "CNXH ở Việt Nam": "Socialism in Vietnam",
+  "Nhà tư tưởng tiêu biểu": "Key thinkers",
+  "Thuật ngữ quan trọng": "Key terms",
+  "Tên": "Name",
+  "Năm sinh – mất": "Birth – Death",
+  "Vai trò / Đóng góp": "Role / Contribution",
 
   // --- not found ---
   "Không tìm thấy hồ sơ": "Profile not found",
