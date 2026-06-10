@@ -100,6 +100,8 @@ export const CountryPoliticalProfileSchema = z.object({
   subregion: z.string().optional(),
   capital: z.string().optional(),
   population: z.number().nonnegative().optional(),
+  populationGrowthRate: z.number().optional(),
+  populationUpdatedAt: z.string().optional(),
   areaKm2: z.number().nonnegative().optional(),
   coordinates: z
     .object({
@@ -146,6 +148,9 @@ export const CountryPoliticalProfileSchema = z.object({
   economicModel: z.string().optional(),
   gdp: z.number().optional(),
   gdpPerCapita: z.number().optional(),
+  gdpGrowthRate: z.number().optional(),
+  gdpYear: z.number().int().optional(),
+  gdpUpdatedAt: z.string().optional(),
   hasCommunistRulingParty: z.boolean().optional(),
   hasMilitaryGovernment: z.boolean().optional(),
   isMonarchy: z.boolean().optional(),

@@ -104,6 +104,8 @@ export type CountryPoliticalProfile = {
   subregion?: string;
   capital?: string;
   population?: number;
+  populationGrowthRate?: number;
+  populationUpdatedAt?: string;
   areaKm2?: number;
   coordinates?: {
     lat: number;
@@ -148,6 +150,9 @@ export type CountryPoliticalProfile = {
   economicModel?: string;
   gdp?: number;
   gdpPerCapita?: number;
+  gdpGrowthRate?: number;
+  gdpYear?: number;
+  gdpUpdatedAt?: string;
 
   hasCommunistRulingParty?: boolean;
   hasMilitaryGovernment?: boolean;

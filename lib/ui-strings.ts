@@ -102,6 +102,8 @@ export const UI_STRINGS: Record<string, string> = {
   "Kinh tế & dấu hiệu": "Economy & markers",
   "Mô hình kinh tế": "Economic model",
   "GDP bình quân đầu người": "GDP per capita",
+  "Trực tiếp": "Live",
+  "năm": "yr",
   "Quân chủ / Cộng hòa": "Monarchy / Republic",
   "Liên bang / Đơn nhất": "Federal / Unitary",
   "Tóm tắt": "Summary",

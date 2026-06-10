@@ -18,7 +18,10 @@
     "normalize:symbols": "tsx scripts/normalize-symbol-profiles.ts",
     "enrich:symbols": "tsx scripts/enrich-symbol-media.ts",
     "enrich:leaders": "tsx scripts/enrich-residences-leaders.ts",
-    "enrich:leaders:wikipedia": "tsx scripts/enrich-leaders-wikipedia.ts"
+    "enrich:leaders:wikipedia": "tsx scripts/enrich-leaders-wikipedia.ts",
+    "sync:gdp": "tsx scripts/enrich-economy-worldometers.ts && tsx scripts/export-countries-json.ts",
+    "sync:population": "tsx scripts/enrich-population-worldometers.ts && tsx scripts/export-countries-json.ts",
+    "sync:live": "tsx scripts/enrich-economy-worldometers.ts && tsx scripts/enrich-population-worldometers.ts && tsx scripts/export-countries-json.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.80",

@@ -3,6 +3,7 @@
 import { ExternalLink } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { RealtimeGdp, RealtimePopulation } from "@/components/live/realtime";
 import { ConfidenceBadge, RegimeBadge, SourceBadge } from "@/components/ui/badges";
 import { FlagBadge } from "@/components/ui/flag-badge";
 import { formatPlainNumber } from "@/lib/format";
@@ -31,7 +32,7 @@ export function CountryProfile({ country }: { country: CountryPoliticalProfile }
           <dl className="grid min-w-[240px] gap-3 text-sm">
             <Fact label={tr("Thủ đô")} value={country.capital} />
             <Fact label={tr("Khu vực")} value={`${displayRegion(country.region)}${country.subregion ? ` / ${country.subregion}` : ""}`} />
-            <Fact label={tr("Dân số")} value={formatPlainNumber(country.population)} />
+            <RealtimePopulation country={country} />
             <Fact label={tr("Diện tích")} value={country.areaKm2 ? `${formatPlainNumber(country.areaKm2)} km²` : undefined} />
           </dl>
         </div>
@@ -68,8 +69,7 @@ export function CountryProfile({ country }: { country: CountryPoliticalProfile }
 
         <ProfilePanel title={tr("Kinh tế & dấu hiệu")}>
           <Fact label={tr("Mô hình kinh tế")} value={country.economicModel} />
-          <Fact label={tr("GDP")} value={country.gdp ? formatPlainNumber(country.gdp) : undefined} />
-          <Fact label={tr("GDP bình quân đầu người")} value={country.gdpPerCapita ? formatPlainNumber(country.gdpPerCapita) : undefined} />
+          <RealtimeGdp country={country} />
           <Fact label={tr("Đảng cộng sản cầm quyền")} value={flagValue(country.hasCommunistRulingParty)} />
           <Fact
             label={tr("Quân chủ / Cộng hòa")}
